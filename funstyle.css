@@ -1,0 +1,16 @@
+* {
+    color: white;
+    font-family: Verdana;}
+
+html {
+    background-image: url("http://scienceblogs.com/startswithabang/files/2011/10/normal_Star-field-near-M31.jpeg");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+  img {
+    border-radius: 25px;
+    margin: auto;
+}
