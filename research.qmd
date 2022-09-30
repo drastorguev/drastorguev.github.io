@@ -1,0 +1,23 @@
+---
+title: "Personal Research Topics"
+---
+
+In my limited spare time, I am currently exploring / investigating the following topics:
+
+- Finance:
+  - Quantitative investment strategies
+  <br/>*Researching and documenting various data-driven investment strategies for major asset classes.*
+  <br/>
+  <br/>
+  - Tactical asset allocation using derivatives
+  <br/>*Investigating investment strategies for tactical asset allocations using derivatives to systematically hedge emerging large tail risks.*
+<br/>
+<br/>
+- Data Science:
+  - Unified Python data science framework for credit decisioning
+  <br/>*Documenting and analysing requirements for a standardised/unified data science framework to help with the majority of modelling carried out by credit data scientist/analysts using Python.*
+<br/>
+<br/>
+- Economics:
+  - Government as a last resort universal lender for the economy
+  <br/>*Exploring the potential for a government-backed lender of last resort for consumers and businesses, following a number of UK government programs to support the commercial lending acitivities to businesses (covid loans, energy prices support) and consumers (student loans, energy subsidies).*

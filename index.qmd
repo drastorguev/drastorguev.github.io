@@ -1,0 +1,29 @@
+---
+title: "Welcome!"
+image: profile.png
+about:
+  template: jolla
+---
+
+My name is Dmitry Rastorguev and I live in London, UK.
+
+I specialise in applying data science techniques to quantify risks in the financial domain space.
+
+I work with a range of companies in the traditional financial services sector and  with innovative fintech / data analytics startups to solve their most challenging analytical problems.
+<br/>
+<br/>
+<hr/>
+
+<div class="alert alert-primary pt-3 pb-2 text-center">
+  Explore a range of <a href="/consulting.html" class="alert-link">consulting services</a> I offer.
+</div>
+
+<div class="alert alert-success pt-3 pb-2 text-center">
+  Learn about <a href="/projects.html" class="alert-link">projects</a> I've previously worked on.
+</div>
+
+<div class="alert alert-warning pt-3 pb-2 text-center">
+  Organise an <a href="/contact.html#organise-introductionary-call" class="alert-link">introductionary call </a> with me.
+</div>
+<br/>
+<p style='text-align: right;'>*Website last updated: September 2022*</p>

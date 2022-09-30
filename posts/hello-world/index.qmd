@@ -1,0 +1,35 @@
+---
+title: "First Post - Hello World!"
+author: "Dmitry Rastorguev"
+date: "2022-09-20"
+categories: [general]
+draft: true
+execute:
+  enabled: false
+---
+
+This is the first post in my blog. Welcome and Hello World!
+
+![](python_thumb.jpg)
+
+
+```{python}
+print('Hello World!')
+print('asdad')
+
+def run():
+  for i in 10:
+    print(i)
+
+class Person:
+  def __init__(self, name, age):
+    self.name = name
+    self.age = age
+
+  def myfunc(self):
+    print("Hello my name is " + self.name)
+
+p1 = Person("John", 36)
+p1.myfunc()
+
+```

@@ -1,0 +1,15 @@
+---
+title: "Blog"
+listing:
+  contents: posts
+  sort: "date desc"
+  type: default
+  categories: false
+  sort-ui: false
+  filter-ui: false
+  max-items: 3
+# page-layout: full
+# title-block-banner: true
+---
+
+Here I document some of my thoughts as I explore topics around finance, economics, investing, fintech, entrepreneurship, startups, strategy and product management.

@@ -1,0 +1,77 @@
+---
+title: "My Professional Experiences and Education"
+---
+
+## Summary
+I am  a quantitative analyst / data scientist in the financial / economics domain space. Most of my analytical work is done using Python and its large number of supporting libraries / frameworks.
+
+I work both with technology / quant teams on sophisticated tech / data / analytics projects and non-technical sales/management teams, as well as consulting / supporting business' end users / clients.
+
+I have a broad range of experiences and knowledge developed during my professional employment and through personal projects.
+
+## Employment History
+
+**Openwage** | Lead Data Scientist | Dec 2020 - Feb 2022
+
+**Cybertonica** | Data Scientist | Feb 2019 - Oct 2020
+
+**BNP Paribas** | High Yield Bonds Origination Analyst | Oct 2014 - Sep 2016
+
+**BlackRock** | Client Data Analyst | Dec 2013 - Aug 2014
+
+**Royal Bank of Canada - Wealth Management** | Summer Intern | Jul 2013 - Sep 2013
+
+**Royal Bank of Canada - Capital Markets** | Summer Intern | Jul 2010 - Aug 2010
+
+## Education
+
+**University College London** | MSc Technology Entrepreneurship | Sep 2016 - Sep 2017
+
+**University College London** | BSc Economics and Statistics | Sep 2010 - May 2013
+
+## Professional Qualifications Examinations
+
+Successfully passed all exams on first attempt for the following professional qualifications:
+
+- **Chartered Financial Analyst (CFA) Program**
+
+- **Chartered Alternative Investment Analyst (CAIA) Program**
+
+- **Investment Management Certificate (IMC)**
+
+- **ICAEW/CISI Diploma in Corporate Finance**
+
+## Technical Knowledge:
+
+**Programming Languages** | Python, JavaScript, Java, C/C++
+
+**Web Development Frameworks** | Django, Django REST framework, Flask, React, jQuery, Bootstrap
+
+**Data Analytics** | pandas, matplotlib, seaborn, plotly, numpy, dask,  D3.js, Chart.js, BeautifulSoup
+
+**Machine Learning** | scikit-learn, PyCaret, NLTK, Statsmodels, XGBoost, Prophet
+
+**Databases** | PostgreSQL, MySQL, MongoDB
+
+**Financial Modelling** | Excel, VBA, Bloomberg
+
+**Cloud Platforms** | AWS, GCP, Heroku, IBM Watson
+
+## Other
+
+**Myers–Briggs Type Indicator** | [ENTP (Debater)](https://www.16personalities.com/entp-personality){target="_blank"}
+
+<br/>
+<div class="alert alert-primary pt-3 pb-2 text-center">
+  <a href="/contact.html#send-message-to-dmitry" class="alert-link">Message me</a> to request a copy of my full CV.
+</div>
+
+
+<div class="alert alert-success pt-3 pb-2 text-center">
+  Benefit from my knowledge and experiences through my <a href="/consulting.html" class="alert-link">consulting services</a> for your own projects.
+</div>
+
+
+<div class="alert alert-warning pt-3 pb-2 text-center">
+  Feel free to organise an <a href="/contact.html#organise-introductionary-call" class="alert-link">introductionary call </a> with me to discuss your requirements.
+</div>

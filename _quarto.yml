@@ -1,0 +1,33 @@
+project:
+  type: website
+
+website:
+  title: "Dmitry R."
+  search: false
+  navbar:
+    right:
+      - text: "Home"
+        file: index.qmd
+      - text: "Consulting"
+        file: consulting.qmd
+      - projects.qmd
+      - text: "Research"
+        file: research.qmd
+      - text: "CV"
+        file: about.qmd
+      # - text: "Blog"
+      #   file: blog.qmd
+      - text: "Contact"
+        file: contact.qmd
+      - icon: linkedin
+        href: https://www.linkedin.com/in/dmitryrastorguev/
+      - icon: github
+        href: https://github.com/drastorguev
+      - icon: twitter
+        href: https://mobile.twitter.com/dsrastorguev
+  page-footer:
+    left: "Copyright 2022, Dmitry Rastorguev - *Website is currently at work in progress stage*"
+format:
+  html:
+    theme: cosmo
+    css: styles.css

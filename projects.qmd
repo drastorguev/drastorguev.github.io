@@ -1,0 +1,29 @@
+---
+title: "Projects"
+listing:
+  id: projects-listings
+  template: projects/projects_template.ejs
+  contents:
+    - projects/projects_items.yml
+
+---
+
+Since 2016 I have worked on a number of different personal projects in technology startups and community building space. As a result, I have developed a very broad range of skills that allow me to compliment existing teams and an extensive network to tap for additional resources.
+
+::: {#projects-listings}
+:::
+
+<br/>
+<div class="alert alert-primary pt-3 pb-2 text-center">
+  Benefit from my knowledge and experiences through my <a href="/consulting.html" class="alert-link">consulting services</a> for your own projects.
+</div>
+
+
+<div class="alert alert-success pt-3 pb-2 text-center">
+  I can guarantee a quick turnaround and high quality of work exceeding your expectations.
+</div>
+
+
+<div class="alert alert-warning pt-3 pb-2 text-center">
+  Feel free to organise an <a href="/contact.html#organise-introductionary-call" class="alert-link">introductionary call </a> with me to discuss your requirements.
+</div>

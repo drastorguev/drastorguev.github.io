@@ -1,0 +1,154 @@
+---
+title: "Consulting"
+---
+
+I have extensive experience of working with teams in large software enterprises / financial institutions and small idea stage startups. These range from SaaS, payments, fintech companies to investment banks, asset managers, hedge funds and private equity, covering all major asset clases (apart from crypto).
+
+Here are some of the assignments I have successfully completed for different teams in the financial space:
+
+### Capital Markets
+
+<div class="accordion" id="accordionExample">
+<div class="accordion-item">
+<div class="accordion-header m-0" id="headingOne">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+**Interest rates trading desk**
+</button>
+</div>
+<div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample" style="">
+<div class="accordion-body">
+<ul>
+<li>
+Automated data collection of market information from a number of exchanges.
+</li>
+<li>
+Subseqeuent data cleaning, transformation and standartisation to enable interactive data visualisation and exploration.
+</li>
+<li>
+Basic machine learning model to price interest rate derivatives, based on historic market information.
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="accordion-item">
+<div class="accordion-header" id="headingTwo">
+<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+**Large asset owner**
+</button>
+</div>
+<div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample" style="">
+<div class="accordion-body">
+<ul>
+<li>
+Analysis of portfolio managers’ historic performance for a number of asset classes.
+</li>
+<li>
+Identification of return anomalies and style drifts, using machine learning classification algorithms.
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="accordion-item">
+<div class="accordion-header" id="headingThree">
+<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+**Short only hedge fund**
+</button>
+</div>
+<div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample" style="">
+<div class="accordion-body">
+<ul>
+<li>
+Analysis of news articles on the internet, classification and aggregation of adverse news stories for further detailed analysis by fund’s analysts.
+</li>
+<li>
+Extraction of information in the text and subsequent visualisation of related articles, as a knowledge graph.
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="accordion-item">
+<div class="accordion-header" id="headingFour">
+<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseTwo">
+**Venture capital fund for AI startups**
+</button>
+</div>
+<div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample" style="">
+<div class="accordion-body">
+<ul>
+<li>
+<a href="https://emil.aiseed.vc" target="_blank">European Machine Intelligence Landscape</a> data analytics project on the funding statistics for AI first startups in Europe.
+</li>
+<li>
+Data scraping of startup funding information from various online sources.
+</li>
+<li>
+Data processing and storage in Google Sheets to enable manual editing by non-technical maintainers.
+</li>
+<li>
+Data analytics and subsequent interactive visualisation of overall market trends using D3.js.
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+### FinTechs
+
+<div class="accordion" id="accordionExampleF">
+<div class="accordion-item">
+<div class="accordion-header m-0" id="headingOneF">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOneF" aria-expanded="true" aria-controls="collapseOneF">
+**BNPL lender**
+</button>
+</div>
+<div id="collapseOneF" class="accordion-collapse collapse show" aria-labelledby="headingOneF" data-bs-parent="#accordionExampleF" style="">
+<div class="accordion-body">
+<ul>
+<li>
+Development of the credit lending strategy for new BNPL proposition among fintech's existing customer base.
+</li>
+<li>
+Quantitification of portfolio risks and customer segmentation, using existing customers’ historic purchasing data and app usage behaviour.
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="accordion-item">
+<div class="accordion-header" id="headingTwoF">
+<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwoF" aria-expanded="false" aria-controls="collapseTwoF">
+**Crossborder money transfers**
+</button>
+</div>
+<div id="collapseTwoF" class="accordion-collapse collapse" aria-labelledby="headingTwoF" data-bs-parent="#accordionExampleF" style="">
+<div class="accordion-body">
+<ul>
+<li>
+Modelling and forecasting total user activity and its impact on revenue / costs.
+</li>
+<li>
+Breakdown of usage into a number of metrics/KPIs to enable better business optimisation and monitoring.
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<br/>
+<div class="alert alert-primary pt-3 pb-2 text-center">
+  My day rate starts from **£750** - depending on the quantum / type of work.
+</div>
+
+
+<div class="alert alert-success pt-3 pb-2 text-center">
+  I can guarantee a quick turnaround and high quality of work exceeding your expectations.
+</div>
+
+
+<div class="alert alert-warning pt-3 pb-2 text-center">
+  Feel free to organise an <a href="/contact.html#organise-introductionary-call" class="alert-link">introductionary call </a> with me to discuss your requirements.
+</div>
