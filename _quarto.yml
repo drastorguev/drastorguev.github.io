@@ -30,6 +30,11 @@ website:
         href: https://medium.com/@dmitryrastorguev
   page-footer:
     left: "Copyright 2022, Dmitry Rastorguev - Built using [Quarto](https://quarto.org/docs/websites/) - *Website is currently at work in progress stage* "
+  google-analytics: "G-KGHL346XM6"
+  cookie-consent:
+    palette: dark
+    type: express
+
 format:
   html:
     theme: cosmo
