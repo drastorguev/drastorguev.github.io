@@ -140,7 +140,7 @@ Breakdown of usage into a number of metrics/KPIs to enable better business optim
 </div>
 <br/>
 <div class="alert alert-primary pt-3 pb-2 text-center">
-  My day rate starts from **£750** - depending on the quantum / type of work.
+  My day rate starts from **£500** - depending on the quantum / type of work.
 </div>
 
 

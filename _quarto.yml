@@ -26,8 +26,10 @@ website:
         href: https://github.com/drastorguev
       - icon: twitter
         href: https://mobile.twitter.com/dsrastorguev
+      - icon: medium
+        href: https://medium.com/@dmitryrastorguev
   page-footer:
-    left: "Copyright 2022, Dmitry Rastorguev - *Website is currently at work in progress stage*"
+    left: "Copyright 2022, Dmitry Rastorguev - Built using [Quarto](https://quarto.org/docs/websites/) - *Website is currently at work in progress stage* "
 format:
   html:
     theme: cosmo

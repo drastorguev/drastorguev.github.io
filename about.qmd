@@ -63,7 +63,7 @@ Successfully passed all exams on first attempt for the following professional qu
 
 <br/>
 <div class="alert alert-primary pt-3 pb-2 text-center">
-  <a href="/contact.html#send-message-to-dmitry" class="alert-link">Message me</a> to request a copy of my full CV.
+  <a href="/contact.html#send-a-message" class="alert-link">Message me</a> to request a copy of my full CV.
 </div>
 
 

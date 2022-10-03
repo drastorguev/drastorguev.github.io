@@ -15,15 +15,15 @@ I work with a range of companies in the traditional financial services sector an
 <hr/>
 
 <div class="alert alert-primary pt-3 pb-2 text-center">
-  Explore a range of <a href="/consulting.html" class="alert-link">consulting services</a> I offer.
+  Benefit from my knowledge and experiences through my <a href="/consulting.html" class="alert-link">contracting / consulting services</a>.
 </div>
 
 <div class="alert alert-success pt-3 pb-2 text-center">
-  Learn about <a href="/projects.html" class="alert-link">projects</a> I've previously worked on.
+  Learn about a spectrum of <a href="/projects.html" class="alert-link">personal projects</a> I've previously worked on.
 </div>
 
 <div class="alert alert-warning pt-3 pb-2 text-center">
-  Organise an <a href="/contact.html#organise-introductionary-call" class="alert-link">introductionary call </a> with me.
+  Organise an <a href="/contact.html#organise-introductionary-call" class="alert-link">introductionary call </a> with me to discuss your requirements or just to meet.
 </div>
 <br/>
 <p style='text-align: right;'>*Website last updated: September 2022*</p>
