@@ -34,7 +34,7 @@ website:
   cookie-consent:
     palette: dark
     type: express
-  site-url: "https://drastorguev.github.io/"
+  site-url: "https://rastorguev.co.uk/"
 
 format:
   html:
