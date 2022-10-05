@@ -1,6 +1,10 @@
 ---
 title: "Contact Me"
+description-meta: "To discuss your requirements or just have an information conversation you can contact me using the forms below."
 ---
+
+To discuss your requirements or just have an information conversation you can contact me using the forms below. I will try to reponde as quickly as possible. Feel free to connect / follow me on social media in the meantime.
+
 
 ### Send a Message
 <br/>

@@ -1,5 +1,6 @@
 ---
 title: "Personal Research Topics"
+description-meta: "I am currently researching and documenting a number of interesting topics in the finance, data science and economics."
 ---
 
 In my limited spare time, I am currently exploring / investigating the following topics:

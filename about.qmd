@@ -1,5 +1,6 @@
 ---
 title: "My Professional Experiences and Education"
+description-meta: "I am  a quantitative analyst / data scientist in the financial / economics domain space. Most of my analytical work is done using Python and its large number of supporting libraries / frameworks."
 ---
 
 ## Summary

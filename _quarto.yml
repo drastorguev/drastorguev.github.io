@@ -35,6 +35,14 @@ website:
     palette: dark
     type: express
   site-url: "https://rastorguev.co.uk/"
+  twitter-card:
+    card-style: summary_large_image
+    creator: "@dsrastorguev"
+    image: "/static/website_image.jpg"
+  open-graph:
+    locale: en_GB
+    image: "/static/website_image.jpg"
+
 
 format:
   html:

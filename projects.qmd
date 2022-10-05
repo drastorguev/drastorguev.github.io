@@ -5,7 +5,7 @@ listing:
   template: projects/projects_template.ejs
   contents:
     - projects/projects_items.yml
-
+description-meta: "I have worked on a number of different personal projects in technology startups and community building space. As a result, I have developed a very broad range of skills that allow me to compliment existing teams and an extensive network to tap for additional resources."
 ---
 
 Since 2016 I have worked on a number of different personal projects in technology startups and community building space. As a result, I have developed a very broad range of skills that allow me to compliment existing teams and an extensive network to tap for additional resources.

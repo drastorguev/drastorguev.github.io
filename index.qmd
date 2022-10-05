@@ -1,8 +1,9 @@
 ---
 title: "Welcome!"
-image: profile.png
+description-meta: "My name is Dmitry Rastorguev. I specialise in applying data science techniques to quantify risks in the financial domain space. I work with a range of companies in the traditional financial services sector and  with innovative fintech / data analytics startups to solve their most challenging analytical problems."
 about:
   template: jolla
+  image: "/static/profile.png"
 ---
 
 My name is Dmitry Rastorguev and I live in London, UK.

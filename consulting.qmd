@@ -1,5 +1,6 @@
 ---
 title: "Consulting"
+description-meta: "I have extensive experience of working with teams in large software enterprises / financial institutions and small idea stage startups."
 ---
 
 I have extensive experience of working with teams in large software enterprises / financial institutions and small idea stage startups. These range from SaaS, payments, fintech companies to investment banks, asset managers, hedge funds and private equity, covering all major asset clases (apart from crypto).
