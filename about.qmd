@@ -10,7 +10,9 @@ I work both with technology / quant teams on sophisticated tech / data / analyti
 
 I have a broad range of experiences and knowledge developed during my professional employment and through personal projects.
 
-## Employment History
+## Employment/Contracting History
+
+**Quant Foundry** | Quantitative Development / Data Analytics Consultant | Oct 2022 - Present
 
 **Openwage** | Lead Data Scientist | Dec 2020 - Feb 2022
 
@@ -48,15 +50,15 @@ Successfully passed all exams on first attempt for the following professional qu
 
 **Web Development Frameworks** | Django, Django REST framework, Flask, React, jQuery, Bootstrap
 
-**Data Analytics** | pandas, matplotlib, seaborn, plotly, numpy, dask,  D3.js, Chart.js, BeautifulSoup
+**Data Analytics** | pandas, matplotlib, seaborn, plotly, numpy, dask,  D3.js, Chart.js, BeautifulSoup, Airflow
 
 **Machine Learning** | scikit-learn, PyCaret, NLTK, Statsmodels, XGBoost, Prophet
 
-**Databases** | PostgreSQL, MySQL, MongoDB
+**Databases** | SQL Server, PostgreSQL, MySQL, MongoDB
 
-**Financial Modelling** | Excel, VBA, Bloomberg
+**Financial Modelling** | Excel, VBA, Power Query, Bloomberg,
 
-**Cloud Platforms** | AWS, GCP, Heroku, IBM Watson
+**Infrastructure Platforms** | On-Prem Windows Servers, AWS, GCP, Heroku, IBM Watson
 
 ## Other
 
