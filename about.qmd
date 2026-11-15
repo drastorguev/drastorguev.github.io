@@ -22,10 +22,6 @@ I have a broad range of experiences and knowledge developed during my profession
 
 **BlackRock** | Client Data Analyst | Dec 2013 - Aug 2014
 
-**Royal Bank of Canada - Wealth Management** | Summer Intern | Jul 2013 - Sep 2013
-
-**Royal Bank of Canada - Capital Markets** | Summer Intern | Jul 2010 - Aug 2010
-
 ## Education
 
 **University College London** | MSc Technology Entrepreneurship | Sep 2016 - Sep 2017
@@ -50,7 +46,7 @@ Successfully passed all exams on first attempt for the following professional qu
 
 **Web Development Frameworks** | Django, Django REST framework, Flask, FastAPI, React, jQuery, Bootstrap
 
-**Data Analytics** | pandas, matplotlib, seaborn, plotly, numpy, dask,  D3.js, Chart.js, BeautifulSoup, Airflow
+**Data Analytics** | pandas, matplotlib, seaborn, plotly, numpy, dask, pyspark,  D3.js, Chart.js, BeautifulSoup, Airflow
 
 **Machine Learning** | scikit-learn, PyCaret, NLTK, Statsmodels, XGBoost, Prophet
 

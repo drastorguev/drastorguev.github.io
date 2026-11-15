@@ -1,14 +1,17 @@
 project:
   type: website
-  output-dir: docs
   render:
     - "*.qmd"
     - "!posts/"
+  resources:
+    - CNAME
+    - .nojekyll
 
 website:
   title: "Dmitry Rastorguev"
   search: false
   navbar:
+    background: primary
     right:
       - text: "Home"
         file: index.qmd
