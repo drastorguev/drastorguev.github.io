@@ -1,7 +1,11 @@
+lang: en-GB
+
 project:
   type: website
+  pre-render: node projects/build_projects.js
   render:
     - "*.qmd"
+    - "projects/*.qmd"
     - "!posts/"
   resources:
     - CNAME
@@ -9,10 +13,12 @@ project:
 
 website:
   title: "Dmitry Rastorguev"
+  description: "Quantitative analyst and data scientist in London applying data science to financial risk, capital markets and fintech."
   search: false
   navbar:
     background: primary
-    right:
+    # Menu items are centred by styles.css; LinkedIn sits on the right as a pill button.
+    left:
       - text: "Home"
         file: index.qmd
       - text: "Projects"
@@ -23,8 +29,43 @@ website:
       #   file: blog.qmd
       - text: "Contact"
         file: contact.qmd
-      - icon: linkedin
+    right:
+      - text: "Connect on <i class='bi bi-linkedin' role='img'></i>"
         href: https://www.linkedin.com/in/dmitryrastorguev/
+  sidebar:
+    # BEGIN generated: projects-sidebar
+    - id: projects-sidebar
+      title: "Projects"
+      style: docked
+      background: light
+      contents:
+        - text: "Overview"
+          file: projects.qmd
+        - section: "Capital Markets"
+          contents:
+            - text: "Large asset owner"
+              file: projects/large-asset-owner.qmd
+            - text: "Short-only hedge fund"
+              file: projects/short-only-hedge-fund.qmd
+            - text: "AI venture fund"
+              file: projects/ai-venture-fund.qmd
+            - text: "AI sales trading"
+              file: projects/ai-sales-trading.qmd
+        - section: "Financial Services"
+          contents:
+            - text: "Challenger bank"
+              file: projects/challenger-bank.qmd
+            - text: "BNPL fintech lender"
+              file: projects/bnpl-fintech-lender.qmd
+            - text: "Cross-border transfers"
+              file: projects/cross-border-money-transfers.qmd
+        - section: "Private Credit"
+          contents:
+            - text: "ABF surveillance framework"
+              file: projects/abf-surveillance-framework.qmd
+            - text: "Insurance ABF data operations"
+              file: projects/insurance-abf-data-operations.qmd
+    # END generated: projects-sidebar
   page-footer:
     left: "Copyright 2026, Dmitry Rastorguev"
   # google-analytics: "G-KGHL346XM6"
@@ -40,8 +81,25 @@ website:
     locale: en_GB
     image: "/static/website_image.jpg"
 
-
 format:
   html:
     theme: cosmo
     css: styles.css
+    grid:
+      sidebar-width: 280px   # Default is 250px
+    include-in-header:
+      - text: |
+          <meta name="author" content="Dmitry Rastorguev">
+          <script type="application/ld+json">
+          {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Dmitry Rastorguev",
+            "url": "https://rastorguev.co.uk/",
+            "jobTitle": "Quantitative Analyst and Data Scientist",
+            "description": "Quantitative analyst and data scientist applying data science to financial risk, capital markets and fintech.",
+            "sameAs": ["https://www.linkedin.com/in/dmitryrastorguev/"],
+            "homeLocation": {"@type": "Place", "name": "London, UK"},
+            "knowsAbout": ["Quantitative finance", "Credit risk", "Financial data science", "Fixed income", "Monte Carlo simulation", "Python"]
+          }
+          </script>

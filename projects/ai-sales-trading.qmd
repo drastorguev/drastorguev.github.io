@@ -1,0 +1,74 @@
+---
+title: "AI sales Trading: Recommendations for a Tier-1 Bank"
+description-meta: "Deliver production AI decision support for trading desks and its sales at a Tier-1 bank: client behaviour and market signal models, governance and rollout."
+sidebar: projects-sidebar
+---
+
+<!-- Generated from projects/projects_items.yml by projects/build_projects.js. Edit the data or template, not this file. -->
+
+### Project statement
+
+A Tier-1 bank has several AI initiatives underway, but they need engineering capacity to move beyond experimentation and into production. The project combines historical client trading behaviour with market signals to give trading desks actionable recommendations. It is the first of a wider AI programme that will extend to FX and digital sales, so the delivery approach needs to be repeatable as well as effective.
+
+### Requirements
+
+- A working production solution, not a research prototype or proof of concept.
+- Integration with the bank's existing estate, a largely Java/Spring Boot microservices platform across several data centres, with some Python. The AI must plug into the internal orchestration platform rather than replace it.
+- Model-risk validation, governance and production approval planned from the start, not added at the end.
+- Decision support for trading desks. I propose that recommendations inform human decisions, and the system does not execute trades.
+
+### Approach
+
+I would start from the decision the desk needs to make and work back to the data and models required. The solution has three parts.
+
+1. **Client behaviour model:** Learns from historical trading activity which clients trade which products, and when. I would start with interpretable baselines and add complexity only where it improves results.
+1. **Market signal layer:** Ingests market signals and predictions on the same time base as the client data, using point-in-time data to avoid look-ahead bias.
+1. **Recommendation layer:** Combines both into ranked suggestions, each with a confidence level and the main reasons behind it, served through the orchestration platform.
+1. **LLM components:** Used only where they add clear value, such as summarising the drivers behind a recommendation for desk users. They are evaluated against a documented test suite and kept outside the core decision path until validated.
+
+**Trade-off:** Explainability over marginal accuracy in the first release. A slightly less accurate model that validators can understand will reach production sooner than a more accurate one they cannot explain.
+
+### Implementation
+
+- **Python services:** Feature pipelines, model training, evaluation and serving, with automated tests and versioned code.
+- **Java/Spring Boot integration:** Thin APIs and events so the orchestration platform can call the recommendation service. Interface contracts would be agreed with the platform team in phase one.
+- **Monitoring:** Drift detection on inputs and outputs, performance dashboards, alerting, and an audit trail linking every recommendation to a model version.
+- **Governance pack:** Model documentation, data lineage, explainability reports, test evidence and control descriptions, prepared during the build rather than after it.
+- **Delivery tooling:** AI-assisted development tools, including Claude, Windsurf and Devin, accelerate coding, with human review and the same test gates applied to every change.
+
+**Team:** I would lead the design, stakeholder engagement and the approval route, while working with other AI Engineers to build the pipelines, models and evaluation, and produce the technical evidence for validation.
+
+### Indicative Roadmap
+
+| Phase | Timing | Deliverable |
+|---|---|---|
+| Discovery and data access | Weeks 1–3 | Confirmed use case, data inventory, integration design and agreed governance route |
+| Model development | Weeks 4–8 | Client behaviour and market signal models, with an evaluation report against baselines |
+| Recommendation layer and integration | Weeks 8–12 | Service integrated with the orchestration platform and tested end to end |
+| Validation and approval | Weeks 10–16 | Model-risk submission, validator findings addressed, approval granted |
+| Production rollout | Weeks 16–20 | Live release to a pilot desk, monitoring in place and handover to the run team |
+
+### Measures of success
+
+- The pilot trading desk uses the recommendations, and that use is tracked.
+- The model passes validation and receives production approval.
+- Monitoring is live, with drift alerts and an audit trail for each recommendation.
+- The delivery pattern is documented and reusable for FX and digital sales.
+
+
+<br/>
+<hr/>
+
+<div class="alert alert-primary pt-3 pb-2 text-center">
+  My day rate varies depending on the scope of work and engagement type.
+</div>
+
+<div class="alert alert-success pt-3 pb-2 text-center">
+  I can guarantee a quick turnaround and high quality of work exceeding your expectations.
+</div>
+
+<div class="alert alert-warning pt-3 pb-2 text-center">
+  <a href="/contact.html" class="alert-link">Contact</a> me to discuss your requirements or connect on <a href="https://www.linkedin.com/in/dmitryrastorguev/" class="alert-link">LinkedIn</a>.
+</div>
+
+<p class="seo-keywords" hidden aria-hidden="true">AI sales trading, trading desk recommendations, model risk validation, production AI banking, Tier-1 bank AI delivery, AI governance approval, client behaviour modelling, agentic AI banking, LLM evaluation framework, drift detection monitoring, Spring Boot integration, AI-assisted engineering delivery, capital markets AI consultant, FX AI pipeline, Dmitry Rastorguev</p>

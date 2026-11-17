@@ -1,0 +1,70 @@
+---
+title: "Challenger bank - internal financial analytics applications"
+description-meta: "Internal full-stack financial analytics applications, and web tooling for on-premise Windows Server infrastructure, built for a challenger bank."
+sidebar: projects-sidebar
+---
+
+<!-- Generated from projects/projects_items.yml by projects/build_projects.js. Edit the data or template, not this file. -->
+
+### Project statement
+
+A challenger bank needs internal analytics applications for its finance and risk teams, built on its own on-premise infrastructure. Analysts currently rely on spreadsheets that are hard to control and slow to change.
+
+### Requirements
+
+- Internal web applications for financial analysis, running on on-premise Windows Server.
+- A repeatable way to build and maintain future analytical tools.
+- Controls and an audit trail suitable for a regulated bank.
+- Tools analysts can use and maintain after handover, without developer help.
+
+### Approach
+
+I would introduce a standard framework and toolset first, so each new application follows the same pattern for security, deployment and testing.
+
+1. **Platform:** A shared framework for web application structure, authentication and deployment on the existing Windows Server estate.
+1. **First application:** One high-value analytics application built on the framework, to prove the pattern and gather feedback.
+1. **Controls:** Logging, role-based access and versioned data inputs, so results can be traced in an audit.
+
+**Trade-off:** Standardisation before speed. The first application takes longer, but each later one is cheaper and safer to build.
+
+### Implementation
+
+- **Full-stack application framework:** Shared web application structure, components and configuration.
+- **Data layer:** Controlled access to internal data sources, with validation and version history.
+- **Deployment:** Documented steps for on-premise Windows Server, with separate test and production environments.
+- **Documentation:** Developer guides and user notes for each application.
+
+**Team:** I would design the framework and build the first application, with bank staff owning requirements and acceptance.
+
+### Indicative Roadmap
+
+| Phase | Timing | Deliverable |
+|---|---|---|
+| Requirements and environment review | Weeks 1–2 | Confirmed requirements and infrastructure review |
+| Framework build | Weeks 3–6 | Shared framework deployed to the test environment |
+| First application | Weeks 7–10 | Analytics application in user testing |
+| Production and handover | Weeks 11–12 | Live application and a documented process for future tools |
+
+### Measures of success
+
+- The first application is in production and used by its target team.
+- Each later application follows the framework without rework.
+- Access and changes can be traced in an audit.
+
+
+<br/>
+<hr/>
+
+<div class="alert alert-primary pt-3 pb-2 text-center">
+  My day rate varies depending on the scope of work and engagement type.
+</div>
+
+<div class="alert alert-success pt-3 pb-2 text-center">
+  I can guarantee a quick turnaround and high quality of work exceeding your expectations.
+</div>
+
+<div class="alert alert-warning pt-3 pb-2 text-center">
+  <a href="/contact.html" class="alert-link">Contact</a> me to discuss your requirements or connect on <a href="https://www.linkedin.com/in/dmitryrastorguev/" class="alert-link">LinkedIn</a>.
+</div>
+
+<p class="seo-keywords" hidden aria-hidden="true">challenger bank analytics, internal financial analytics software, full-stack web application, on-premise Windows Server analytics, analytical web tooling, banking technology development, internal financial dashboards, bank data platform build, framework and tooling introduction, fintech bank engineering, analytics application development, regulated financial software, bank analytics frameworks, financial services web apps, in-house analytics tools, Dmitry Rastorguev</p>

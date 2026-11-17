@@ -1,0 +1,70 @@
+---
+title: "Cross-border money transfers - user activity forecasting"
+description-meta: "Forecasting of user activity and its impact on revenue and costs for a cross-border money transfer provider, with KPI breakdowns."
+sidebar: projects-sidebar
+---
+
+<!-- Generated from projects/projects_items.yml by projects/build_projects.js. Edit the data or template, not this file. -->
+
+### Project statement
+
+A cross-border money transfer provider needs to forecast how many users will transact, and what that means for revenue and costs. Top-line forecasts do not show which customer groups or channels drive the change.
+
+### Requirements
+
+- Forecasts of total user activity over a planning horizon.
+- Links from activity to revenue and cost.
+- A breakdown into KPIs the business can act on.
+- Scenarios for planning and budgeting.
+
+### Approach
+
+I would forecast activity by customer group and channel, then roll the results up to revenue and cost, so the drivers stay visible.
+
+1. **Activity forecast:** Transaction counts and values are forecast by customer group and corridor, with trend and seasonality modelled separately.
+1. **Economics:** Revenue and cost per transaction are applied to the activity forecast to produce financial outcomes.
+1. **Scenarios:** Base, upside and downside cases show the range of outcomes for planning.
+
+**Trade-off:** Driver-based forecasts over a black-box model, so finance can explain each change in the plan.
+
+### Implementation
+
+- **Data pipelines:** Transaction and customer data aggregated into daily and monthly series.
+- **Forecasting models:** Time-series models with seasonality and holiday effects, backtested on historic periods.
+- **KPI breakdown:** Usage metrics by segment, channel and corridor, with variance analysis against forecast.
+- **Reporting:** A monthly pack and scenario dashboard for finance and operations.
+
+**Team:** I would build the forecasting models and reporting, working with finance on assumptions and sign-off.
+
+### Indicative Roadmap
+
+| Phase | Timing | Deliverable |
+|---|---|---|
+| Data and definitions | Weeks 1–2 | Agreed KPIs and data sources |
+| Forecast models | Weeks 3–5 | Backtested activity forecasts by segment |
+| Economics and scenarios | Weeks 6–8 | Revenue and cost outcomes under three scenarios |
+| Reporting handover | Weeks 9–10 | Monthly pack and documentation for finance |
+
+### Measures of success
+
+- Forecast error is measured monthly against actuals and reported.
+- Revenue and cost outcomes can be traced to activity drivers.
+- The finance team runs the monthly process without support.
+
+
+<br/>
+<hr/>
+
+<div class="alert alert-primary pt-3 pb-2 text-center">
+  My day rate varies depending on the scope of work and engagement type.
+</div>
+
+<div class="alert alert-success pt-3 pb-2 text-center">
+  I can guarantee a quick turnaround and high quality of work exceeding your expectations.
+</div>
+
+<div class="alert alert-warning pt-3 pb-2 text-center">
+  <a href="/contact.html" class="alert-link">Contact</a> me to discuss your requirements or connect on <a href="https://www.linkedin.com/in/dmitryrastorguev/" class="alert-link">LinkedIn</a>.
+</div>
+
+<p class="seo-keywords" hidden aria-hidden="true">cross-border payments analytics, money transfer forecasting, user activity forecasting, revenue and cost forecasting, payments KPI dashboard, remittance business analytics, transaction volume modelling, fintech operating metrics, business optimisation KPIs, payments scenario forecasting, customer activity modelling, payment provider analytics, forecast monitoring, usage metrics breakdown, international transfers data, Dmitry Rastorguev</p>

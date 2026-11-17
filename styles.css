@@ -1,1 +1,121 @@
-/* css styles */
+/* ==========================================================================
+   Navbar: menu items centred, "Connect on LinkedIn" pill on the right
+   ========================================================================== */
+@media (min-width: 992px) {
+  .navbar > .container-fluid {
+    position: relative;
+  }
+  /* The left-hand menu list is centred between the brand and the LinkedIn pill */
+  .navbar .navbar-nav.me-auto {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.navbar a.nav-link[href*="linkedin.com"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  color: #0a66c2 !important;
+  border-radius: 999px;
+  padding: 0.3rem 0.9rem;
+  line-height: 1;
+  margin: 0.25rem 0;
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.navbar a.nav-link[href*="linkedin.com"]:hover,
+.navbar a.nav-link[href*="linkedin.com"]:focus {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+  transform: translateY(-1px);
+}
+
+.navbar a.nav-link[href*="linkedin.com"] .bi {
+  font-size: 1.25rem;
+}
+
+/* ==========================================================================
+   Index chart frame and grey notes
+   ========================================================================== */
+.yield-chart {
+  background: #f4f5f7;
+  border: 1px solid #d6dade;
+  padding: 0.75rem 0.5rem 0.25rem;
+  margin: 1rem 0 0.5rem;
+}
+
+.yield-chart img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.chart-note {
+  font-size: 0.85rem;
+  color: #6c757d;
+  margin: 0 0 0.75rem;
+}
+
+/* ==========================================================================
+   Hidden SEO keyword lists (kept in the HTML for search engines, not displayed)
+   ========================================================================== */
+.seo-keywords {
+  display: none;
+}
+
+/* ==========================================================================
+   VaR threshold slider (contact page): plain HTML, CSS and JavaScript
+   ========================================================================== */
+.var-widget {
+  margin: 1.25rem 0 1rem;
+}
+
+.var-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.var-slider-label {
+  flex: 0 0 100%;
+  margin: 0 0 0.25rem;
+}
+
+.var-slider {
+  flex: 0 0 100%;
+  width: 100%;
+  accent-color: #2780e3;
+}
+
+.var-scale {
+  flex: 0 0 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: #6c757d;
+}
+
+.var-readout {
+  min-height: 3rem;
+  margin: 0.75rem 0;
+}
+
+.var-chart {
+  width: 100%;
+}
+
+.var-chart svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.var-small {
+  font-size: 0.85rem;
+  color: #6c757d;
+  margin-bottom: 0.5rem;
+}

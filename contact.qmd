@@ -1,15 +1,207 @@
 ---
 title: "Contact Me"
-description-meta: "To discuss your requirements or just have an information conversation you can contact me using the forms below."
+description-meta: "Contact Dmitry Rastorguev to discuss a quantitative analysis, data science or fintech analytics requirement, or to connect on LinkedIn."
+sidebar: false
 ---
 
-To discuss your requirements or just have an information conversation you can contact me using the forms below. I will try to respond as quickly as possible. Feel free to connect / follow me on social media in the meantime.
-
-
-### LinkedIn
-Connect with me on Linkedin:  https://www.linkedin.com/in/dmitryrastorguev/ 
-
-### Email
-You can also contact me on my email address:   
 <br/>
-<b>dmitry  [at]  rastorguev  [dot]  co  [dot]  uk</b>
+
+To organise a discovery call or discuss your project requirements, you can contact me using the details below.
+
+LinkedIn:  [<b>linkedin.com/in/dmitryrastorguev</b>](https://www.linkedin.com/in/dmitryrastorguev/){target="_blank"}
+
+Email: <b>dmitry [at] rastorguev [dot] co [dot] uk</b>
+
+<br/>
+
+### Illustrative portfolio credit risk loss simulation
+
+```{python}
+#| echo: false
+#| warning: false
+import json
+import numpy as np
+from statistics import NormalDist
+from IPython.display import HTML, display
+
+# Illustrative portfolio assumptions
+N_LOANS = 1000                 # loans in the hypothetical portfolio
+EAD_MIN, EAD_MAX = 1_000_000, 25_000_000   # each loan's size, drawn between £1m and £25m
+PD_MIN, PD_MAX = 0.015, 0.045              # each loan's probability of default, drawn between 1.5% and 4.5%
+RHO = 0.12                     # asset correlation via a shared economic factor
+LGD = 0.45                     # loss given default
+N_SIMS = 10_000
+TAIL_LEVELS = [0.1, 0.25, 0.5, 0.75, 1.0, 1.5, 2.0, 2.5]   # chance of a larger loss (%)
+
+# The book is fixed: draw each loan's size and PD once
+book_rng = np.random.default_rng(7)
+ead = book_rng.uniform(EAD_MIN, EAD_MAX, N_LOANS)
+pds = book_rng.uniform(PD_MIN, PD_MAX, N_LOANS)
+cutoffs = np.array([NormalDist().inv_cdf(p) for p in pds], dtype=np.float32)
+total_exposure = float(ead.sum())
+
+# Simulate defaults through a shared economic factor (one-factor Gaussian copula)
+rng = np.random.default_rng(2026)
+systematic = rng.standard_normal((N_SIMS, 1), dtype=np.float32)
+idiosyncratic = rng.standard_normal((N_SIMS, N_LOANS), dtype=np.float32)
+asset_values = np.sqrt(RHO) * systematic + np.sqrt(1 - RHO) * idiosyncratic
+defaulted = (asset_values < cutoffs).astype(np.float64)
+loss_gbp = defaulted @ (ead * LGD)          # £ lost in each scenario
+loss_pct = 100 * loss_gbp / total_exposure  # % of total exposure
+
+levels = []
+for tail in TAIL_LEVELS:
+    var_gbp = float(np.percentile(loss_gbp, 100 - tail))
+    levels.append({
+        "tail": tail,
+        "var_pct": round(100 * var_gbp / total_exposure, 2),
+        "var_gbp": round(var_gbp),
+        "scenarios_beyond": round(N_SIMS * tail / 100),
+    })
+
+BIN = 0.2  # percentage points per histogram bar
+edges = np.arange(0, loss_pct.max() + BIN, BIN)
+counts, edges = np.histogram(loss_pct, bins=edges)
+data = {
+    "edges": np.round(edges[:-1], 2).tolist(),
+    "counts": counts.tolist(),
+    "bin": BIN,
+    "levels": levels,
+    "expectedPct": round(float(loss_pct.mean()), 2),
+    "expectedGbp": round(float(loss_gbp.mean())),
+    "portfolioGbp": round(total_exposure),
+    "nSims": N_SIMS,
+}
+
+WIDGET = r"""
+<div class="var-widget">
+  <div class="var-controls">
+    <label class="var-slider-label" for="var-slider">Chance of a larger loss: <strong id="var-level-label">1%</strong></label>
+    <input type="range" id="var-slider" class="var-slider" min="0" max="7" step="1" value="4" aria-label="Chance of a larger loss, from 0.1% to 2.5%">
+    <div class="var-scale" aria-hidden="true"><span>0.1%</span><span>2.5%</span></div>
+  </div>
+  <p class="var-readout" id="var-readout" aria-live="polite"></p>
+  <div class="var-chart" id="var-chart"></div>
+  <p class="var-small" id="var-expected"></p>
+</div>
+<script>
+(function () {
+  var D = __DATA__;
+  var slider = document.getElementById("var-slider");
+  var svgBox = document.getElementById("var-chart");
+  var readout = document.getElementById("var-readout");
+  var expectedBox = document.getElementById("var-expected");
+  var levelLabel = document.getElementById("var-level-label");
+  if (!slider || !svgBox || !readout || !expectedBox || !levelLabel) { return; }
+
+  var BLUE = "#2780E3", ORANGE = "#E36A27", GREY = "#6c757d", GRID = "#e6e6e6";
+  var W = 800, H = 360;
+  var M = { top: 24, right: 24, bottom: 56, left: 64 };
+  var innerW = W - M.left - M.right;
+  var innerH = H - M.top - M.bottom;
+  var BIN = D.bin;
+  var maxX = D.edges[D.edges.length - 1] + BIN;
+  var maxCount = 0;
+  for (var k = 0; k < D.counts.length; k++) {
+    if (D.counts[k] > maxCount) { maxCount = D.counts[k]; }
+  }
+  var yMax = Math.ceil((maxCount * 1.1) / 100) * 100;
+
+  function xPos(v) { return M.left + (v / maxX) * innerW; }
+  function yPos(c) { return M.top + innerH - (c / yMax) * innerH; }
+  function fmt(n) { return Math.round(n).toLocaleString("en-GB"); }
+  function gbp(x) {
+    if (x >= 1000000000) { return "£" + (x / 1000000000).toFixed(2) + "bn"; }
+    if (x >= 1000000) { return "£" + (x / 1000000).toFixed(2) + "m"; }
+    return "£" + Math.round(x / 1000) + "k";
+  }
+  function text(x, y, label, opts) {
+    opts = opts || {};
+    return '<text x="' + x + '" y="' + y + '" font-size="' + (opts.size || 12) +
+      '" fill="' + (opts.fill || GREY) + '" text-anchor="' + (opts.anchor || "middle") + '"' +
+      (opts.weight ? ' font-weight="' + opts.weight + '"' : "") + ">" + label + "</text>";
+  }
+
+  function buildChart(L) {
+    var out = [];
+    var base = yPos(0);
+
+    for (var t = 0; t <= 4; t++) {
+      var value = (yMax * t) / 4;
+      var gy = yPos(value);
+      out.push('<line x1="' + M.left + '" x2="' + (W - M.right) + '" y1="' + gy + '" y2="' + gy + '" stroke="' + GRID + '"/>');
+      out.push(text(M.left - 8, gy + 4, fmt(value), { anchor: "end" }));
+    }
+
+    var barW = innerW / D.counts.length;
+    for (var i = 0; i < D.counts.length; i++) {
+      var x = xPos(D.edges[i]);
+      var top = yPos(D.counts[i]);
+      var fill = D.edges[i] >= L.var_pct ? ORANGE : BLUE;
+      out.push('<rect x="' + (x + 0.5).toFixed(2) + '" y="' + top.toFixed(2) +
+        '" width="' + Math.max(barW - 1, 0.5).toFixed(2) + '" height="' + Math.max(base - top, 0).toFixed(2) +
+        '" fill="' + fill + '"/>');
+    }
+
+    out.push('<line x1="' + M.left + '" x2="' + (W - M.right) + '" y1="' + base + '" y2="' + base + '" stroke="' + GREY + '"/>');
+    for (var p = 0; p <= Math.floor(maxX); p++) {
+      var tx = xPos(p);
+      out.push('<line x1="' + tx + '" x2="' + tx + '" y1="' + base + '" y2="' + (base + 5) + '" stroke="' + GREY + '"/>');
+      out.push(text(tx, base + 20, p + "%"));
+    }
+
+    var xv = xPos(L.var_pct);
+    out.push('<line x1="' + xv + '" x2="' + xv + '" y1="' + M.top + '" y2="' + base + '" stroke="' + ORANGE + '" stroke-width="2" stroke-dasharray="6 4"/>');
+    out.push(text(xv + 6, M.top + 14, "Loss exceeded with " + L.tail + "% chance: " + L.var_pct.toFixed(2) + "%",
+      { anchor: "start", fill: ORANGE, weight: 600 }));
+
+    out.push(text(M.left + innerW / 2, H - 12, "Portfolio loss (% of total exposure)", { size: 13 }));
+    out.push('<text transform="translate(16 ' + (M.top + innerH / 2) + ') rotate(-90)" font-size="13" fill="' + GREY + '" text-anchor="middle">Number of simulations</text>');
+
+    return '<svg viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="Histogram of simulated portfolio losses. Outcomes at or beyond the ' +
+      L.tail + '% chance threshold are highlighted in orange.">' + out.join("") + "</svg>";
+  }
+
+  function render(idx) {
+    var L = D.levels[idx];
+    svgBox.innerHTML = buildChart(L);
+    levelLabel.textContent = L.tail + "%";
+    slider.setAttribute("aria-valuetext", L.tail + "% chance of a larger loss");
+    readout.innerHTML =
+      "With a " + L.tail + "% chance, the portfolio loses more than <strong>" + L.var_pct.toFixed(2) +
+      "%</strong> of its exposure, about <strong>" + gbp(L.var_gbp) + "</strong>. " +
+      "This happens in about " + fmt(L.scenarios_beyond) + " of " + fmt(D.nSims) + " simulated scenarios.";
+    expectedBox.textContent =
+      "Average (expected) loss across all scenarios: " + D.expectedPct.toFixed(2) + "% of exposure, about " +
+      gbp(D.expectedGbp) + ". Total exposure: " + gbp(D.portfolioGbp) + ".";
+  }
+
+  slider.addEventListener("input", function () { render(Number(slider.value)); });
+  render(Number(slider.value));
+})();
+</script>
+"""
+
+display(HTML(WIDGET.replace("__DATA__", json.dumps(data))))
+```
+
+<p class="var-small">Move the slider to choose a chance of a larger loss and see how much a portfolio of 1,000 loans could lose with that chance. Each of the 10,000 simulated scenarios draws a set of defaults, which are linked through a shared economic factor. This is the kind of analysis I run for lenders and banks. The figures are illustrative only.</p>
+<p class="var-small">Illustrative: 1,000 loans, each between £1m and £25m, with a probability of default between 1.5% and 4.5%, 45% loss given default and 10,000 simulated scenarios. Not a risk model for any real portfolio.</p>
+
+<br/>
+<hr/>
+
+<div class="alert alert-primary pt-3 pb-2 text-center">
+  Benefit from my knowledge and experiences through <a href="/projects.html" class="alert-link">contracting / consulting services</a>.
+</div>
+
+<div class="alert alert-success pt-3 pb-2 text-center">
+  Learn about my <a href="/about.html" class="alert-link">professional experiences and educational background</a>.
+</div>
+
+<div class="alert alert-warning pt-3 pb-2 text-center">
+  <a href="/contact.html" class="alert-link">Contact</a> me to discuss your requirements or connect on <a href="https://www.linkedin.com/in/dmitryrastorguev/" class="alert-link">LinkedIn</a>.
+</div>
+
+
+<p class="seo-keywords" hidden aria-hidden="true">hire quantitative analyst, data science consultant London, fintech analytics consultant, financial risk consulting UK, contract data scientist enquiry, Monte Carlo credit loss simulation, value at risk simulation, portfolio loss distribution, credit portfolio risk modelling, LinkedIn connection London analyst, requirements discussion data science, financial analytics enquiry, consultation for quant projects, email a quantitative consultant, Dmitry Rastorguev contact, risk simulation illustration</p>

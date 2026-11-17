@@ -1,6 +1,7 @@
 ---
 title: "Welcome!"
-description-meta: "My name is Dmitry Rastorguev. I specialise in applying data science techniques to quantify risks in the financial domain space. I work with a range of companies in the traditional financial services sector and  with innovative fintech / data analytics startups to solve their most challenging analytical problems."
+description-meta: "Dmitry Rastorguev is a London-based quantitative analyst and data scientist, applying data science to quantify financial risk for banks and fintech startups."
+sidebar: false
 about:
   template: jolla
   image: "/static/profile.png"
@@ -8,10 +9,102 @@ about:
 
 My name is Dmitry Rastorguev and I am based in London, UK.
 
-I specialise in applying data science techniques to quantify risks in the financial domain space.
+I specialise in applying data science techniques to quantify risks in the financial domain.
 
-I work with a range of companies in the traditional financial services sector and  with innovative fintech / data analytics startups to solve their most challenging analytical problems.
+I work with a range of companies in the traditional financial services sector and with innovative fintech / data analytics startups to solve their most challenging analytical problems.
+
 <br/>
+
+::: {.yield-chart}
+```{python}
+#| echo: false
+#| warning: false
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.lines import Line2D
+
+BG = "#f4f5f7"          # very light grey background for the whole chart
+GRID = "#ffffff"
+HIST_COLOUR = "#1f4e79"
+EXPECT_COLOUR = "#E36A27"   # dashed orange expectation lines
+
+# Illustrative approximations of annual average UK 5-year government bond yields (%), 1996-2026.
+# They follow the broad historic shape of the series. Replace with official data before publishing.
+HIST_YEARS = np.arange(1996, 2027)
+HIST_5Y = np.array([
+    7.6, 6.9, 5.5, 5.0, 5.3, 4.6, 4.3, 4.2, 4.5, 4.2, 4.6,   # 1996-2006
+    5.2, 4.0, 2.7, 2.5, 1.9, 1.0, 1.6, 1.7, 1.2, 0.7, 0.7,   # 2007-2017
+    1.1, 0.5, 0.2, 0.6, 2.8, 4.3, 4.0, 4.0, 3.8,              # 2018-2026
+])
+assert len(HIST_YEARS) == len(HIST_5Y)
+
+def smooth_line(x, y, steps=12):
+    # Catmull-Rom spline: passes through every annual point, so expectation markers stay on the line
+    xs, ys = [], []
+    n = len(x)
+    for i in range(n - 1):
+        p0 = y[max(i - 1, 0)]
+        p1 = y[i]
+        p2 = y[i + 1]
+        p3 = y[min(i + 2, n - 1)]
+        for t in np.linspace(0, 1, steps, endpoint=False):
+            v = 0.5 * ((2 * p1) + (-p0 + p2) * t + (2 * p0 - 5 * p1 + 4 * p2 - p3) * t**2
+                       + (-p0 + 3 * p1 - 3 * p2 + p3) * t**3)
+            xs.append(x[i] + t * (x[i + 1] - x[i]))
+            ys.append(v)
+    xs.append(x[-1]); ys.append(y[-1])
+    return np.array(xs), np.array(ys)
+
+SMOOTH_X, SMOOTH_Y = smooth_line(HIST_YEARS.astype(float), HIST_5Y)
+
+# Theoretical expectations: at each 5-year point, the expected 5-year yield path over the next
+# five years, reverting from the yield prevailing at that point towards a long-run level.
+LONG_RUN = 3.5
+REVERSION = 0.25   # speed of reversion per year
+HORIZON = 5
+EXPECT_YEARS = np.arange(1996, 2027, 1)   # an expectation every year
+
+fig, ax = plt.subplots(figsize=(9, 4.8))
+fig.patch.set_facecolor(BG)
+ax.set_facecolor(BG)
+
+# Forecast zone, the five years after the last historic point
+ax.axvspan(2026, 2031, color="#e6e9ee", zorder=0)
+
+ax.plot(SMOOTH_X, SMOOTH_Y, color=HIST_COLOUR, linewidth=2.4, zorder=3)
+
+for i, t0 in enumerate(EXPECT_YEARS):
+    y0 = HIST_5Y[HIST_YEARS == t0][0]
+    s = np.linspace(t0, t0 + HORIZON, 26)
+    path = LONG_RUN + (y0 - LONG_RUN) * np.exp(-REVERSION * (s - t0))
+    ax.plot(s, path, color=EXPECT_COLOUR, linewidth=1.8, linestyle=(0, (5, 3)), zorder=2)
+    ax.plot([t0], [y0], marker="o", markersize=4, color=EXPECT_COLOUR, zorder=4)
+
+ax.set_xlim(1995.5, 2031.5)
+ax.set_ylim(0, 9)
+ax.set_xticks(range(1996, 2032, 5))
+ax.set_ylabel("5-year yield (%)", color="#495057")
+ax.tick_params(colors="#495057")
+ax.grid(axis="y", color=GRID, linewidth=1.0, zorder=1)
+for side in ("top", "right", "left", "bottom"):
+    ax.spines[side].set_visible(False)
+
+handles = [
+    Line2D([0], [0], color=HIST_COLOUR, linewidth=2.4, label="Historic 5-year yield"),
+    Line2D([0], [0], color=EXPECT_COLOUR, linewidth=1.8, linestyle=(0, (5, 3)),
+           label="Theoretical expectation, next 5 years"),
+]
+ax.legend(handles=handles, frameon=False, fontsize=9, loc="upper right")
+fig.text(0.5, 0.975, "Illustrative government bond yields: history and expectations",
+         fontsize=12.5, fontweight="bold", color="#212529", ha="center", va="top")
+plt.tight_layout(rect=(0, 0, 1, 0.93))
+plt.show()
+```
+:::
+
+<p class="chart-note">Illustrative visualisation of UK 5-year government bond (gilt) yields. Historic values are approximate; expectations are theoretical, not a forecast or investment advice.</p>
+
+
 <br/>
 <hr/>
 
@@ -26,5 +119,8 @@ I work with a range of companies in the traditional financial services sector an
 <div class="alert alert-warning pt-3 pb-2 text-center">
   <a href="/contact.html" class="alert-link">Contact</a> me to discuss your requirements or connect on <a href="https://www.linkedin.com/in/dmitryrastorguev/" class="alert-link">LinkedIn</a>.
 </div>
+
 <br/>
 <p style='text-align: right;'>*Website last updated: November 2026*</p>
+
+<p class="seo-keywords" hidden aria-hidden="true">quantitative analyst London, data scientist financial risk, government bond yield expectations, market-implied yield curve, interest rate expectations chart, UK gilt yield outlook, Bank of England rate expectations, fixed income analytics, quantitative risk analysis, financial domain data science, fintech data analytics consultant, risk quantification for banks, yield curve scenario analysis, contract data scientist London, financial services analytics UK, Dmitry Rastorguev</p>

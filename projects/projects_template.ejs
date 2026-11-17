@@ -1,24 +1,70 @@
-```{=html}
-<div class="accordion" id="accordion">
-<% for (const item of items) { %>
-    <div class="accordion-item">
-    <div class="accordion-header m-0" id="heading<%- item.item_c %>F">
-    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%- item.item_c %>F" aria-expanded="false" aria-controls="collapse<%- item.item_c %>F">
-    <b class="m-1"><%- item.name %></b>
-    </button>
-    </div>
-    <div id="collapse<%- item.item_c %>F" class="accordion-collapse collapse" aria-labelledby="heading<%- item.item_c %>F" data-bs-parent="#accordion" style="">
-    <div class="accordion-body">
-    <p class="card-text"><%- item.description %></p>
-    <ul>
-    <% for (const point of item.bullet_points) { %>
-        <li class="card-text"><%- point %></li>
-    <% } %>
-    </ul>
-    <a target="_blank" href="<%- item.href %>" class="card-link"><%- item.href_name %></a>
-    </div>
-    </div>
-    </div>
-<% } %>
+---
+title: <%- JSON.stringify(item.name) %>
+description-meta: <%- JSON.stringify(item.meta_description) %>
+sidebar: projects-sidebar
+---
+
+<!-- Generated from projects/projects_items.yml by projects/build_projects.js. Edit the data or template, not this file. -->
+
+### Project statement
+
+<%- item.project_statement %>
+
+### Requirements
+
+<% for (const r of item.requirements) { -%>
+- <%- r %>
+<% } -%>
+
+### Approach
+
+<%- item.approach.intro %>
+
+<% for (const p of item.approach.parts) { -%>
+1. **<%- p.title %>:** <%- p.text %>
+<% } -%>
+
+**Trade-off:** <%- item.approach.trade_off %>
+
+### Implementation
+
+<% for (const s of item.implementation) { -%>
+- **<%- s.title %>:** <%- s.text %>
+<% } -%>
+
+**Team:** <%- item.team %>
+
+### Indicative Roadmap
+
+| Phase | Timing | Deliverable |
+|---|---|---|
+<% for (const ph of item.roadmap.phases) { -%>
+| <%- cell(ph.phase) %> | <%- cell(ph.timing) %> | <%- cell(ph.deliverable) %> |
+<% } -%>
+
+### Measures of success
+
+<% for (const m of item.measures_of_success) { -%>
+- <%- m %>
+<% } -%>
+
+<% if (item.href) { -%>
+<a target="_blank" rel="noopener" href="<%- item.href %>" class="btn btn-outline-primary btn-sm"><%- item.href_name %></a>
+<% } -%>
+
+<br/>
+<hr/>
+
+<div class="alert alert-primary pt-3 pb-2 text-center">
+  My day rate varies depending on the scope of work and engagement type.
 </div>
-```
+
+<div class="alert alert-success pt-3 pb-2 text-center">
+  I can guarantee a quick turnaround and high quality of work exceeding your expectations.
+</div>
+
+<div class="alert alert-warning pt-3 pb-2 text-center">
+  <a href="/contact.html" class="alert-link">Contact</a> me to discuss your requirements or connect on <a href="https://www.linkedin.com/in/dmitryrastorguev/" class="alert-link">LinkedIn</a>.
+</div>
+
+<p class="seo-keywords" hidden aria-hidden="true"><%- item.keywords.join(", ") %></p>

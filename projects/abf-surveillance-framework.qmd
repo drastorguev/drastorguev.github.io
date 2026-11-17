@@ -1,0 +1,75 @@
+---
+title: "Asset-Based Finance Surveillance: Framework, Data and Governance"
+description-meta: "Project to build a consistent surveillance framework for an asset-based finance platform: deal, collateral and servicer monitoring, controls and governance."
+sidebar: projects-sidebar
+---
+
+<!-- Generated from projects/projects_items.yml by projects/build_projects.js. Edit the data or template, not this file. -->
+
+### Project statement
+
+An asset manager is growing its asset-based finance (ABF) platform across public and private strategies. The surveillance capability needs to keep pace: one consistent framework for monitoring transaction, collateral, counterparty and servicer performance, supported by scalable data, reporting and operating processes. The aim is to turn transaction-level performance into clear portfolio insight and recommended action for investment, valuation and governance teams.
+
+### Requirements
+
+- One surveillance framework across residential, consumer, commercial asset finance, specialty finance and whole-loan exposures, with consistent coverage, review standards and escalation.
+- Timely identification, investigation and escalation of deteriorating exposures, trigger and covenant breaches, servicing concerns and data exceptions.
+- A structured feedback loop from observed performance back to underwriting assumptions, structuring and documentation terms.
+- Data intake from trustees, servicers and administrators that is validated, reconciled and traceable.
+- Concise, evidence-based reporting for portfolio reviews, valuation discussions, watchlist meetings and investment committees.
+- A team that can run the function day to day, with clear accountabilities and quality controls.
+
+### Approach
+
+I would build the framework in the order the function depends on it: mandate, standards, data, then automation, with the team growing alongside.
+
+1. **Tiered coverage:** Exposures are grouped by size, risk and data quality. Each tier has a defined review frequency, depth of analysis and escalation path, so effort goes where the risk is.
+1. **Common core, asset-specific extensions:** Every deal is measured on a shared set of metrics, including delinquency, default, loss, recovery, prepayment, concentration, vintage performance and servicer trends. Less standardised assets, such as specialty finance, also get asset-specific indicators, so one template is not forced onto very different collateral.
+1. **Data before headcount:** Automating validation, reconciliation and calculations comes first. Scaling analysts on manual data work would add cost without adding coverage.
+
+**Trade-off:** Consistency against flexibility. A strict template makes portfolio comparisons reliable but can miss unusual structures, so the core metrics stay fixed and the extensions vary by asset class, with each deviation documented.
+
+### Implementation
+
+- **Data pipelines:** Python and SQL pipelines to ingest trustee, servicer and administrator data, with validation rules, reconciliation to trustee reports and data-quality dashboards.
+- **Calculations library:** Version-controlled, tested metrics for default and prepayment rates, loss severity, vintage curves and trigger, overcollateralisation and credit enhancement tests. Outputs are cross-checked against Intex cashflow results where available.
+- **Exception workflow:** Case management for each issue, with a named owner, deadline, status and an audit trail through to closure.
+- **Reporting:** Power BI dashboards for the surveillance team, and an automated pack for watchlist and valuation committees, produced from the same data as the analysis.
+- **Controls:** Reviewer sign-off on watchlist changes, reconciliation checks before each reporting cycle, change control on calculations, and retained records for audit.
+
+**Team:** The Head of Surveillance owns the framework and its governance. Analysts cover transaction and data review, supported by a data engineering partner.
+
+### Indicative Roadmap
+
+| Phase | Timing | Deliverable |
+|---|---|---|
+| Diagnostic and mandate | Month 1 | Current-state review, coverage inventory, data availability by deal and stakeholder interviews |
+| Framework and standards | Months 2–3 | Coverage tiers, review templates, watchlist and escalation protocols, committee calendar |
+| Data and automation | Months 3–6 | Automated ingestion and validation, tested calculations, first dashboards |
+| Team and handover | Months 6–12 | Team in place, first full committee cycle run from the automated pack, metrics reporting live |
+
+### Measures of success
+
+- Every exposure is reviewed at its tier's required frequency.
+- Trustee and servicer data is reconciled and on time before each reporting cycle.
+- Every exception is tracked to closure, with its owner and deadline recorded.
+- Underwriting and structuring feedback is documented each quarter.
+- Committee packs are produced from the automated pipeline, not rebuilt by hand.
+
+
+<br/>
+<hr/>
+
+<div class="alert alert-primary pt-3 pb-2 text-center">
+  My day rate varies depending on the scope of work and engagement type.
+</div>
+
+<div class="alert alert-success pt-3 pb-2 text-center">
+  I can guarantee a quick turnaround and high quality of work exceeding your expectations.
+</div>
+
+<div class="alert alert-warning pt-3 pb-2 text-center">
+  <a href="/contact.html" class="alert-link">Contact</a> me to discuss your requirements or connect on <a href="https://www.linkedin.com/in/dmitryrastorguev/" class="alert-link">LinkedIn</a>.
+</div>
+
+<p class="seo-keywords" hidden aria-hidden="true">asset-based finance surveillance, structured credit monitoring, ABS deal surveillance, collateral performance monitoring, servicer data validation, trustee data reconciliation, watchlist governance, vintage cohort analysis, credit enhancement monitoring, Intex cashflow modelling, surveillance framework design, structured finance data automation, specialty finance monitoring, whole loan performance, Dmitry Rastorguev</p>

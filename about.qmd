@@ -8,12 +8,12 @@ I am  a quantitative analyst / data scientist in the financial / economics domai
 
 I work both with technology / quant teams on sophisticated tech / data / analytics projects and non-technical sales/management teams, as well as consulting / supporting business' end users / clients.
 
-I have a broad range of experiences and knowledge developed during my professional employment and through personal projects.
+I have a broad range of experiences and knowledge developed during my professional employment, various qualifications and through personal projects.
 
 ## Employment/Contracting History
 **Barclays Investment Bank** | QA Credit Banking Quant Developer | 2026 | Contract
 
-**HSBC CIB** | CCM QA Credit Strats/Quant | 2025 - 2026 | Contract
+**HSBC CIB** | CCM QA Credit Strat / Quant | 2025 - 2026 | Contract
 
 **Aldermore Bank** | Treasury & Finance Python Quant  | 2022 - 2024 | Contract
 
@@ -21,7 +21,7 @@ I have a broad range of experiences and knowledge developed during my profession
 
 **Cybertonica** | Data Scientist | 2019 - 2020 | Permanent
 
-**BNP Paribas** | High Yield Bonds Origination Analyst | 2014 - 2016 | Contract
+**BNP Paribas CIB** | High Yield Bonds Origination Analyst | 2014 - 2016 | Contract
 
 **BlackRock** | Client Data Analyst | 2013 - 2014 | Contract
 
@@ -51,11 +51,11 @@ Successfully passed all exams on first attempt for the following professional qu
 
 **Web Development Frameworks** | Django, Django REST framework, Flask, FastAPI, React, jQuery, Bootstrap
 
-**Data Analytics** | pandas, matplotlib, seaborn, plotly, numpy, dask, pyspark,  D3.js, Chart.js, BeautifulSoup, Airflow, pydantic
+**Data Analytics** | pandas, matplotlib, seaborn, plotly, numpy, dask, pyspark, polars,  D3.js, Chart.js, BeautifulSoup, Airflow, pydantic
 
-**Machine Learning** | scikit-learn, PyCaret, NLTK, Statsmodels, XGBoost, Prophet
+**Machine Learning** | scikit-learn, PyCaret, NLTK, statsmodels, XGBoost, Prophet
 
-**Databases** | SQL Server, PostgreSQL, MySQL, MongoDB
+**Databases** | SQL Server, PostgreSQL, MySQL, MongoDB 
 
 **Python Dashboards** | Dash, Gradio, Streamlit, Panel, bokeh
 
@@ -68,6 +68,7 @@ Successfully passed all exams on first attempt for the following professional qu
 **Myers–Briggs Type Indicator** | [ENTP (Debater)](https://www.16personalities.com/entp-personality){target="_blank"}
 
 <br/>
+<hr/>
 
 <div class="alert alert-primary pt-3 pb-2 text-center">
   Benefit from my knowledge and experiences through <a href="/projects.html" class="alert-link">contracting / consulting services</a>.

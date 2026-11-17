@@ -1,5 +1,7 @@
 ---
 title: "Blog"
+description-meta: "Notes by Dmitry Rastorguev on finance, economics, investing, fintech, entrepreneurship, startups, strategy and product management."
+sidebar: false
 listing:
   contents: posts
   sort: "date desc"
@@ -13,3 +15,20 @@ listing:
 ---
 
 Here I document some of my thoughts as I explore topics around finance, economics, investing, fintech, entrepreneurship, startups, strategy and product management.
+
+<br/>
+<hr/>
+
+<div class="alert alert-primary pt-3 pb-2 text-center">
+  Benefit from my knowledge and experiences through <a href="/projects.html" class="alert-link">contracting / consulting services</a>.
+</div>
+
+<div class="alert alert-success pt-3 pb-2 text-center">
+  Learn about my <a href="/about.html" class="alert-link">professional experiences and educational background</a>.
+</div>
+
+<div class="alert alert-warning pt-3 pb-2 text-center">
+  <a href="/contact.html" class="alert-link">Contact</a> me to discuss your requirements or connect on <a href="https://www.linkedin.com/in/dmitryrastorguev/" class="alert-link">LinkedIn</a>.
+</div>
+
+<p class="seo-keywords" hidden aria-hidden="true">fintech blog UK, investing thoughts, startup strategy notes, product management writing, economics commentary, finance essays, entrepreneurship insights, fintech market commentary, investment strategy writing, startup blog London, digital finance articles, product strategy notes, economic analysis blog, financial markets commentary, Dmitry Rastorguev</p>

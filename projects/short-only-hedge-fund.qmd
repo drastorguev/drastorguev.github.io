@@ -1,0 +1,70 @@
+---
+title: "Short-only hedge fund - adverse news monitoring"
+description-meta: "Classification and aggregation of adverse news for a short-only hedge fund, with a knowledge graph that links related stories for analysts."
+sidebar: projects-sidebar
+---
+
+<!-- Generated from projects/projects_items.yml by projects/build_projects.js. Edit the data or template, not this file. -->
+
+### Project statement
+
+A short-only fund depends on finding negative information about companies before the market does. Adverse news is published across many sources and languages, and analysts cannot read all of it in time.
+
+### Requirements
+
+- Coverage of adverse news across a defined set of sources.
+- Related stories grouped so analysts review each event once, not every headline.
+- Links between articles, companies and people.
+- A process analysts can rely on for detailed follow-up.
+
+### Approach
+
+I would treat the system as a filter that surfaces candidates for analyst judgement, not as a source of trading signals.
+
+1. **Collection:** Articles are gathered from a defined list of sources, with duplicates and syndicated copies removed.
+1. **Classification:** Each story is labelled by type of event, such as litigation, regulatory action or management change, and by severity.
+1. **Aggregation:** Related stories are grouped into a single event and linked to the companies and people involved.
+
+**Trade-off:** Recall over precision in the first version. Analysts would rather review a few false alarms than miss an event.
+
+### Implementation
+
+- **Scraping and extraction:** Collection pipelines with entity extraction for companies, people and dates.
+- **NLP classification:** Models label event type and severity, checked against a sample labelled by analysts.
+- **Knowledge graph:** Stories are linked to companies, people and events, so related coverage can be traced in one view.
+- **Analyst interface:** A daily digest and search view ranked by severity and recency.
+
+**Team:** I would design the pipeline and models, with analysts defining the event taxonomy and reviewing outputs.
+
+### Indicative Roadmap
+
+| Phase | Timing | Deliverable |
+|---|---|---|
+| Source mapping and taxonomy | Weeks 1–2 | Agreed source list and event categories |
+| Collection and extraction | Weeks 3–5 | Working pipeline with entity extraction |
+| Classification and aggregation | Weeks 6–9 | Classifier evaluated on a labelled sample, and a grouped event view |
+| Analyst pilot | Weeks 10–12 | Daily digest in use, with feedback collected and tuned |
+
+### Measures of success
+
+- Analysts see adverse events on the day they are published.
+- Each event is reviewed once, with its related coverage attached.
+- Classifier accuracy is measured against a labelled sample and reported.
+
+
+<br/>
+<hr/>
+
+<div class="alert alert-primary pt-3 pb-2 text-center">
+  My day rate varies depending on the scope of work and engagement type.
+</div>
+
+<div class="alert alert-success pt-3 pb-2 text-center">
+  I can guarantee a quick turnaround and high quality of work exceeding your expectations.
+</div>
+
+<div class="alert alert-warning pt-3 pb-2 text-center">
+  <a href="/contact.html" class="alert-link">Contact</a> me to discuss your requirements or connect on <a href="https://www.linkedin.com/in/dmitryrastorguev/" class="alert-link">LinkedIn</a>.
+</div>
+
+<p class="seo-keywords" hidden aria-hidden="true">adverse news monitoring, short selling research support, negative news screening, news classification NLP, knowledge graph news analytics, entity extraction financial news, event-driven investment research, analyst workflow automation, news aggregation finance, text mining financial articles, risk news alerts, hedge fund research tools, related article visualisation, investment research automation, short-only fund analytics, Dmitry Rastorguev</p>

@@ -1,0 +1,70 @@
+---
+title: "BNPL fintech lender - credit strategy and customer segmentation"
+description-meta: "Credit lending strategy and risk segmentation for a buy-now-pay-later proposition, built on existing customers' purchase and app usage data."
+sidebar: projects-sidebar
+---
+
+<!-- Generated from projects/projects_items.yml by projects/build_projects.js. Edit the data or template, not this file. -->
+
+### Project statement
+
+A fintech offering buy-now-pay-later credit wants to extend the proposition to its existing customers. The decisions are how much credit to offer, to whom and on what terms, without pushing losses beyond what the business can absorb.
+
+### Requirements
+
+- A credit lending strategy for the new proposition among existing customers.
+- Customer segments based on purchase and app-usage behaviour.
+- Portfolio risk quantified under realistic loss assumptions.
+- A strategy the credit and product teams can apply and monitor.
+
+### Approach
+
+I would segment customers first, then set credit terms for each segment and test each choice against the expected loss it implies.
+
+1. **Segmentation:** Customers are grouped by purchase history and app behaviour into segments with distinct repayment patterns.
+1. **Risk quantification:** Expected losses and their spread are estimated for each segment, using the lender's own historic performance.
+1. **Strategy design:** Credit limits and terms are set per segment, with a test-and-learn plan to refine them.
+
+**Trade-off:** Simple, explainable segment rules over a single predictive score, so the credit team can see and challenge each decision.
+
+### Implementation
+
+- **Data preparation:** Purchase history, repayment records and app-usage events joined at customer level.
+- **Segmentation analysis:** Clustering and rule-based segments, validated against repayment outcomes.
+- **Loss modelling:** Segment-level loss estimates with sensitivity to economic scenarios.
+- **Monitoring:** A dashboard tracking uptake, arrears and losses by segment.
+
+**Team:** I would lead the analysis and strategy design, working with the credit and product teams on policy.
+
+### Indicative Roadmap
+
+| Phase | Timing | Deliverable |
+|---|---|---|
+| Data review | Weeks 1–2 | Confirmed data sources and customer population |
+| Segmentation | Weeks 3–5 | Agreed segments with repayment profiles |
+| Risk and strategy | Weeks 6–9 | Loss estimates and credit terms per segment |
+| Pilot and monitoring | Weeks 10–12 | Pilot rollout with a monitoring dashboard |
+
+### Measures of success
+
+- Each segment has a credit policy with an estimated loss range.
+- The pilot stays within agreed loss limits, reviewed monthly.
+- The credit team can explain every change to a segment's terms.
+
+
+<br/>
+<hr/>
+
+<div class="alert alert-primary pt-3 pb-2 text-center">
+  My day rate varies depending on the scope of work and engagement type.
+</div>
+
+<div class="alert alert-success pt-3 pb-2 text-center">
+  I can guarantee a quick turnaround and high quality of work exceeding your expectations.
+</div>
+
+<div class="alert alert-warning pt-3 pb-2 text-center">
+  <a href="/contact.html" class="alert-link">Contact</a> me to discuss your requirements or connect on <a href="https://www.linkedin.com/in/dmitryrastorguev/" class="alert-link">LinkedIn</a>.
+</div>
+
+<p class="seo-keywords" hidden aria-hidden="true">buy now pay later credit strategy, BNPL risk segmentation, instalment lending strategy, customer segmentation fintech, purchase history analytics, app usage behaviour analysis, credit line strategy, consumer credit portfolio risk, fintech lending proposition, credit decisioning analytics, behavioural customer segmentation, portfolio risk quantification, BNPL product launch analytics, existing customer credit offers, lending proposition design, Dmitry Rastorguev</p>
