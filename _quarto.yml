@@ -26,7 +26,7 @@ website:
       - icon: linkedin
         href: https://www.linkedin.com/in/dmitryrastorguev/
   page-footer:
-    left: "Copyright 2026, Dmitry Rastorguev - Built using [Quarto](https://quarto.org/docs/websites/)"
+    left: "Copyright 2026, Dmitry Rastorguev"
   # google-analytics: "G-KGHL346XM6"
   cookie-consent:
     palette: dark

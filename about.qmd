@@ -11,22 +11,25 @@ I work both with technology / quant teams on sophisticated tech / data / analyti
 I have a broad range of experiences and knowledge developed during my professional employment and through personal projects.
 
 ## Employment/Contracting History
+**Barclays Investment Bank** | QA Credit Banking Quant Developer | 2026 | Contract
 
-**Independent Contractor** | Quantitative Python Developer / Analyst | Oct 2022 - Present
+**HSBC CIB** | CCM QA Credit Strats/Quant | 2025 - 2026 | Contract
 
-**Openwage** | Lead Data Scientist | Dec 2020 - Feb 2022
+**Aldermore Bank** | Treasury & Finance Python Quant  | 2022 - 2024 | Contract
 
-**Cybertonica** | Data Scientist | Feb 2019 - Oct 2020
+**Openwage** | Lead Data Scientist | 2020 - 2022 | Permanent
 
-**BNP Paribas** | High Yield Bonds Origination Analyst | Oct 2014 - Sep 2016
+**Cybertonica** | Data Scientist | 2019 - 2020 | Permanent
 
-**BlackRock** | Client Data Analyst | Dec 2013 - Aug 2014
+**BNP Paribas** | High Yield Bonds Origination Analyst | 2014 - 2016 | Contract
+
+**BlackRock** | Client Data Analyst | 2013 - 2014 | Contract
 
 ## Education
 
-**University College London** | MSc Technology Entrepreneurship | Sep 2016 - Sep 2017
+**University College London** | MSc Technology Entrepreneurship | 2016 - 2017
 
-**University College London** | BSc Economics and Statistics | Sep 2010 - May 2013
+**University College London** | BSc Economics and Statistics | 2010 - 2013
 
 ## Professional Qualifications Examinations
 
@@ -40,9 +43,11 @@ Successfully passed all exams on first attempt for the following professional qu
 
 - **ICAEW/CISI Diploma in Corporate Finance**
 
+- **The Certificate of Bank Treasury Risk Management** ([btrm.org](https://btrm.org))
+
 ## Technical Knowledge:
 
-**Programming Languages** | Python, JavaScript, Java, C/C++, SQL, React
+**Programming Languages** | Python, JavaScript, Java, C/C++, SQL
 
 **Web Development Frameworks** | Django, Django REST framework, Flask, FastAPI, React, jQuery, Bootstrap
 
