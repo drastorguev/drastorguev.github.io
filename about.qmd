@@ -42,17 +42,17 @@ Successfully passed all exams on first attempt for the following professional qu
 
 ## Technical Knowledge:
 
-**Programming Languages** | Python, JavaScript, Java, C/C++, SQL
+**Programming Languages** | Python, JavaScript, Java, C/C++, SQL, React
 
 **Web Development Frameworks** | Django, Django REST framework, Flask, FastAPI, React, jQuery, Bootstrap
 
-**Data Analytics** | pandas, matplotlib, seaborn, plotly, numpy, dask, pyspark,  D3.js, Chart.js, BeautifulSoup, Airflow
+**Data Analytics** | pandas, matplotlib, seaborn, plotly, numpy, dask, pyspark,  D3.js, Chart.js, BeautifulSoup, Airflow, pydantic
 
 **Machine Learning** | scikit-learn, PyCaret, NLTK, Statsmodels, XGBoost, Prophet
 
 **Databases** | SQL Server, PostgreSQL, MySQL, MongoDB
 
-**Python Dashboards** | Gradio, Streamlit, Panel, bokeh
+**Python Dashboards** | Dash, Gradio, Streamlit, Panel, bokeh
 
 **Financial Modelling** | Excel, VBA, Power Query, Bloomberg
 
@@ -63,16 +63,16 @@ Successfully passed all exams on first attempt for the following professional qu
 **Myers–Briggs Type Indicator** | [ENTP (Debater)](https://www.16personalities.com/entp-personality){target="_blank"}
 
 <br/>
-<div class="alert alert-primary pt-3 pb-2 text-center">
-  <a href="/contact.html#send-a-message" class="alert-link">Message me</a> to request a copy of my full CV.
-</div>
 
+<div class="alert alert-primary pt-3 pb-2 text-center">
+  Benefit from my knowledge and experiences through <a href="/projects.html" class="alert-link">contracting / consulting services</a>.
+</div>
 
 <div class="alert alert-success pt-3 pb-2 text-center">
-  Benefit from my knowledge and experiences through my <a href="/consulting.html" class="alert-link">consulting services</a> for your own projects.
+  <a href="/contact.html" class="alert-link">Message</a> me to request a copy of my full CV.
 </div>
-
 
 <div class="alert alert-warning pt-3 pb-2 text-center">
-  Feel free to organise an <a href="/contact.html#organise-introductionary-call" class="alert-link">introductionary call </a> with me to discuss your requirements.
+  <a href="/contact.html" class="alert-link">Contact</a> me to discuss your requirements or connect on <a href="https://www.linkedin.com/in/dmitryrastorguev/" class="alert-link">LinkedIn</a>.
 </div>
+<br/>
