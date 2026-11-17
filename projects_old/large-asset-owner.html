@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.6.43">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="I have extensive experience of working with teams in large software enterprises / financial institutions and small idea stage startups.">
+<meta name="description" content="Analysis of portfolio managers’ historic performance for a large asset owner, using machine learning to detect return anomalies and style drift.">
 
-<title>Consulting – Dmitry Rastorguev</title>
+<title>Large asset owner - portfolio manager performance analysis – Dmitry Rastorguev</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,20 +24,20 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/cookie-consent/cookie-consent.js"></script>
-<link href="site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-d4d76bf8491c20bad77d141916dc28e1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-6685f57f7611d95a701d58b4cc6878c0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/cookie-consent/cookie-consent.js"></script>
+<link href="../site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-d4d76bf8491c20bad77d141916dc28e1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-99e4fdaabaa8229d1f3a8c24b1dbb7ad.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -53,15 +53,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-KGHL346XM6"></script>
-
-<script type="text/plain" cookie-consent="tracking">
-
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-KGHL346XM6', { 'anonymize_ip': true});
-</script>
 
 <script type="text/javascript" charset="UTF-8">
 document.addEventListener('DOMContentLoaded', function () {
@@ -75,34 +66,48 @@ cookieconsent.run({
   "preferences_center_close_button_hide":false,
   "website_name":""
   ,
-"language":"en"
+"language":"en-GB"
   });
 });
 </script> 
   
+<meta name="author" content="Dmitry Rastorguev">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Dmitry Rastorguev",
+  "url": "https://rastorguev.co.uk/",
+  "jobTitle": "Quantitative Analyst and Data Scientist",
+  "description": "Quantitative analyst and data scientist applying data science to financial risk, capital markets and fintech.",
+  "sameAs": ["https://www.linkedin.com/in/dmitryrastorguev/"],
+  "homeLocation": {"@type": "Place", "name": "London, UK"},
+  "knowsAbout": ["Quantitative finance", "Credit risk", "Financial data science", "Fixed income", "Monte Carlo simulation", "Python"]
+}
+</script>
 
 
-<link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="Consulting – Dmitry Rastorguev">
-<meta property="og:description" content="">
+<link rel="stylesheet" href="../styles.css">
+<meta property="og:title" content="Large asset owner - portfolio manager performance analysis – Dmitry Rastorguev">
+<meta property="og:description" content="Quantitative analyst and data scientist in London applying data science to financial risk, capital markets and fintech.">
 <meta property="og:image" content="https://rastorguev.co.uk//static/website_image.jpg">
 <meta property="og:site_name" content="Dmitry Rastorguev">
 <meta property="og:locale" content="en_GB">
-<meta name="twitter:title" content="Consulting – Dmitry Rastorguev">
-<meta name="twitter:description" content="">
+<meta name="twitter:title" content="Large asset owner - portfolio manager performance analysis – Dmitry Rastorguev">
+<meta name="twitter:description" content="Quantitative analyst and data scientist in London applying data science to financial risk, capital markets and fintech.">
 <meta name="twitter:image" content="https://rastorguev.co.uk//static/website_image.jpg">
 <meta name="twitter:creator" content="@dsrastorguev">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-sidebar docked nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Dmitry Rastorguev</span>
     </a>
   </div>
@@ -110,50 +115,28 @@ cookieconsent.run({
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./consulting.html" aria-current="page"> 
-<span class="menu-text">Consulting</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./projects.html"> 
+    <a class="nav-link active" href="../projects.html" aria-current="page"> 
 <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./research.html"> 
-<span class="menu-text">Research</span></a>
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
-<span class="menu-text">CV</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./contact.html"> 
+    <a class="nav-link" href="../contact.html"> 
 <span class="menu-text">Contact</span></a>
   </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/dmitryrastorguev/"> <i class="bi bi-linkedin" role="img">
-</i> 
-<span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/drastorguev"> <i class="bi bi-github" role="img">
-</i> 
-<span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://mobile.twitter.com/dsrastorguev"> <i class="bi bi-twitter" role="img">
-</i> 
-<span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://medium.com/@dmitryrastorguev"> <i class="bi bi-medium" role="img">
-</i> 
-<span class="menu-text"></span></a>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://www.linkedin.com/in/dmitryrastorguev/"> 
+<span class="menu-text">Connect on <i class="bi bi-linkedin" role="img"></i></span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -161,10 +144,120 @@ cookieconsent.run({
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Large asset owner - portfolio manager performance analysis</li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../projects.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Capital Markets</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../projects/large-asset-owner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Large asset owner</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../projects/short-only-hedge-fund.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Short-only hedge fund</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../projects/ai-venture-fund.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">AI venture fund</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../projects/ai-sales-trading.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">AI sales trading</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Financial Services</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../projects/challenger-bank.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Challenger bank</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../projects/bnpl-fintech-lender.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">BNPL fintech lender</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../projects/cross-border-money-transfers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Cross-border transfers</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Private Credit</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../projects/abf-surveillance-framework.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ABF surveillance framework</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../projects/insurance-abf-data-operations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Insurance ABF data operations</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     
 <!-- main -->
@@ -172,7 +265,7 @@ cookieconsent.run({
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Consulting</h1>
+<h1 class="title">Large asset owner - portfolio manager performance analysis</h1>
 </div>
 
 
@@ -189,150 +282,27 @@ cookieconsent.run({
 </header>
 
 
-<p>I have extensive experience of working with teams in large software enterprises / financial institutions and small idea stage startups. These range from SaaS, payments, fintech companies to investment banks, asset managers, hedge funds and private equity, covering all major asset clases (apart from crypto).</p>
-<p>Here are some of the assignments I have successfully completed for different teams in the financial space:</p>
-<section id="capital-markets" class="level3">
-<h3 class="anchored" data-anchor-id="capital-markets">Capital Markets</h3>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<div id="headingTwo" class="accordion-header">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-<strong>Large asset owner</strong>
-</button>
-</div>
-<div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionExample" style="">
-<div class="accordion-body">
+<!-- Generated from projects/projects_items.yml by projects/build_projects.js. Edit the data or template, not this file. -->
+<p>Quantitative review of portfolio managers’ historic performance across several asset classes, carried out for a large asset owner.</p>
 <ul>
-<li>
-Analysis of portfolio managers’ historic performance for a number of asset classes.
-</li>
-<li>
-Identification of return anomalies and style drifts, using machine learning classification algorithms.
-</li>
+<li>Analysis of portfolio managers’ historic performance for a number of asset classes.</li>
+<li>Identification of return anomalies and style drifts, using machine learning classification algorithms.</li>
 </ul>
-</div>
-</div>
-</div>
-<div class="accordion-item">
-<div id="headingThree" class="accordion-header">
-<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-<strong>Short only hedge fund</strong>
-</button>
-</div>
-<div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample" style="">
-<div class="accordion-body">
-<ul>
-<li>
-Analysis of news articles on the internet, classification and aggregation of adverse news stories for further detailed analysis by fund’s analysts.
-</li>
-<li>
-Extraction of information in the text and subsequent visualisation of related articles, as a knowledge graph.
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="accordion-item">
-<div id="headingFour" class="accordion-header">
-<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-<strong>Venture capital fund for AI startups</strong>
-</button>
-</div>
-<div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample" style="">
-<div class="accordion-body">
-<ul>
-<li>
-<a href="https://emil.aiseed.vc" target="_blank">European Machine Intelligence Landscape</a> data analytics project on the funding statistics for AI first startups in Europe.
-</li>
-<li>
-Data scraping of startup funding information from various online sources.
-</li>
-<li>
-Data processing and storage in Google Sheets to enable manual editing by non-technical maintainers.
-</li>
-<li>
-Data analytics and subsequent interactive visualisation of overall market trends using D3.js.
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="financial-services" class="level3">
-<h3 class="anchored" data-anchor-id="financial-services">Financial Services</h3>
-<div id="accordionExampleF" class="accordion">
-<div class="accordion-item">
-<div id="headingThreeF" class="accordion-header m-0">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#headingThreeF" aria-expanded="true" aria-controls="collapseThreeF">
-<strong>Challenger Bank</strong>
-</button>
-</div>
-<div id="collapseThreeF" class="accordion-collapse collapse show" aria-labelledby="headingThreeF" data-bs-parent="#accordionExampleF" style="">
-<div class="accordion-body">
-<ul>
-<li>
-Development of an internal full stack financial analytics software applications.
-</li>
-<li>
-Introduction of frameworks and tooling to support future development of analytical web applications on on-prem Windows Servers infrastructure.
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="accordion-item">
-<div id="headingOneF" class="accordion-header m-0">
-<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOneF" aria-expanded="false" aria-controls="collapseOneF">
-<strong>BNPL fintech lender</strong>
-</button>
-</div>
-<div id="collapseOneF" class="accordion-collapse collapse" aria-labelledby="headingOneF" data-bs-parent="#accordionExampleF" style="">
-<div class="accordion-body">
-<ul>
-<li>
-Development of the credit lending strategy for new BNPL proposition among fintech’s existing customer base.
-</li>
-<li>
-Quantitification of portfolio risks and customer segmentation, using existing customers’ historic purchasing data and app usage behaviour.
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="accordion-item">
-<div id="headingTwoF" class="accordion-header">
-<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwoF" aria-expanded="false" aria-controls="collapseTwoF">
-<strong>Crossborder money transfers</strong>
-</button>
-</div>
-<div id="collapseTwoF" class="accordion-collapse collapse" aria-labelledby="headingTwoF" data-bs-parent="#accordionExampleF" style="">
-<div class="accordion-body">
-<ul>
-<li>
-Modelling and forecasting total user activity and its impact on revenue / costs.
-</li>
-<li>
-Breakdown of usage into a number of metrics/KPIs to enable better business optimisation and monitoring.
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<br>
+<p><br></p>
 <div class="alert alert-primary pt-3 pb-2 text-center">
-<p>My day rate starts from <strong>£800</strong> (outside IR35 or equivalent) - depending on the quantum / type of work.</p>
+<p>Benefit from my knowledge and experiences through <a href="../projects.html" class="alert-link">contracting / consulting services</a>.</p>
 </div>
 <div class="alert alert-success pt-3 pb-2 text-center">
-<p>I can guarantee a quick turnaround and high quality of work exceeding your expectations.</p>
+<p>Learn about my <a href="../about.html" class="alert-link">professional experiences and educational background</a>.</p>
 </div>
 <div class="alert alert-warning pt-3 pb-2 text-center">
-<p>Feel free to organise an <a href="./contact.html#organise-introductionary-call" class="alert-link">introductionary call </a> with me to discuss your requirements.</p>
+<p><a href="../contact.html" class="alert-link">Contact</a> me to discuss your requirements or connect on <a href="https://www.linkedin.com/in/dmitryrastorguev/" class="alert-link">LinkedIn</a>.</p>
 </div>
+<p class="seo-keywords" hidden="" aria-hidden="true">
+asset owner performance analytics, portfolio manager evaluation, return anomaly detection, style drift analysis, machine learning classification finance, multi-asset class performance, investment manager due diligence, institutional investor analytics, benchmark deviation analysis, historic returns analysis, manager selection analytics, investment governance data, Python investment analytics, fund performance attribution, quantitative portfolio review, Dmitry Rastorguev
+</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -756,7 +726,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>Copyright 2026, Dmitry Rastorguev - Built using <a href="https://quarto.org/docs/websites/">Quarto</a></p>
+<p>Copyright 2026, Dmitry Rastorguev</p>
 </div>   
     <div class="nav-footer-center">
 
