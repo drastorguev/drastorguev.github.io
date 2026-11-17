@@ -7,6 +7,10 @@ project:
     - "*.qmd"
     - "projects/*.qmd"
     - "!posts/"
+    - "!projects_old/"
+    - "!projects_old/**"
+
+
   resources:
     - CNAME
     - .nojekyll
