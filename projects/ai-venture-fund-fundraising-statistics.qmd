@@ -1,0 +1,67 @@
+---
+title: "Venture capital fund for AI startups - European AI funding landscape"
+description-meta: "European AI startup funding data for a venture fund: automated collection, standard stage and sector definitions and interactive D3.js funding charts."
+sidebar: projects-sidebar
+---
+
+<!-- Generated from projects_utils/projects_items.yml by projects_utils/build_projects.js. Edit the data or template, not this file. -->
+
+### Project statement
+
+A venture fund investing in AI wants a clear view of where European AI startups are being funded, at what stage and by whom. That information is spread across press releases, databases and filings, and is hard to compare.
+
+### Requirements
+
+- Funding data for European AI startups collected in one place.
+- Consistent stage, sector and country definitions.
+- Trends visible over time and by country.
+- A dataset that non-technical team members can update and correct.
+
+### Approach
+
+I would start with a simple, transparent data model, because the fund's team needs to correct and extend the data without developer help.
+
+1. **Collection:** Funding announcements are gathered from public sources and structured into one record per round.
+1. **Standardisation:** Stage, sector and country are mapped to fixed definitions, with unmatched entries reviewed by hand.
+1. **Analysis:** Interactive views show funding volume, round size and stage mix over time.
+
+**Trade-off:** A spreadsheet-based store over a full database, so non-technical team members can maintain it directly, at the cost of scale.
+
+### Implementation
+
+- **Scraping:** Scrapy or requests with BeautifulSoup collect funding announcements from public sources, and Playwright handles pages that need JavaScript. Each run is logged with Python's logging module and scheduled through cron or GitHub Actions.
+- **Standardisation:** rapidfuzz matches company and investor names across sources, and a sentence-transformers model suggests sector labels that a reviewer confirms. Pydantic models hold the allowed stage, sector and country values, so the definitions are enforced in code as well as in the sheet.
+- **Google Sheets store:** gspread and gspread-dataframe read and write the Google Sheets store, which is the single source of data. Validation rules check required fields before each write, and rejected rows go to a review tab for a person to correct.
+- **Visualisation:** Interactive D3.js charts of funding trends, stage mix and geography, published as a web page. A pandas export script converts the sheet into JSON for the charts, and Plotly is used for quick exploratory views during analysis.
+
+### Indicative Roadmap
+
+| Phase | Timing | Deliverable |
+|---|---|---|
+| Scope and definitions | Weeks 1–2 | Agreed stage, sector and country definitions |
+| Collection and store | Weeks 3–5 | Automated collection feeding the Google Sheets store |
+| Visualisation | Weeks 6–8 | Interactive funding views |
+| Maintenance handover | Weeks 9–10 | Data process documented for the analyst team |
+
+### Measures of success
+
+- The dataset covers the agreed period and geography, with known gaps listed.
+- Analysts can add or correct a funding round without developer help.
+- Trend views update from the store each time the data changes.
+
+<br/>
+<hr/>
+
+<div class="alert alert-primary pt-3 pb-2 text-center">
+  My day rate varies depending on the scope of work and engagement type.
+</div>
+
+<div class="alert alert-success pt-3 pb-2 text-center">
+  I can guarantee a quick turnaround and high quality of work exceeding your expectations.
+</div>
+
+<div class="alert alert-warning pt-3 pb-2 text-center">
+  <a href="/contact.html" class="alert-link">Contact</a> me to discuss your requirements or connect on <a href="https://www.linkedin.com/in/dmitryrastorguev/" class="alert-link">LinkedIn</a>.
+</div>
+
+<p class="seo-keywords" hidden aria-hidden="true">AI startup funding Europe, venture capital market analytics, European Machine Intelligence Landscape, startup funding statistics, web scraping funding data, Google Sheets data pipeline, D3.js interactive visualisation, AI investment trends Europe, venture deal flow analysis, market mapping of startups, funding round data, non-technical data maintenance, investor data visualisation, emerging technology investing, Dmitry Rastorguev</p>

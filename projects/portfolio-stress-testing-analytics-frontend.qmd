@@ -1,0 +1,73 @@
+---
+title: "Portfolio Stress Testing - Investment Analytics Front-End Application"
+description-meta: "React and TypeScript front end for stress testing investment portfolios, with interactive charts, data grids, scenario comparison and audit trail."
+sidebar: projects-sidebar
+---
+
+<!-- Generated from projects_utils/projects_items.yml by projects_utils/build_projects.js. Edit the data or template, not this file. -->
+
+### Project statement
+
+An investment organisation is building a new analytics application so its investment professionals can explore portfolio risk, compare performance, investigate exceptions and model scenarios. Today these questions are answered across spreadsheets and separate reports, which slows review and makes results hard to audit.
+
+### Requirements
+
+- A responsive application for exploring portfolio risk, comparing performance and investigating exceptions.
+- Scenario analysis that lets users model different market and portfolio assumptions and compare the results.
+- Interactive charts, high-volume data grids, filtering and drill-down from portfolio to position level.
+- Secure access with role-based permissions, and auditable records of the workflows users complete.
+- Data and calculations from Snowflake, APIs and calculation services, with automated tests and CI/CD in place.
+
+### Approach
+
+I would design the application around the journeys investment professionals follow, then build each journey on one shared set of data contracts and components.
+
+1. **User journeys first:** Portfolio review, performance comparison, exception review and scenario analysis are mapped as user stories with investment users, and each one is prototyped before it is built.
+1. **Shared components and data contracts:** A typed React and TypeScript component library for charts, grids and filters, with the API and Snowflake data shapes defined once and reused across every journey.
+1. **Trust and auditability:** Role-based access, secure handling of sensitive data, and an audit trail for every exception decision and scenario run.
+
+**Trade-off:** Journey-led delivery over a broad feature set. Fewer screens launch first, but each one is tested with users and built on shared components, so later journeys are faster and more consistent.
+
+### Implementation
+
+- **React and TypeScript application:** React with TypeScript for the application shell and routing, with TanStack Query for server data and Zustand for interface state. Components are documented in Storybook, and ESLint, Prettier and strict TypeScript settings keep the codebase consistent.
+- **Interactive charts and grids:** AG Grid for high-volume position and exception tables, with server-side row models so large portfolios stay responsive. Highcharts or Plotly.js for risk and performance charts, and D3 where a custom visual is needed. Filters and drill-downs pass the same parameters to the API, so every view can be reproduced.
+- **Python services and calculation APIs:** FastAPI services expose portfolio, scenario and exception endpoints, with Pydantic models generating the contract through OpenAPI. openapi-typescript then produces the TypeScript types, so the front end and API share one definition. Calculations use pandas, Polars and NumPy, with SciPy and statsmodels for risk measures, and QuantLib where portfolios need pricing.
+- **Snowflake data access:** Queries run from the service layer through snowflake-connector-python, Snowpark or snowflake-sqlalchemy, never from the browser. Queries are parameterised, paged and aggregated on the server, so users see only the rows their role allows.
+- **Prototyping with Streamlit:** Streamlit prototypes let investment users test scenario logic and metrics early, before the React screens are built. The prototypes call the same FastAPI endpoints, so feedback carries straight into the production build.
+- **Security and access control:** OAuth2 and OpenID Connect sign-in through an identity provider, with Authlib in FastAPI. Role-based permissions are checked in API dependencies and on every query. Sensitive fields are masked in the browser, and access decisions are written to the audit log.
+- **Automated testing and delivery:** Jest and React Testing Library for components, Playwright for end-to-end journeys, and pytest with Hypothesis for the Python services and risk calculations. CI/CD runs every suite on each change, and code review is required before merge.
+
+### Indicative Roadmap
+
+| Phase | Timing | Deliverable |
+|---|---|---|
+| Discovery and user journeys | Weeks 1–3 | Confirmed journeys, user stories and data sources |
+| Design and prototypes | Weeks 3–5 | Clickable prototypes tested with investment users, and API contracts agreed |
+| Core application | Weeks 5–10 | Portfolio review, performance comparison and exception review built and tested |
+| Scenario analysis and hardening | Weeks 10–14 | Scenario modelling, access control, audit trail and accessibility checks |
+| Release and handover | Weeks 14–16 | Production release through CI/CD, with documentation and user training |
+
+### Measures of success
+
+- Investment users complete portfolio review, comparison and exception journeys without support.
+- Every exception decision and scenario run is recorded in the audit trail.
+- Automated tests run in CI on every change, and releases pass the end-to-end journeys.
+- Grids stay responsive on full portfolio datasets, and users can explain the results they see.
+
+<br/>
+<hr/>
+
+<div class="alert alert-primary pt-3 pb-2 text-center">
+  My day rate varies depending on the scope of work and engagement type.
+</div>
+
+<div class="alert alert-success pt-3 pb-2 text-center">
+  I can guarantee a quick turnaround and high quality of work exceeding your expectations.
+</div>
+
+<div class="alert alert-warning pt-3 pb-2 text-center">
+  <a href="/contact.html" class="alert-link">Contact</a> me to discuss your requirements or connect on <a href="https://www.linkedin.com/in/dmitryrastorguev/" class="alert-link">LinkedIn</a>.
+</div>
+
+<p class="seo-keywords" hidden aria-hidden="true">portfolio stress testing dashboard, investment analytics front end, React TypeScript financial application, scenario analysis user interface, portfolio risk visualisation, AG Grid financial data tables, Highcharts portfolio charts, Snowflake data application front end, Streamlit investment dashboard, investment exception review workflow, role-based access financial application, interactive portfolio drill-down, investment performance comparison tool, auditable investment workflows, Dmitry Rastorguev</p>

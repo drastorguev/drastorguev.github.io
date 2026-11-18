@@ -4,7 +4,7 @@ description-meta: <%- JSON.stringify(item.meta_description) %>
 sidebar: projects-sidebar
 ---
 
-<!-- Generated from projects/projects_items.yml by projects/build_projects.js. Edit the data or template, not this file. -->
+<!-- Generated from projects_utils/projects_items.yml by projects_utils/build_projects.js. Edit the data or template, not this file. -->
 
 ### Project statement
 
@@ -44,10 +44,6 @@ sidebar: projects-sidebar
 
 <% for (const m of item.measures_of_success) { -%>
 - <%- m %>
-<% } -%>
-
-<% if (item.href) { -%>
-<a target="_blank" rel="noopener" href="<%- item.href %>" class="btn btn-outline-primary btn-sm"><%- item.href_name %></a>
 <% } -%>
 
 <br/>

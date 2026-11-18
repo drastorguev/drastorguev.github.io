@@ -2,7 +2,7 @@ lang: en-GB
 
 project:
   type: website
-  pre-render: node projects/build_projects.js
+  pre-render: node projects_utils/build_projects.js
   render:
     - "*.qmd"
     - "projects/*.qmd"
@@ -18,7 +18,6 @@ website:
   search: false
   navbar:
     background: primary
-    # Menu items are centred by styles.css; LinkedIn sits on the right as a pill button.
     left:
       - text: "Home"
         file: index.qmd
@@ -26,8 +25,6 @@ website:
         file: projects.qmd
       - text: "About"
         file: about.qmd
-      # - text: "Blog"
-      #   file: blog.qmd
       - text: "Contact"
         file: contact.qmd
     right:
@@ -52,29 +49,37 @@ website:
               file: projects/bnpl-lender-credit-strategy-customer-segmentation.qmd
             - text: "Cross-border Money Transfers - User Activity Forecasting"
               file: projects/cross-border-money-transfers-user-activity.qmd
+            - text: "Payments Platform - Merchant Churn and Payment Failure Analysis"
+              file: projects/payments-platform-merchant-churn-payment-failures.qmd
         - section: "Sales & Trading"
           contents:
-            - text: "AI Sales Trading Recommendation Engine"
-              file: projects/ai-sales-trading-recommendation-engine.qmd
+            - text: "Sales Desk AI Trade Recommendation Engine"
+              file: projects/sales-desk-ai-trade-recommendation-engine.qmd
         - section: "Investment Management"
           contents:
-            - text: "Large Asset Owner - Portfolio Management Performance Analysis"
+            - text: "Large Asset Owner - Portfolio Manager Performance Analysis"
               file: projects/large-asset-owner-portfolio-manager-performance-analysis.qmd
             - text: "Short-only Hedge Fund - Adverse News Monitoring"
               file: projects/short-only-hedge-fund-adverse-news-monitoring.qmd
-            - text: "AI Venture Fund - Fundraising Statistics"
-              file: projects/ai-venture-fund-fundraising-statistics.qmd
-        - section: "Private Credit"
+            - text: "Portfolio Stress Testing - Front-End Dashboard"
+              file: projects/portfolio-stress-testing-analytics-frontend.qmd
+        - section: "Private Markets"
           contents:
             - text: "ABF surveillance framework"
               file: projects/abf-surveillance-framework.qmd
             - text: "Insurance ABF data operations"
               file: projects/insurance-abf-data-operations.qmd
-        
+            - text: "AI Venture Fund - Fundraising Statistics"
+              file: projects/ai-venture-fund-fundraising-statistics.qmd
+            - text: "Investment Data Platform - Databricks Migration and Reconciliation"
+              file: projects/investment-data-platform-databricks-migration.qmd
+            - text: "Investment Operations Applications - Python Tools, Document Parsing and AI"
+              file: projects/investment-operations-python-applications-ai.qmd
+            - text: "Secondaries Valuation - Fund Cash Flow and Exit Modelling"
+              file: projects/private-capital-secondaries-valuation-cash-flow-model.qmd
     # END generated: projects-sidebar
   page-footer:
     left: "Copyright 2026, Dmitry Rastorguev"
-  # google-analytics: "G-KGHL346XM6"
   cookie-consent:
     palette: dark
     type: express
@@ -92,7 +97,7 @@ format:
     theme: cosmo
     css: styles.css
     grid:
-      sidebar-width: 280px   # Default is 250px
+      sidebar-width: 280px
     include-in-header:
       - text: |
           <meta name="author" content="Dmitry Rastorguev">

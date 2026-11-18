@@ -6,7 +6,29 @@ sidebar: projects-sidebar
 
 I work mainly in financial analytics space, on projects of varying complexity. I have pitched to teams at large software enterprises, investment banks, asset managers, hedge funds and private equity firms, as well as small early-stage startups. Clients have ranged from SaaS and payments companies to institutions across all major asset classes.
 
-Each page in the **Projects** menu on the left is a project proposal. It sets out the problem, my approach and my plan for delivery. Some I won and some I lost. Use the **Projects** menu on the left to explore them.
+Each page in the **Projects** menu on the left is a project proposal. It sets out the problem, my approach and my plan for delivery, which I created.
+
+<!-- BEGIN generated: projects-nav -->
+- **Banking**
+  - [Challenger Bank - Financial Analytics Applications](projects/challenger-bank-financial-analytics-apps.qmd)
+- **Fintech**
+  - [BNPL Lender - Credit Strategy and Customer Segmentation](projects/bnpl-lender-credit-strategy-customer-segmentation.qmd)
+  - [Cross-border Money Transfers - User Activity Forecasting](projects/cross-border-money-transfers-user-activity.qmd)
+  - [Payments Platform - Merchant Churn and Payment Failure Analysis](projects/payments-platform-merchant-churn-payment-failures.qmd)
+- **Sales & Trading**
+  - [Sales Desk AI Trade Recommendation Engine](projects/sales-desk-ai-trade-recommendation-engine.qmd)
+- **Investment Management**
+  - [Large Asset Owner - Portfolio Manager Performance Analysis](projects/large-asset-owner-portfolio-manager-performance-analysis.qmd)
+  - [Short-only Hedge Fund - Adverse News Monitoring](projects/short-only-hedge-fund-adverse-news-monitoring.qmd)
+  - [Portfolio Stress Testing - Front-End Dashboard](projects/portfolio-stress-testing-analytics-frontend.qmd)
+- **Private Markets**
+  - [ABF surveillance framework](projects/abf-surveillance-framework.qmd)
+  - [Insurance ABF data operations](projects/insurance-abf-data-operations.qmd)
+  - [AI Venture Fund - Fundraising Statistics](projects/ai-venture-fund-fundraising-statistics.qmd)
+  - [Investment Data Platform - Databricks Migration and Reconciliation](projects/investment-data-platform-databricks-migration.qmd)
+  - [Investment Operations Applications - Python Tools, Document Parsing and AI](projects/investment-operations-python-applications-ai.qmd)
+  - [Secondaries Valuation - Fund Cash Flow and Exit Modelling](projects/private-capital-secondaries-valuation-cash-flow-model.qmd)
+<!-- END generated: projects-nav -->
 
 <br/>
 <hr/>

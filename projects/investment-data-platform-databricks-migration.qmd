@@ -1,0 +1,71 @@
+---
+title: "Investment Data Platform - Databricks Migration, Pipelines and Reconciliation"
+description-meta: "Databricks migration and data pipelines for an investment platform: PySpark and SQL transformations, multi-source integration and reconciliation checks."
+sidebar: projects-sidebar
+---
+
+<!-- Generated from projects_utils/projects_items.yml by projects_utils/build_projects.js. Edit the data or template, not this file. -->
+
+### Project statement
+
+An investment business is part-way through migrating its internal data estate onto Databricks. The migration needs to be finished, the pipelines need to be reliable, and data from several sources needs to reconcile before the platform can be used widely across the business.
+
+### Requirements
+
+- Complete the ongoing Databricks migration so the platform is ready for wider internal use.
+- Pipelines that ingest and process data from several sources, built in Python, PySpark and SQL.
+- Reconciliation, validation and data quality checks so figures agree across systems.
+- A clear understanding of the existing architecture, with handover materials reviewed and open technical issues resolved.
+- Close working with stakeholders to turn their data requirements into practical solutions.
+
+### Approach
+
+I would take ownership of the environment first, understand what has been built, then finish the migration in order of business risk.
+
+1. **Understand before changing:** Architecture diagrams, technical documentation and handover notes are reviewed, and each open deliverable is listed with its owner, status and risk.
+1. **Pipelines in layers:** Raw, cleaned and curated layers in Delta Lake, with each source ingested, validated and transformed by tested PySpark code.
+1. **Reconciliation as a routine:** Reconciliations between systems are automated and reported, so breaks are found when they occur rather than at month end.
+
+**Trade-off:** Stabilising the existing estate before adding new sources. New data arrives more slowly, but each migrated pipeline can be trusted and reconciled.
+
+### Implementation
+
+- **PySpark pipelines:** PySpark DataFrame transformations with explicit schemas and modular functions. Unit tests run with pytest and chispa, so each transformation is checked against expected output before it runs in production. Jobs are packaged with Poetry or uv and deployed as Databricks Jobs.
+- **Delta Lake storage and orchestration:** Delta Lake tables for the raw, cleaned and curated layers, with schema enforcement, time travel for audit queries and MERGE for incremental loads. Pipelines are scheduled with Databricks Workflows, and Delta Live Tables is considered where declarative pipelines reduce maintenance. The delta-spark package is used for local testing.
+- **Multi-source ingestion:** Connectors built with PySpark and pandas for files, relational databases and REST APIs. Database sources are read through JDBC or Databricks connectors, and API sources use requests with retries. Watermarks make incremental loads repeatable after a failure.
+- **Data quality and reconciliation:** Great Expectations or Pandera checks run on every load for completeness, uniqueness and value ranges. Reconciliations compare control totals and record counts between systems, with breaks written to a Delta table and shown on a dashboard.
+- **SQL transformations and investigation:** Advanced Spark SQL for transformations, validation queries and data investigation, with reusable SQL held in version control. Complex logic is checked by comparing SQL and PySpark outputs on the same sample.
+- **Documentation and handover:** Pipeline runbooks, data dictionaries and architecture notes are kept in the repository beside the code, and MkDocs builds the documentation site. Each pipeline has an owner, a schedule and an escalation route.
+
+### Indicative Roadmap
+
+| Phase | Timing | Deliverable |
+|---|---|---|
+| Environment review | Month 1 | Architecture review, with open deliverables listed by owner and risk |
+| Migration completion | Months 1–3 | Remaining migration workloads on the platform, with reconciliations running |
+| Pipelines and sources | Months 3–6 | Multi-source pipelines live, with data quality checks and runbooks |
+| Platform ready | Month 6 | Platform signed off for wider internal use, with handover complete |
+
+### Measures of success
+
+- The migration is complete, and each workload runs on the platform on schedule.
+- Source data reconciles to agreed tolerances, and every break has an owner and a status.
+- Pipelines are covered by automated tests and documented in runbooks.
+- The platform is ready for wider internal use at the end of the first phase.
+
+<br/>
+<hr/>
+
+<div class="alert alert-primary pt-3 pb-2 text-center">
+  My day rate varies depending on the scope of work and engagement type.
+</div>
+
+<div class="alert alert-success pt-3 pb-2 text-center">
+  I can guarantee a quick turnaround and high quality of work exceeding your expectations.
+</div>
+
+<div class="alert alert-warning pt-3 pb-2 text-center">
+  <a href="/contact.html" class="alert-link">Contact</a> me to discuss your requirements or connect on <a href="https://www.linkedin.com/in/dmitryrastorguev/" class="alert-link">LinkedIn</a>.
+</div>
+
+<p class="seo-keywords" hidden aria-hidden="true">Databricks migration, Databricks data engineering, PySpark data pipelines, investment data platform, data reconciliation automation, multi-source data integration, Delta Lake pipelines, data quality checks PySpark, Databricks engineering consultant, investment data engineering, SQL data validation, Python data transformation, platform migration delivery, data pipeline handover, Dmitry Rastorguev</p>

@@ -1,0 +1,1008 @@
+# One entry per project page. Generated pages and the sidebar are built from this file
+# by build_projects.js. Required fields are checked before anything is written.
+# Entries must be grouped by category. The sidebar follows the order of this file.
+
+- slug: challenger-bank-financial-analytics-apps
+  nav_title: Challenger Bank - Financial Analytics Applications
+  category: Banking
+  name: Challenger Bank - Financial Analytics Applications
+  meta_description: "Internal financial analytics web applications and a reusable framework for a challenger bank, deployed on on-premise Windows Server with audit-ready controls."
+  keywords:
+  - challenger bank analytics
+  - internal financial analytics software
+  - full-stack web application development
+  - on-premise Windows Server applications
+  - Python web framework for analytics
+  - banking technology development
+  - internal financial dashboards
+  - bank data platform build
+  - regulated financial software
+  - financial services web apps
+  - in-house analytics tools
+  - analytics application development
+  - bank finance and risk tooling
+  - audit trail for financial applications
+  - Dmitry Rastorguev
+  project_statement: A challenger bank needs internal analytics applications for its finance and risk teams, built on its own on-premise infrastructure. Analysts currently rely on spreadsheets that are hard to control and slow to change.
+  requirements:
+  - Internal web applications for financial analysis, running on on-premise Windows Server.
+  - A repeatable way to build and maintain future analytical tools.
+  - Controls and an audit trail suitable for a regulated bank.
+  - Tools analysts can use and maintain after handover, without developer help.
+  approach:
+    intro: I would introduce a standard framework and toolset first, so each new application follows the same pattern for security, deployment and testing.
+    parts:
+    - title: Platform
+      text: A shared framework for web application structure, authentication and deployment on the existing Windows Server estate.
+    - title: First application
+      text: One high-value analytics application built on the framework, to prove the pattern and gather feedback.
+    - title: Controls
+      text: Logging, role-based access and versioned data inputs, so results can be traced in an audit.
+    trade_off: Standardisation before speed. The first application takes longer, but each later one is cheaper and safer to build.
+  implementation:
+  - title: Full-stack application framework
+    text: "Python web framework, either Django or Flask, for routing, templates and forms. Django's built-in admin and authentication suit internal tools, and Pydantic validates configuration and request data. Shared layouts and components keep every application consistent."
+  - title: Analytics and calculations
+    text: "pandas or Polars for financial calculations, NumPy for numerical work and SQLAlchemy for database access. Calculation modules are shared across applications and covered by pytest tests, so figures shown to users can be reproduced from the test suite."
+  - title: Data layer
+    text: "Controlled access to internal sources through SQLAlchemy with pyodbc for SQL Server, using parameterised queries throughout. Pandera or Pydantic schemas validate every input, Alembic manages database migrations, and a version history records who changed each value and when."
+  - title: Deployment
+    text: "Applications hosted on IIS with wfastcgi, or served by Waitress as a WSGI server, on the existing Windows Server estate. Settings are separated per environment, and test and production builds follow the same documented steps. Scheduled jobs run through Windows Task Scheduler or APScheduler."
+  - title: Dashboards and analysis views
+    text: "Plotly Dash or Streamlit for analyst-facing views where a full web application is not needed, with Plotly charts and Excel exports through openpyxl for teams that work in spreadsheets."
+  - title: Access and audit
+    text: "Role-based access mapped to Active Directory groups, using Windows integrated authentication, or the msal library where single sign-on is required. Every user action is written to a structured audit log that feeds the bank's central logging."
+  - title: Documentation
+    text: "Developer guides built with MkDocs or Sphinx, plus short user notes for each application. Documentation lives in the same repository as the code, so it is versioned with each release."
+  roadmap:
+    phases:
+    - phase: Requirements and environment review
+      timing: Weeks 1–2
+      deliverable: Confirmed requirements and infrastructure review
+    - phase: Framework build
+      timing: Weeks 3–6
+      deliverable: Shared framework deployed to the test environment
+    - phase: First application
+      timing: Weeks 7–10
+      deliverable: Analytics application in user testing
+    - phase: Production and handover
+      timing: Weeks 11–12
+      deliverable: Live application and a documented process for future tools
+  measures_of_success:
+  - The first application is in production and used by its target team.
+  - Each later application follows the framework without rework.
+  - Access and changes can be traced in an audit.
+
+- slug: bnpl-lender-credit-strategy-customer-segmentation
+  nav_title: BNPL Lender - Credit Strategy and Customer Segmentation
+  category: Fintech
+  name: BNPL Lender - Credit Strategy and Customer Segmentation
+  meta_description: "Credit strategy and customer segmentation for a buy-now-pay-later lender: segment loss estimates, credit limits and terms from purchase and app-usage data."
+  keywords:
+  - buy now pay later credit strategy
+  - BNPL customer segmentation
+  - instalment lending strategy
+  - BNPL risk segmentation
+  - credit line strategy
+  - consumer credit portfolio risk
+  - expected loss modelling fintech
+  - credit decisioning analytics
+  - behavioural customer segmentation
+  - BNPL product launch analytics
+  - lending proposition design
+  - existing customer credit offers
+  - purchase and app behaviour analytics
+  - fintech credit risk modelling
+  - Dmitry Rastorguev
+  project_statement: A fintech offering buy-now-pay-later credit wants to extend the proposition to its existing customers. The decisions are how much credit to offer, to whom and on what terms, without pushing losses beyond what the business can absorb.
+  requirements:
+  - A credit lending strategy for the new proposition among existing customers.
+  - Customer segments based on purchase and app-usage behaviour.
+  - Portfolio risk quantified under realistic loss assumptions.
+  - A strategy the credit and product teams can apply and monitor.
+  approach:
+    intro: I would segment customers first, then set credit terms for each segment and test each choice against the expected loss it implies.
+    parts:
+    - title: Segmentation
+      text: Customers are grouped by purchase history and app behaviour into segments with distinct repayment patterns.
+    - title: Risk quantification
+      text: Expected losses and their spread are estimated for each segment, using the lender's own historic performance.
+    - title: Strategy design
+      text: Credit limits and terms are set per segment, with a test-and-learn plan to refine them.
+    trade_off: Simple, explainable segment rules over a single predictive score, so the credit team can see and challenge each decision.
+  implementation:
+  - title: Data preparation
+    text: "pandas and Polars join purchase history, repayment records and app-usage events at customer level, with DuckDB for fast SQL over large event logs. Pandera checks schemas and missing values, and join keys are tested for duplicates before any modelling starts."
+  - title: Segmentation analysis
+    text: "scikit-learn KMeans and Gaussian mixture models on purchase and app-engagement features, with HDBSCAN from the hdbscan package to test whether clusters are real. umap-learn helps visualise the segments, and each segment is validated against repayment outcomes, not cluster statistics alone."
+  - title: Loss modelling
+    text: "lifelines fits time-to-default survival curves for each segment, and statsmodels provides logistic regression for default and roll-rate models. NumPy and SciPy run Monte Carlo loss distributions under stressed economic scenarios, and optbinning builds transparent risk bands the credit team can review."
+  - title: Strategy testing
+    text: "SciPy and statsmodels analyse test-and-learn results for credit limits and terms, with pingouin for effect sizes and confidence intervals. Optuna searches limit and term combinations that meet the agreed loss constraints."
+  - title: Monitoring
+    text: "A Plotly Dash or Streamlit dashboard tracks uptake, arrears and losses by segment, refreshed from the data pipeline. Evidently reports flag drift in segment mix and repayment behaviour before it shows up in losses."
+  roadmap:
+    phases:
+    - phase: Data review
+      timing: Weeks 1–2
+      deliverable: Confirmed data sources and customer population
+    - phase: Segmentation
+      timing: Weeks 3–5
+      deliverable: Agreed segments with repayment profiles
+    - phase: Risk and strategy
+      timing: Weeks 6–9
+      deliverable: Loss estimates and credit terms per segment
+    - phase: Pilot and monitoring
+      timing: Weeks 10–12
+      deliverable: Pilot rollout with a monitoring dashboard
+  measures_of_success:
+  - Each segment has a credit policy with an estimated loss range.
+  - The pilot stays within agreed loss limits, reviewed monthly.
+  - The credit team can explain every change to a segment's terms.
+
+- slug: cross-border-money-transfers-user-activity
+  nav_title: Cross-border Money Transfers - User Activity Forecasting
+  category: Fintech
+  name: Cross-border Money Transfers - User Activity Forecasting
+  meta_description: "User activity forecasting for a cross-border money transfer provider, linking transaction forecasts to revenue and cost, with scenarios and KPI breakdowns."
+  keywords:
+  - cross-border payments analytics
+  - money transfer forecasting
+  - user activity forecasting
+  - remittance business analytics
+  - transaction volume forecasting
+  - payments KPI dashboard
+  - revenue and cost forecasting
+  - payments scenario planning
+  - customer activity modelling
+  - payment provider analytics
+  - forecast accuracy monitoring
+  - international transfers data
+  - fintech operating metrics
+  - time series forecasting Python
+  - Dmitry Rastorguev
+  project_statement: A cross-border money transfer provider needs to forecast how many users will transact, and what that means for revenue and costs. Top-line forecasts do not show which customer groups or channels drive the change.
+  requirements:
+  - Forecasts of total user activity over a planning horizon.
+  - Links from activity to revenue and cost.
+  - A breakdown into KPIs the business can act on.
+  - Scenarios for planning and budgeting.
+  approach:
+    intro: I would forecast activity by customer group and channel, then roll the results up to revenue and cost, so the drivers stay visible.
+    parts:
+    - title: Activity forecast
+      text: Transaction counts and values are forecast by customer group and corridor, with trend and seasonality modelled separately.
+    - title: Economics
+      text: Revenue and cost per transaction are applied to the activity forecast to produce financial outcomes.
+    - title: Scenarios
+      text: Base, upside and downside cases show the range of outcomes for planning.
+    trade_off: Driver-based forecasts over a black-box model, so finance can explain each change in the plan.
+  implementation:
+  - title: Data pipelines
+    text: "pandas or Polars aggregate transaction and customer data into daily and monthly series, with SQL transformations in dbt or DuckDB so every figure can be reproduced. Time zones, currency conversion and corridor mapping are handled explicitly, and the holidays package supplies public holiday calendars for each country."
+  - title: Forecasting models
+    text: "Prophet models trend and seasonality with holiday effects, statsmodels provides SARIMA and ETS benchmarks, and LightGBM with lag features handles corridor-level series. statsforecast or sktime run rolling-origin backtests, so each model is judged on periods it did not see during fitting."
+  - title: Economics and scenarios
+    text: "A driver-based layer in pandas applies revenue and cost per transaction to each forecast, with NumPy for sensitivity tables. Base, upside and downside inputs sit in a configuration file, so finance can change assumptions without editing code."
+  - title: KPI breakdown
+    text: "Usage metrics by segment, channel and corridor are computed with pandas groupby, with variance analysis against forecast using a bridge calculation that explains each difference. Plotly charts show the drivers visually."
+  - title: Reporting
+    text: "A monthly pack generated with openpyxl and Jinja2, plus a scenario dashboard in Streamlit or Plotly Dash for finance and operations. Scheduled runs use Airflow, Prefect or cron, depending on the platform already in use."
+  roadmap:
+    phases:
+    - phase: Data and definitions
+      timing: Weeks 1–2
+      deliverable: Agreed KPIs and data sources
+    - phase: Forecast models
+      timing: Weeks 3–5
+      deliverable: Backtested activity forecasts by segment
+    - phase: Economics and scenarios
+      timing: Weeks 6–8
+      deliverable: Revenue and cost outcomes under three scenarios
+    - phase: Reporting handover
+      timing: Weeks 9–10
+      deliverable: Monthly pack and documentation for finance
+  measures_of_success:
+  - Forecast error is measured monthly against actuals and reported.
+  - Revenue and cost outcomes can be traced to activity drivers.
+  - The finance team runs the monthly process without support.
+
+- slug: payments-platform-merchant-churn-payment-failures
+  nav_title: Payments Platform - Merchant Churn and Payment Failure Analysis
+  category: Fintech
+  name: Payments Platform - Merchant Churn and Payment Failure Drivers
+  meta_description: "Merchant churn and payment failure analysis for a payments platform: SQL and dbt models, merchant segments and an ML churn model for relationship managers."
+  keywords:
+  - merchant churn analysis
+  - payment failure analysis
+  - payments platform analytics
+  - merchant attrition modelling
+  - dbt data models
+  - SQL analytics payments
+  - merchant segmentation
+  - commercial performance analytics
+  - churn prediction machine learning
+  - relationship manager early warning
+  - payment decline drivers
+  - acquiring analytics
+  - merchant transaction data analysis
+  - customer behaviour analytics fintech
+  - Dmitry Rastorguev
+  project_statement: A payments platform wants to understand why merchants stop using it and why payments fail, and what to do about both. The data exists, but the drivers are not yet clear, and the findings are not packaged in a form the commercial team can reuse.
+  requirements:
+  - Identify the biggest drivers of merchant churn and payment failure in merchant transaction data.
+  - Show how those drivers differ across merchant segments, such as size, vertical and region.
+  - Reusable dbt models that turn the findings into clean, tested data for the largest merchants.
+  - A churn model that flags merchants likely to stop using the platform, early enough for relationship managers to act.
+  - A delivery team with SQL, hands-on dbt, and experience in customer behaviour, segmentation or commercial performance.
+  approach:
+    intro: I would start with the drivers, because segments and models are only useful once the business knows which factors move churn and payment failure.
+    parts:
+    - title: Driver analysis
+      text: Merchant activity, payment outcomes and decline reasons are analysed in SQL to identify which factors best explain churn and payment failure, and how large each effect is.
+    - title: Segmentation
+      text: Merchants are grouped by volume, vertical and behaviour, so drivers can be compared across segments instead of being averaged away.
+    - title: Reusable data and prediction
+      text: Tested dbt models give the commercial team a merchant health table, and a churn model scores each merchant so relationship managers can act before the merchant leaves.
+    trade_off: Interpretable drivers and segment rules first, then a predictive model. Relationship managers need to know why a merchant is flagged, so the model is explained against the drivers already found.
+  implementation:
+  - title: Data foundation in dbt
+    text: "dbt models on Snowflake, BigQuery or DuckDB for development, organised into staging, intermediate and mart layers for merchants, transactions, payment attempts and decline codes. Tests cover uniqueness, nulls and accepted values, and dbt-expectations adds range checks on rates and amounts."
+  - title: Driver analysis
+    text: "Window functions and cohort queries in SQL, with statsmodels logistic regression to estimate how each factor changes the odds of a failed payment. Failure and decline rates are broken down by card type, issuer, ticket size and acquiring route, with pandas and Plotly giving the commercial team clear comparisons."
+  - title: Time to churn
+    text: "lifelines fits Kaplan-Meier curves and Cox proportional hazards models, showing how quickly merchants stop transacting and which characteristics speed that up. Difference-in-differences tests with linearmodels or DoWhy show whether a product or pricing change caused a shift in churn, rather than just coinciding with it."
+  - title: Segmentation
+    text: "scikit-learn KMeans or Gaussian mixture models on recency, frequency, volume and product-usage features, with HDBSCAN as a check on cluster stability. Each segment is profiled for retention, failure rates and revenue, and kept simple enough for commercial teams to use."
+  - title: Churn model
+    text: "A LightGBM or XGBoost classifier inside a scikit-learn pipeline, validated over time so the model is never tested on data from before its training window. Optuna tunes parameters, MLflow tracks experiments, and CalibratedClassifierCV makes the predicted probabilities reliable enough to rank merchants by risk over 30, 60 and 90-day windows."
+  - title: Explanations for relationship managers
+    text: "SHAP values give the main reasons behind each flag, such as falling volume, rising declines or fewer active products. Each reason is translated into a short talking point the relationship manager can use on the call."
+  - title: Delivery and monitoring
+    text: "Scores and reasons are published as a dbt mart and refreshed on a schedule through Airflow or Dagster. A Streamlit or Plotly Dash view, or a CRM feed, gives relationship managers a weekly list, and Evidently reports track drift and the gap between predicted and realised churn each month."
+  roadmap:
+    phases:
+    - phase: Data review and definitions
+      timing: Weeks 1–2
+      deliverable: Agreed churn and payment failure definitions, data sources and dbt model plan
+    - phase: Driver analysis
+      timing: Weeks 3–5
+      deliverable: Ranked drivers of churn and payment failure, with segment comparisons
+    - phase: dbt models and segmentation
+      timing: Weeks 4–7
+      deliverable: Tested dbt marts for merchant health and segments, reusable by commercial teams
+    - phase: Churn model
+      timing: Weeks 6–9
+      deliverable: Calibrated churn model with explanations for each flagged merchant
+    - phase: Relationship manager handover
+      timing: Weeks 10–12
+      deliverable: Weekly at-risk merchant list in use, with a documented data layer and monitoring
+  measures_of_success:
+  - The top drivers of churn and payment failure are quantified and agreed with the commercial team.
+  - The dbt models pass their tests and are reused by commercial and risk teams.
+  - Relationship managers contact flagged merchants, and each outcome is recorded.
+  - The churn model is calibrated and tracked against realised churn each month.
+
+- slug: sales-desk-ai-trade-recommendation-engine
+  nav_title: Sales Desk AI Trade Recommendation Engine
+  category: Sales & Trading
+  name: 'Sales Desk AI Trade Recommendation Engine'
+  meta_description: "Production AI for a Tier-1 bank's sales trading desk: client behaviour and market signal models that generate explainable trade ideas, validated for rollout."
+  keywords:
+  - AI sales trading
+  - trading desk recommendations
+  - model risk validation
+  - production AI banking
+  - Tier-1 bank AI delivery
+  - AI governance approval
+  - client behaviour modelling
+  - client trade idea generation
+  - drift detection monitoring
+  - Spring Boot integration
+  - capital markets AI consultant
+  - FX AI pipeline
+  - LLM evaluation framework
+  - explainable recommendation engine
+  - Dmitry Rastorguev
+  project_statement: A Tier-1 bank has several AI initiatives underway, but they need engineering capacity to move beyond experimentation and into production. The project combines historical client trading behaviour with market signals to give trading desks actionable recommendations. It is the first of a wider AI programme that will extend to FX and digital sales, so the delivery approach needs to be repeatable as well as effective.
+  requirements:
+  - A working production solution, not a research prototype or proof of concept.
+  - Integration with the bank's existing estate, a largely Java/Spring Boot microservices platform across several data centres, with some Python. The AI must plug into the internal orchestration platform rather than replace it.
+  - Model-risk validation, governance and production approval planned from the start, not added at the end.
+  - Decision support for trading desks. I propose that recommendations inform human decisions, and the system does not execute trades.
+  approach:
+    intro: I would start from the decision the desk needs to make and work back to the data and models required. The solution has three parts.
+    parts:
+    - title: Client behaviour model
+      text: Learns from historical trading activity which clients trade which products, and when. I would start with interpretable baselines and add complexity only where it improves results.
+    - title: Market signal layer
+      text: Ingests market signals and predictions on the same time base as the client data, using point-in-time data to avoid look-ahead bias.
+    - title: Recommendation layer
+      text: Combines both into ranked suggestions, each with a confidence level and the main reasons behind it, served through the orchestration platform.
+    - title: LLM components
+      text: Used only where they add clear value, such as summarising the drivers behind a recommendation for desk users. They are evaluated against a documented test suite and kept outside the core decision path until validated.
+    trade_off: Explainability over marginal accuracy in the first release. A slightly less accurate model that validators can understand will reach production sooner than a more accurate one they cannot explain.
+  implementation:
+  - title: Python services
+    text: "Feature pipelines in pandas and Polars, using point-in-time joins from pandas merge_asof. scikit-learn and LightGBM build the baseline models, implicit or LightFM handle client-product affinity, and the code is packaged with Poetry, tested with pytest and Hypothesis, and versioned in Git."
+  - title: Java/Spring Boot integration
+    text: "The existing Java and Spring Boot platform remains the orchestrator. The Python service exposes REST endpoints through FastAPI, with OpenAPI contracts agreed with the platform team in phase one. It can also consume or publish events through Kafka using confluent-kafka."
+  - title: Market signal layer
+    text: "Market data and predictions are aligned to the same time base with pandas and NumPy, using point-in-time snapshots to prevent look-ahead bias. tsfresh generates time-series features, and statsmodels regressions test whether each signal adds information."
+  - title: Recommendation layer
+    text: "Client and market scores are combined into a ranking, with SHAP values giving the main reasons behind each suggestion. The service runs in FastAPI with Pydantic schemas, so inputs and outputs are typed and documented."
+  - title: Monitoring
+    text: "Evidently and alibi-detect track drift in inputs and outputs, MLflow records model versions and experiments, and Prometheus with Grafana covers service health. An audit trail links every recommendation to the model version that produced it."
+  - title: LLM components
+    text: "Used only to summarise the drivers behind a recommendation in plain language. Outputs are scored with DeepEval or promptfoo against a documented test suite, and each statement is checked against the SHAP drivers to catch unsupported claims."
+  - title: Governance pack
+    text: "Model documentation, data lineage, explainability reports, test evidence and control descriptions, prepared during the build rather than after it. Model documentation is kept in step with MLflow metadata, so the record stays current."
+  - title: Delivery tooling
+    text: "AI-assisted development tools, including Claude, Windsurf and Devin, accelerate coding, with human review and the same test gates applied to every change."
+  roadmap:
+    phases:
+    - phase: Discovery and data access
+      timing: Weeks 1–3
+      deliverable: Confirmed use case, data inventory, integration design and agreed governance route
+    - phase: Model development
+      timing: Weeks 4–8
+      deliverable: Client behaviour and market signal models, with an evaluation report against baselines
+    - phase: Recommendation layer and integration
+      timing: Weeks 8–12
+      deliverable: Service integrated with the orchestration platform and tested end to end
+    - phase: Validation and approval
+      timing: Weeks 10–16
+      deliverable: Model-risk submission, validator findings addressed, approval granted
+    - phase: Production rollout
+      timing: Weeks 16–20
+      deliverable: Live release to a pilot desk, monitoring in place and handover to the run team
+  measures_of_success:
+  - The pilot trading desk uses the recommendations, and that use is tracked.
+  - The model passes validation and receives production approval.
+  - Monitoring is live, with drift alerts and an audit trail for each recommendation.
+  - The delivery pattern is documented and reusable for FX and digital sales.
+
+- slug: large-asset-owner-portfolio-manager-performance-analysis
+  nav_title: Large Asset Owner - Portfolio Manager Performance Analysis
+  category: Investment Management
+  name: Large Asset Owner - Portfolio Manager Performance Analysis
+  meta_description: "Portfolio manager performance analysis for a large asset owner: benchmark-relative returns, ML style classification and return anomaly detection."
+  keywords:
+  - asset owner performance analytics
+  - portfolio manager evaluation
+  - return anomaly detection
+  - style drift analysis
+  - machine learning style classification
+  - multi-asset class performance
+  - investment manager due diligence
+  - institutional investor analytics
+  - benchmark deviation analysis
+  - manager selection analytics
+  - investment governance data
+  - fund performance attribution
+  - quantitative portfolio review
+  - Python investment analytics
+  - Dmitry Rastorguev
+  project_statement: A large asset owner needs to know whether the portfolio managers it employs deliver the returns they claim, and whether they stay within their stated style. Manual review of manager reports is slow and inconsistent across asset classes.
+  requirements:
+  - Historic performance analysis for each manager across several asset classes.
+  - Benchmark-relative measures that allow managers with different mandates to be compared fairly.
+  - Detection of return anomalies and style drift over time.
+  - Results the investment team can review, question and act on.
+  approach:
+    intro: I would separate performance from style, because a manager can look strong simply by taking more risk than its mandate allows.
+    parts:
+    - title: Performance baseline
+      text: Returns are measured against asset-class benchmarks, with risk-adjusted metrics so managers with different mandates can be compared.
+    - title: Style analysis
+      text: Holdings and returns are classified with machine learning to show how each manager's exposures have shifted over time.
+    - title: Anomaly detection
+      text: Unusual return patterns are flagged for review with the supporting evidence attached, rather than treated as conclusions.
+    trade_off: Interpretable style measures over a single headline model, so the investment team can see why a manager was flagged.
+  implementation:
+  - title: Data preparation
+    text: "pandas and Polars align return series, benchmarks and holdings on common dates, with currency and fee adjustments applied consistently. Gaps are flagged rather than silently filled, and Pandera schemas check each feed before analysis starts."
+  - title: Performance baseline
+    text: "Risk-adjusted measures such as Sharpe, Sortino, information ratio and tracking error from empyrical or quantstats. statsmodels regressions estimate alpha and beta against each asset-class benchmark, and attribution by asset class is built with pandas and NumPy."
+  - title: Classification models
+    text: "Returns-based style analysis uses constrained regression in SciPy to estimate each manager's exposures over rolling windows. scikit-learn random forest or gradient boosting classifiers label holdings by style, validated against known mandates, with SHAP showing which features drive each label."
+  - title: Anomaly detection
+    text: "ruptures detects change points in return and exposure series, and PyOD or scikit-learn IsolationForest flag unusual return patterns. Every flag is stored with its supporting data, so reviewers see the evidence before forming a view."
+  - title: Reporting
+    text: "Streamlit or Plotly Dash scorecards show performance, style drift and flagged anomalies, with drill-down to the underlying data. Printable manager packs are generated with WeasyPrint or ReportLab."
+  roadmap:
+    phases:
+    - phase: Data assembly and benchmark mapping
+      timing: Weeks 1–3
+      deliverable: Clean, aligned return and holdings history for each manager
+    - phase: Performance and style analysis
+      timing: Weeks 4–7
+      deliverable: Benchmark-relative performance and style-drift measures
+    - phase: Anomaly detection and scorecards
+      timing: Weeks 8–10
+      deliverable: Flagged anomalies with evidence, and manager scorecards
+    - phase: Review and handover
+      timing: Weeks 11–12
+      deliverable: Walkthrough with the investment team and a reusable review process
+  measures_of_success:
+  - Every manager is reviewed on the same consistent basis.
+  - Style drift and return anomalies are identified with supporting evidence.
+  - The investment team can explain the outcome of each review.
+
+- slug: short-only-hedge-fund-adverse-news-monitoring
+  nav_title: Short-only Hedge Fund - Adverse News Monitoring
+  category: Investment Management
+  name: Short-only Hedge Fund - Adverse News Monitoring
+  meta_description: "Adverse news monitoring for a short-only hedge fund: NLP classification of negative stories, related-coverage grouping and a knowledge graph for analysts."
+  keywords:
+  - adverse news monitoring
+  - short selling research support
+  - negative news screening
+  - news classification NLP
+  - knowledge graph news analytics
+  - entity extraction financial news
+  - event-driven investment research
+  - analyst workflow automation
+  - news aggregation finance
+  - text mining financial articles
+  - risk news alerts
+  - hedge fund research tools
+  - related article grouping
+  - investment research automation
+  - Dmitry Rastorguev
+  project_statement: A short-only fund depends on finding negative information about companies before the market does. Adverse news is published across many sources and languages, and analysts cannot read all of it in time.
+  requirements:
+  - Coverage of adverse news across a defined set of sources.
+  - Related stories grouped so analysts review each event once, not every headline.
+  - Links between articles, companies and people.
+  - A process analysts can rely on for detailed follow-up.
+  approach:
+    intro: I would treat the system as a filter that surfaces candidates for analyst judgement, not as a source of trading signals.
+    parts:
+    - title: Collection
+      text: Articles are gathered from a defined list of sources, with duplicates and syndicated copies removed.
+    - title: Classification
+      text: Each story is labelled by type of event, such as litigation, regulatory action or management change, and by severity.
+    - title: Aggregation
+      text: Related stories are grouped into a single event and linked to the companies and people involved.
+    trade_off: Recall over precision in the first version. Analysts would rather review a few false alarms than miss an event.
+  implementation:
+  - title: Scraping and extraction
+    text: "Scrapy crawls the defined sources, Playwright handles pages that need JavaScript, and feedparser reads RSS feeds. trafilatura extracts the article text, datasketch removes syndicated copies using MinHash, and fastText language identification routes each article to the right model."
+  - title: NLP classification
+    text: "spaCy recognises companies, people and dates, and Hugging Face Transformers classify event type and severity. A scikit-learn TF-IDF baseline sets the bar the transformer must beat, and both are evaluated on an analyst-labelled sample with precision and recall reported."
+  - title: Aggregation
+    text: "sentence-transformers embeddings with HDBSCAN group related stories into single events, and splink or rapidfuzz resolve company and person names across spellings and languages."
+  - title: Knowledge graph
+    text: "Stories are linked to companies, people and events. NetworkX prototypes the graph, and Neo4j with its Python driver serves it in production, with PyVis for interactive views of related coverage."
+  - title: Analyst interface
+    text: "A Streamlit or Dash daily digest and search view, ranked by severity and recency. Each event page shows the grouped coverage, linked entities and the classifier's confidence."
+  roadmap:
+    phases:
+    - phase: Source mapping and taxonomy
+      timing: Weeks 1–2
+      deliverable: Agreed source list and event categories
+    - phase: Collection and extraction
+      timing: Weeks 3–5
+      deliverable: Working pipeline with entity extraction
+    - phase: Classification and aggregation
+      timing: Weeks 6–9
+      deliverable: Classifier evaluated on a labelled sample, and a grouped event view
+    - phase: Analyst pilot
+      timing: Weeks 10–12
+      deliverable: Daily digest in use, with feedback collected and tuned
+  measures_of_success:
+  - Analysts see adverse events on the day they are published.
+  - Each event is reviewed once, with its related coverage attached.
+  - Classifier accuracy is measured against a labelled sample and reported.
+
+- slug: portfolio-stress-testing-analytics-frontend
+  nav_title: "Portfolio Stress Testing - Front-End Dashboard"
+  category: Investment Management
+  name: "Portfolio Stress Testing - Investment Analytics Front-End Application"
+  meta_description: "React and TypeScript front end for stress testing investment portfolios, with interactive charts, data grids, scenario comparison and audit trail."
+  keywords:
+  - portfolio stress testing dashboard
+  - investment analytics front end
+  - React TypeScript financial application
+  - scenario analysis user interface
+  - portfolio risk visualisation
+  - AG Grid financial data tables
+  - Highcharts portfolio charts
+  - Snowflake data application front end
+  - Streamlit investment dashboard
+  - investment exception review workflow
+  - role-based access financial application
+  - interactive portfolio drill-down
+  - investment performance comparison tool
+  - auditable investment workflows
+  - Dmitry Rastorguev
+  project_statement: "An investment organisation is building a new analytics application so its investment professionals can explore portfolio risk, compare performance, investigate exceptions and model scenarios. Today these questions are answered across spreadsheets and separate reports, which slows review and makes results hard to audit."
+  requirements:
+  - "A responsive application for exploring portfolio risk, comparing performance and investigating exceptions."
+  - "Scenario analysis that lets users model different market and portfolio assumptions and compare the results."
+  - "Interactive charts, high-volume data grids, filtering and drill-down from portfolio to position level."
+  - "Secure access with role-based permissions, and auditable records of the workflows users complete."
+  - "Data and calculations from Snowflake, APIs and calculation services, with automated tests and CI/CD in place."
+  approach:
+    intro: "I would design the application around the journeys investment professionals follow, then build each journey on one shared set of data contracts and components."
+    parts:
+    - title: User journeys first
+      text: "Portfolio review, performance comparison, exception review and scenario analysis are mapped as user stories with investment users, and each one is prototyped before it is built."
+    - title: Shared components and data contracts
+      text: "A typed React and TypeScript component library for charts, grids and filters, with the API and Snowflake data shapes defined once and reused across every journey."
+    - title: Trust and auditability
+      text: "Role-based access, secure handling of sensitive data, and an audit trail for every exception decision and scenario run."
+    trade_off: "Journey-led delivery over a broad feature set. Fewer screens launch first, but each one is tested with users and built on shared components, so later journeys are faster and more consistent."
+  implementation:
+  - title: React and TypeScript application
+    text: "React with TypeScript for the application shell and routing, with TanStack Query for server data and Zustand for interface state. Components are documented in Storybook, and ESLint, Prettier and strict TypeScript settings keep the codebase consistent."
+  - title: Interactive charts and grids
+    text: "AG Grid for high-volume position and exception tables, with server-side row models so large portfolios stay responsive. Highcharts or Plotly.js for risk and performance charts, and D3 where a custom visual is needed. Filters and drill-downs pass the same parameters to the API, so every view can be reproduced."
+  - title: Python services and calculation APIs
+    text: "FastAPI services expose portfolio, scenario and exception endpoints, with Pydantic models generating the contract through OpenAPI. openapi-typescript then produces the TypeScript types, so the front end and API share one definition. Calculations use pandas, Polars and NumPy, with SciPy and statsmodels for risk measures, and QuantLib where portfolios need pricing."
+  - title: Snowflake data access
+    text: "Queries run from the service layer through snowflake-connector-python, Snowpark or snowflake-sqlalchemy, never from the browser. Queries are parameterised, paged and aggregated on the server, so users see only the rows their role allows."
+  - title: Prototyping with Streamlit
+    text: "Streamlit prototypes let investment users test scenario logic and metrics early, before the React screens are built. The prototypes call the same FastAPI endpoints, so feedback carries straight into the production build."
+  - title: Security and access control
+    text: "OAuth2 and OpenID Connect sign-in through an identity provider, with Authlib in FastAPI. Role-based permissions are checked in API dependencies and on every query. Sensitive fields are masked in the browser, and access decisions are written to the audit log."
+  - title: Automated testing and delivery
+    text: "Jest and React Testing Library for components, Playwright for end-to-end journeys, and pytest with Hypothesis for the Python services and risk calculations. CI/CD runs every suite on each change, and code review is required before merge."
+  roadmap:
+    phases:
+    - phase: Discovery and user journeys
+      timing: Weeks 1–3
+      deliverable: Confirmed journeys, user stories and data sources
+    - phase: Design and prototypes
+      timing: Weeks 3–5
+      deliverable: Clickable prototypes tested with investment users, and API contracts agreed
+    - phase: Core application
+      timing: Weeks 5–10
+      deliverable: Portfolio review, performance comparison and exception review built and tested
+    - phase: Scenario analysis and hardening
+      timing: Weeks 10–14
+      deliverable: Scenario modelling, access control, audit trail and accessibility checks
+    - phase: Release and handover
+      timing: Weeks 14–16
+      deliverable: Production release through CI/CD, with documentation and user training
+  measures_of_success:
+  - "Investment users complete portfolio review, comparison and exception journeys without support."
+  - "Every exception decision and scenario run is recorded in the audit trail."
+  - "Automated tests run in CI on every change, and releases pass the end-to-end journeys."
+  - "Grids stay responsive on full portfolio datasets, and users can explain the results they see."
+- slug: abf-surveillance-framework
+  nav_title: ABF surveillance framework
+  category: Private Markets
+  name: 'Asset-Based Finance Surveillance: Framework, Data and Governance'
+  meta_description: "Asset-based finance surveillance framework covering deal, collateral and servicer monitoring, automated data validation, watchlist controls and governance."
+  keywords:
+  - asset-based finance surveillance
+  - structured credit monitoring
+  - ABS deal surveillance
+  - collateral performance monitoring
+  - servicer data validation
+  - trustee data reconciliation
+  - watchlist governance
+  - vintage cohort analysis
+  - credit enhancement monitoring
+  - Intex cashflow modelling
+  - surveillance framework design
+  - structured finance data automation
+  - specialty finance monitoring
+  - whole loan performance
+  - Dmitry Rastorguev
+  project_statement: 'An asset manager is growing its asset-based finance (ABF) platform across public and private strategies. The surveillance capability needs to keep pace: one consistent framework for monitoring transaction, collateral, counterparty and servicer performance, supported by scalable data, reporting and operating processes. The aim is to turn transaction-level performance into clear portfolio insight and recommended action for investment, valuation and governance teams.'
+  requirements:
+  - One surveillance framework across residential, consumer, commercial asset finance, specialty finance and whole-loan exposures, with consistent coverage, review standards and escalation.
+  - Timely identification, investigation and escalation of deteriorating exposures, trigger and covenant breaches, servicing concerns and data exceptions.
+  - A structured feedback loop from observed performance back to underwriting assumptions, structuring and documentation terms.
+  - Data intake from trustees, servicers and administrators that is validated, reconciled and traceable.
+  - Concise, evidence-based reporting for portfolio reviews, valuation discussions, watchlist meetings and investment committees.
+  - A team that can run the function day to day, with clear accountabilities and quality controls.
+  approach:
+    intro: 'I would build the framework in the order the function depends on it: mandate, standards, data, then automation, with the team growing alongside.'
+    parts:
+    - title: Tiered coverage
+      text: Exposures are grouped by size, risk and data quality. Each tier has a defined review frequency, depth of analysis and escalation path, so effort goes where the risk is.
+    - title: Common core, asset-specific extensions
+      text: Every deal is measured on a shared set of metrics, including delinquency, default, loss, recovery, prepayment, concentration, vintage performance and servicer trends. Less standardised assets, such as specialty finance, also get asset-specific indicators, so one template is not forced onto very different collateral.
+    - title: Data before headcount
+      text: Automating validation, reconciliation and calculations comes first. Scaling analysts on manual data work would add cost without adding coverage.
+    trade_off: Consistency against flexibility. A strict template makes portfolio comparisons reliable but can miss unusual structures, so the core metrics stay fixed and the extensions vary by asset class, with each deviation documented.
+  implementation:
+  - title: Data pipelines
+    text: "Python and SQL pipelines using pandas, Polars, DuckDB or dbt ingest trustee, servicer and administrator files. Pandera or Great Expectations apply validation rules, and reconciliation to trustee reports runs as automated tests with every break logged."
+  - title: Calculations library
+    text: "A version-controlled Python package with pytest tests for default and prepayment rates, loss severity, vintage curves and trigger tests. NumPy and pandas handle the arithmetic, numpy-financial supports cashflow and yield calculations, and outputs are cross-checked against Intex results where available."
+  - title: Early-warning models
+    text: "lifelines models prepayment and default hazard by vintage, statsmodels estimates how collateral performance responds to macro drivers, and scikit-learn classifiers flag watchlist deals earlier. SHAP explains each flag, so the surveillance team can see what triggered it."
+  - title: Exception workflow
+    text: "Case management built as a Django or FastAPI application on a SQL backend, with a Streamlit or Dash front end for work queues. Each case has a named owner, deadline and audit trail through to closure."
+  - title: Reporting
+    text: "Power BI dashboards for the surveillance team, connected to the governed SQL layer, and an automated watchlist and valuation pack generated with openpyxl and Jinja2 from the same data as the analysis."
+  - title: Controls
+    text: "Reviewer sign-off on watchlist changes, reconciliation checks before each reporting cycle, Great Expectations checkpoints on every load, change control on calculations through Git, and retained records for audit."
+  roadmap:
+    phases:
+    - phase: Diagnostic and mandate
+      timing: Month 1
+      deliverable: Current-state review, coverage inventory, data availability by deal and stakeholder interviews
+    - phase: Framework and standards
+      timing: Months 2–3
+      deliverable: Coverage tiers, review templates, watchlist and escalation protocols, committee calendar
+    - phase: Data and automation
+      timing: Months 3–6
+      deliverable: Automated ingestion and validation, tested calculations, first dashboards
+    - phase: Team and handover
+      timing: Months 6–12
+      deliverable: Team in place, first full committee cycle run from the automated pack, metrics reporting live
+  measures_of_success:
+  - Every exposure is reviewed at its tier's required frequency.
+  - Trustee and servicer data is reconciled and on time before each reporting cycle.
+  - Every exception is tracked to closure, with its owner and deadline recorded.
+  - Underwriting and structuring feedback is documented each quarter.
+  - Committee packs are produced from the automated pipeline, not rebuilt by hand.
+
+- slug: insurance-abf-data-operations
+  nav_title: Insurance ABF data operations
+  category: Private Markets
+  name: 'Insurance Asset-Based Finance Data Operations: Governance, Controls and Reporting'
+  meta_description: "Insurance-focused asset-based finance data operations: automated ingestion, controls, reconciliation and NAIC and SSAP statutory reporting with handoffs."
+  keywords:
+  - insurance data governance
+  - asset-based finance data operations
+  - ABF data controls
+  - insurance investment data SME
+  - loan tape normalisation
+  - servicer trustee reconciliation
+  - NAIC designation data
+  - SSAP 26R reporting data
+  - Snowflake ABF pipelines
+  - borrowing base data validation
+  - insurer statutory reporting
+  - Reg AB II data expectations
+  - Alation data lineage
+  - offshore data operations hub
+  - Dmitry Rastorguev
+  project_statement: An investment manager running credit portfolios for insurance clients needs its asset-based finance (ABF) data to be accurate, timely and decision-ready. Deal, collateral and servicer data arrives from many originators, servicers and trustees in inconsistent formats, and feeds valuations, surveillance, risk and statutory reporting. The project establishes governance, controls and daily data operations for that flow, led from Bangalore and working alongside New York and London teams.
+  requirements:
+  - Reliable intake and normalisation of loan tapes, trustee reports and servicer data into standard internal models.
+  - Daily and weekly controls over funding and advance activity, unfunded commitments and collateral eligibility exceptions.
+  - Reconciliation of facility balances, cash, interest and collateral positions against servicers, trustees, agents and administrators, with every break driven to resolution.
+  - Data that supports insurer statutory and regulatory reporting, including NAIC designations and SSAP 26R and 43R data elements, and is audit-ready.
+  - Documented handoffs and overlapping hours, so issues move between regions without being lost.
+  - Data-usage and PII controls agreed with compliance and legal.
+  approach:
+    intro: I would start from the controls and build outwards.
+    parts:
+    - title: Controls before convenience
+      text: Every dataset passes pre- and post-ingestion checks for completeness, duplicates, referential integrity and anomalies before anyone relies on it.
+    - title: One canonical deal model
+      text: Each originator and servicer has a documented mapping into the standard model. New deals then onboard by configuring a mapping, not by rebuilding a pipeline.
+    - title: Follow-the-sun coverage
+      text: A documented handoff at the open and close of each regional day, with incident playbooks and coverage rotations, so no item depends on one person's memory.
+    trade_off: Standardisation against speed. Unusual structures, such as bespoke warehouse or forward-flow facilities, take longer to onboard. I would accept a slower first-time setup for those in exchange for a model every downstream team can trust, and document each exception.
+  implementation:
+  - title: Ingestion and normalisation
+    text: "Snowflake pipelines built with snowflake-snowpark-python or the Snowflake connector, with dbt holding the mapping templates for loan tapes, borrowing base data, remittance detail and trustee reports. Mappings are kept as version-controlled configuration, so new deals onboard without a code change."
+  - title: Control framework
+    text: "Great Expectations or Pandera checks for completeness, duplicates, referential integrity and anomalies, run before and after each load. Failures are logged to a named owner, with Airflow or Dagster sending alerts when a check fails."
+  - title: Reconciliation
+    text: "pandas merges with tolerance thresholds match facility balances, cash, interest and collateral positions to servicer, trustee and administrator statements. rapidfuzz handles variations in counterparty and deal names, and aged breaks are reported daily on a dashboard."
+  - title: Pricing and analytics feeds
+    text: "Python connectors for Bloomberg through blpapi, ICE and rating agency data through vendor APIs or file drops, and Intex outputs aligned to valuation and risk models. Data contracts track vendor SLAs and change notices."
+  - title: Reporting
+    text: "Surveillance dashboards in Power BI or Plotly Dash covering delinquency, default, loss, recovery, prepayment, credit enhancement and overcollateralisation. A statutory data pack for NAIC and SSAP reporting is generated by a Python pipeline with openpyxl, from the same governed tables."
+  - title: Lineage and governance
+    text: "Alation catalogue and lineage, with OpenLineage events emitted from Airflow or dbt where supported, documented SOPs, data-access controls and change control on mappings through Git."
+  roadmap:
+    phases:
+    - phase: Current state and inventory
+      timing: Weeks 1–3
+      deliverable: Inventory of deals, feeds, controls and reconciliations, with gaps and owners identified
+    - phase: Controls and standards
+      timing: Weeks 4–6
+      deliverable: Control framework, SOPs, canonical model and mapping templates
+    - phase: Ingestion and reconciliation automation
+      timing: Weeks 6–12
+      deliverable: Automated intake, checks and daily reconciliation for priority deals
+    - phase: Reporting and statutory data
+      timing: Weeks 10–14
+      deliverable: Surveillance dashboards, statutory data pack and audit trail
+    - phase: Handover and run model
+      timing: Weeks 14–16
+      deliverable: Coverage rotations live, playbooks tested and a post-implementation review completed
+  measures_of_success:
+  - Daily controls and reconciliations are completed by the agreed cut-off, every day.
+  - Aged reconciliation breaks are reduced, and each one has an owner and a date.
+  - Vendor and servicer files arrive in the expected format and on schedule, with changes notified in advance.
+  - Statutory and audit data can be traced back to source through lineage.
+  - Each regional handoff is documented, and no open item is left unowned overnight.
+
+- slug: ai-venture-fund-fundraising-statistics
+  nav_title: AI Venture Fund - Fundraising Statistics
+  category: Private Markets
+  name: Venture capital fund for AI startups - European AI funding landscape
+  meta_description: "European AI startup funding data for a venture fund: automated collection, standard stage and sector definitions and interactive D3.js funding charts."
+  keywords:
+  - AI startup funding Europe
+  - venture capital market analytics
+  - European Machine Intelligence Landscape
+  - startup funding statistics
+  - web scraping funding data
+  - Google Sheets data pipeline
+  - D3.js interactive visualisation
+  - AI investment trends Europe
+  - venture deal flow analysis
+  - market mapping of startups
+  - funding round data
+  - non-technical data maintenance
+  - investor data visualisation
+  - emerging technology investing
+  - Dmitry Rastorguev
+  project_statement: A venture fund investing in AI wants a clear view of where European AI startups are being funded, at what stage and by whom. That information is spread across press releases, databases and filings, and is hard to compare.
+  requirements:
+  - Funding data for European AI startups collected in one place.
+  - Consistent stage, sector and country definitions.
+  - Trends visible over time and by country.
+  - A dataset that non-technical team members can update and correct.
+  approach:
+    intro: I would start with a simple, transparent data model, because the fund's team needs to correct and extend the data without developer help.
+    parts:
+    - title: Collection
+      text: Funding announcements are gathered from public sources and structured into one record per round.
+    - title: Standardisation
+      text: Stage, sector and country are mapped to fixed definitions, with unmatched entries reviewed by hand.
+    - title: Analysis
+      text: Interactive views show funding volume, round size and stage mix over time.
+    trade_off: A spreadsheet-based store over a full database, so non-technical team members can maintain it directly, at the cost of scale.
+  implementation:
+  - title: Scraping
+    text: "Scrapy or requests with BeautifulSoup collect funding announcements from public sources, and Playwright handles pages that need JavaScript. Each run is logged with Python's logging module and scheduled through cron or GitHub Actions."
+  - title: Standardisation
+    text: "rapidfuzz matches company and investor names across sources, and a sentence-transformers model suggests sector labels that a reviewer confirms. Pydantic models hold the allowed stage, sector and country values, so the definitions are enforced in code as well as in the sheet."
+  - title: Google Sheets store
+    text: "gspread and gspread-dataframe read and write the Google Sheets store, which is the single source of data. Validation rules check required fields before each write, and rejected rows go to a review tab for a person to correct."
+  - title: Visualisation
+    text: "Interactive D3.js charts of funding trends, stage mix and geography, published as a web page. A pandas export script converts the sheet into JSON for the charts, and Plotly is used for quick exploratory views during analysis."
+  roadmap:
+    phases:
+    - phase: Scope and definitions
+      timing: Weeks 1–2
+      deliverable: Agreed stage, sector and country definitions
+    - phase: Collection and store
+      timing: Weeks 3–5
+      deliverable: Automated collection feeding the Google Sheets store
+    - phase: Visualisation
+      timing: Weeks 6–8
+      deliverable: Interactive funding views
+    - phase: Maintenance handover
+      timing: Weeks 9–10
+      deliverable: Data process documented for the analyst team
+  measures_of_success:
+  - The dataset covers the agreed period and geography, with known gaps listed.
+  - Analysts can add or correct a funding round without developer help.
+  - Trend views update from the store each time the data changes.
+- slug: investment-data-platform-databricks-migration
+  nav_title: "Investment Data Platform - Databricks Migration and Reconciliation"
+  category: Private Markets
+  name: "Investment Data Platform - Databricks Migration, Pipelines and Reconciliation"
+  meta_description: "Databricks migration and data pipelines for an investment platform: PySpark and SQL transformations, multi-source integration and reconciliation checks."
+  keywords:
+  - Databricks migration
+  - Databricks data engineering
+  - PySpark data pipelines
+  - investment data platform
+  - data reconciliation automation
+  - multi-source data integration
+  - Delta Lake pipelines
+  - data quality checks PySpark
+  - Databricks engineering consultant
+  - investment data engineering
+  - SQL data validation
+  - Python data transformation
+  - platform migration delivery
+  - data pipeline handover
+  - Dmitry Rastorguev
+  project_statement: "An investment business is part-way through migrating its internal data estate onto Databricks. The migration needs to be finished, the pipelines need to be reliable, and data from several sources needs to reconcile before the platform can be used widely across the business."
+  requirements:
+  - "Complete the ongoing Databricks migration so the platform is ready for wider internal use."
+  - "Pipelines that ingest and process data from several sources, built in Python, PySpark and SQL."
+  - "Reconciliation, validation and data quality checks so figures agree across systems."
+  - "A clear understanding of the existing architecture, with handover materials reviewed and open technical issues resolved."
+  - "Close working with stakeholders to turn their data requirements into practical solutions."
+  approach:
+    intro: "I would take ownership of the environment first, understand what has been built, then finish the migration in order of business risk."
+    parts:
+    - title: Understand before changing
+      text: "Architecture diagrams, technical documentation and handover notes are reviewed, and each open deliverable is listed with its owner, status and risk."
+    - title: Pipelines in layers
+      text: "Raw, cleaned and curated layers in Delta Lake, with each source ingested, validated and transformed by tested PySpark code."
+    - title: Reconciliation as a routine
+      text: "Reconciliations between systems are automated and reported, so breaks are found when they occur rather than at month end."
+    trade_off: "Stabilising the existing estate before adding new sources. New data arrives more slowly, but each migrated pipeline can be trusted and reconciled."
+  implementation:
+  - title: PySpark pipelines
+    text: "PySpark DataFrame transformations with explicit schemas and modular functions. Unit tests run with pytest and chispa, so each transformation is checked against expected output before it runs in production. Jobs are packaged with Poetry or uv and deployed as Databricks Jobs."
+  - title: Delta Lake storage and orchestration
+    text: "Delta Lake tables for the raw, cleaned and curated layers, with schema enforcement, time travel for audit queries and MERGE for incremental loads. Pipelines are scheduled with Databricks Workflows, and Delta Live Tables is considered where declarative pipelines reduce maintenance. The delta-spark package is used for local testing."
+  - title: Multi-source ingestion
+    text: "Connectors built with PySpark and pandas for files, relational databases and REST APIs. Database sources are read through JDBC or Databricks connectors, and API sources use requests with retries. Watermarks make incremental loads repeatable after a failure."
+  - title: Data quality and reconciliation
+    text: "Great Expectations or Pandera checks run on every load for completeness, uniqueness and value ranges. Reconciliations compare control totals and record counts between systems, with breaks written to a Delta table and shown on a dashboard."
+  - title: SQL transformations and investigation
+    text: "Advanced Spark SQL for transformations, validation queries and data investigation, with reusable SQL held in version control. Complex logic is checked by comparing SQL and PySpark outputs on the same sample."
+  - title: Documentation and handover
+    text: "Pipeline runbooks, data dictionaries and architecture notes are kept in the repository beside the code, and MkDocs builds the documentation site. Each pipeline has an owner, a schedule and an escalation route."
+  roadmap:
+    phases:
+    - phase: Environment review
+      timing: Month 1
+      deliverable: Architecture review, with open deliverables listed by owner and risk
+    - phase: Migration completion
+      timing: Months 1–3
+      deliverable: Remaining migration workloads on the platform, with reconciliations running
+    - phase: Pipelines and sources
+      timing: Months 3–6
+      deliverable: Multi-source pipelines live, with data quality checks and runbooks
+    - phase: Platform ready
+      timing: Month 6
+      deliverable: Platform signed off for wider internal use, with handover complete
+  measures_of_success:
+  - "The migration is complete, and each workload runs on the platform on schedule."
+  - "Source data reconciles to agreed tolerances, and every break has an owner and a status."
+  - "Pipelines are covered by automated tests and documented in runbooks."
+  - "The platform is ready for wider internal use at the end of the first phase."
+
+- slug: investment-operations-python-applications-ai
+  nav_title: "Investment Operations Applications - Python Tools, Document Parsing and AI"
+  category: Private Markets
+  name: "Investment Operations Python Applications - Data Tools, Document Parsing and AI"
+  meta_description: "Python web applications for an investment business: business-user data tools, document parsing with review, Databricks apps and AI-assisted workflows."
+  keywords:
+  - Python internal applications
+  - document parsing automation
+  - investment document processing
+  - Databricks apps development
+  - business user data tools
+  - data entry web application
+  - Python AI internal tools
+  - LLM document extraction
+  - investment operations automation
+  - Streamlit internal tools
+  - FastAPI application development
+  - AI-assisted software delivery
+  - financial document workflows
+  - Python application architecture
+  - Dmitry Rastorguev
+  project_statement: "Once the data platform is in place, the business wants to put it to work. Investment and operations teams need applications that let business users analyse, input, update, upload and manage data, process documents without manual re-keying, and draw on the platform's data."
+  requirements:
+  - "Python applications that let business users analyse, input, update and upload data, and manage records."
+  - "Document parsing and processing for internal workflows, with a person reviewing extracted data before it is saved."
+  - "Applications that use data held in Databricks, with access controlled by the platform."
+  - "Practical AI tools for internal workflows, built with AI-assisted development and full ownership of the code."
+  - "Several deliverables run at once, each taken from requirements through testing to implementation."
+  approach:
+    intro: "I would start with the workflows that cost the most manual effort, and build each one as a small application that a business team can use and maintain."
+    parts:
+    - title: Business user tools first
+      text: "Forms, uploads and editable data tables for the tasks analysts already perform, with validation before data is saved and a record of every change."
+    - title: Document workflows with review
+      text: "Documents are parsed, fields are extracted and checked against rules, then a reviewer confirms or corrects them before they reach the data platform."
+    - title: AI where it saves time
+      text: "AI extraction and summarisation are added only where they measurably reduce effort, always with human review and evaluation against a labelled test set."
+    trade_off: "Human review over full automation for document processing. Reviewers stay in the loop at first, but errors are caught before they reach the data, and their corrections help improve the extraction over time."
+  implementation:
+  - title: Web application framework
+    text: "FastAPI for backend APIs with Pydantic validation. Streamlit or Dash for business user interfaces where a full front end is not needed, and Django where an application needs a built-in admin and user management. Applications are tested with pytest and deployed as Databricks Apps or containers."
+  - title: Data entry and editing
+    text: "Editable tables built with the Streamlit data editor or AG Grid in a React front end, with pandas or Polars validating input before any write. Writes go to Delta tables through the Databricks SQL connector or Spark, and every change is recorded with user, time and previous value."
+  - title: Document parsing
+    text: "PyMuPDF and pdfplumber extract text and tables from PDFs, Unstructured handles mixed document formats, and pytesseract with Tesseract OCR reads scanned pages. Extracted fields are validated against Pydantic schemas and reviewed before they are saved."
+  - title: AI-assisted extraction and analysis
+    text: "LangChain or LlamaIndex orchestrate LLM calls for field extraction and summarisation. Hugging Face Transformers provide local classification models where documents must stay inside the platform. Outputs are evaluated with DeepEval or promptfoo against labelled examples before release."
+  - title: Databricks integration
+    text: "Applications read and write Delta tables through Spark and the Databricks SDK for Python, with Unity Catalog controlling which users see which data. MLflow tracks any model used in a workflow, so each output can be traced to a model version."
+  - title: AI-assisted delivery and code ownership
+    text: "AI coding tools speed up scaffolding and tests, with code review, pytest, Ruff and mypy checks on every change. Each application is documented well enough that the team can maintain it without the tools that helped build it."
+  roadmap:
+    phases:
+    - phase: Requirements and priorities
+      timing: Months 6–7
+      deliverable: Ranked list of workflows, with owners and data sources
+    - phase: First business tool
+      timing: Months 7–8
+      deliverable: Data entry or upload application in use with a business team
+    - phase: Document workflow
+      timing: Months 8–10
+      deliverable: Document parsing and review application tested on real documents
+    - phase: AI-assisted workflows
+      timing: Months 10–11
+      deliverable: AI extraction evaluated against labelled examples and released with review
+    - phase: Handover
+      timing: Month 12
+      deliverable: Applications documented and handed over, with support for maintenance
+  measures_of_success:
+  - "Business users analyse, input, update and upload data in the applications without developer support."
+  - "Document fields are extracted with a measured accuracy, and every value is reviewed before it is saved."
+  - "Every application runs on the platform's access controls, and changes are recorded."
+  - "The team can maintain each application without the AI tools used to build it."
+- slug: private-capital-secondaries-valuation-cash-flow-model
+  nav_title: "Secondaries Valuation - Fund Cash Flow and Exit Modelling"
+  category: Private Markets
+  name: "Private Equity Secondaries Valuation - Cash Flow, Exit and Fund Flow Modelling Capability"
+  meta_description: "Python valuation model for private equity secondaries: fund cash flow projections, exit timing and fund flow dynamics to price LP stake sales."
+  keywords:
+  - private equity secondaries valuation
+  - LP stake pricing model
+  - secondary market fund modelling
+  - private equity cash flow projection
+  - exit timing modelling
+  - fund flow dynamics analysis
+  - Takahashi Alexander cash flow model
+  - capital call and distribution forecasting
+  - NAV roll-forward model
+  - private markets liquidity analytics
+  - Monte Carlo private equity exits
+  - GP-led secondaries analytics
+  - private capital Python modelling
+  - secondary transaction pricing
+  - Dmitry Rastorguev
+  project_statement: "Support the build out of the platform that provides liquidity to LPs and GPs in private-markets secondaries needs a repeatable way to value fund interests. Pricing depends on how each fund's underlying cash flows are likely to arrive, through capital calls, distributions and exits. That modelling is often done case by case, which slows deals and makes results hard to reproduce."
+  requirements:
+  - "A valuation model for a private equity / credit fund interest, from its capital calls, distributions and NAV to a price for the stake."
+  - "Projections of underlying exit cash flows under scenarios for exit timing, returns and fund life."
+  - "Fund flow dynamics showing how calls, distributions and fees move cash through a fund over its life."
+  - "Sparse or unreliable fund data handled explicitly, with stated assumptions and uncertainty ranges."
+  - "Research prototypes turned into tested, production-grade components on the platform, with clear requirements for the engineering team."
+  - "Reports that explain the drivers of each valuation to stakeholders."
+  approach:
+    intro: "I would build the model in layers, starting with transparent cash flow mechanics and then adding exit and scenario uncertainty, so each assumption can be checked before it affects a price."
+    parts:
+    - title: Cash flow mechanics
+      text: "Capital calls, distributions, management fees and NAV are modelled fund by fund. A Takahashi-Alexander style framework is the baseline for how contributions and distributions unfold over the life of a fund."
+    - title: Exit and scenario modelling
+      text: "Exit timing and proceeds are simulated under base, slow and fast exit scenarios. Sparse fund histories are supported by peer benchmarks and explicit priors."
+    - title: Valuation and reporting
+      text: "The model converts projected cash flows into a price for the stake at a chosen discount rate, with IRR, multiple and sensitivity tables that the deal team can explain."
+    trade_off: "Transparent cash flow mechanics over a single black-box price. Deal teams can see which assumptions drive the value and challenge them, at the cost of more manual assumption setting."
+  implementation:
+  - title: Cash flow engine
+    text: "A typed Python library using pandas and Polars for fund cash flow schedules, with NumPy for vectorised projections. Capital calls, distributions, fees and NAV roll-forwards are tested with pytest and Hypothesis, so accounting identities hold across generated inputs."
+  - title: Exit and scenario simulation
+    text: "Monte Carlo simulation of exit timing and proceeds in NumPy. lifelines treats time to exit as a survival problem, and SciPy fits distributions for holding periods and multiples. Scenario sets are held as configuration files, so they can be changed without code edits."
+  - title: Valuation and return metrics
+    text: "IRR, PME and multiple calculations with numpy-financial and SciPy root-finding, plus discounting of projected cash flows at a chosen rate. Sensitivity grids show how the stake value moves with exit timing, NAV and discount rate."
+  - title: Sparse data and Bayesian estimation
+    text: "PyMC or NumPyro for hierarchical Bayesian estimates of fund-level parameters, pooling information across funds of similar vintage, strategy and size. Credible intervals are reported with every valuation, so uncertainty stays visible."
+  - title: Data layer
+    text: "DuckDB for querying fund, cash flow and NAV datasets locally, with SQL transformations that hold the shared definitions. Pandera validates data before modelling, and missing values are flagged rather than silently filled."
+  - title: Platform integration and prototyping
+    text: "Streamlit prototypes let the analyst team test assumptions quickly. Production code is packaged as a FastAPI service with Pydantic schemas, so the platform can call the model and the engineering team receives typed interface definitions and tests."
+  - title: Reporting and deliverables
+    text: "Excel outputs built with openpyxl or xlsxwriter for deal teams that work in spreadsheets, and written reports generated from Jinja2 templates, using the same numbers as the model."
+  - title: Engineering workflow
+    text: "Git for version control, Bash scripts for batch runs, and a command-line interface built with Typer for repeatable model runs. Code review and CI tests run on every change before release."
+  roadmap:
+    phases:
+    - phase: Requirements and data review
+      timing: Weeks 1–2
+      deliverable: Agreed valuation scope, fund data sources and requirements for the engineering team
+    - phase: Cash flow engine
+      timing: Weeks 3–5
+      deliverable: Tested fund cash flow and NAV roll-forward library
+    - phase: Exit and valuation models
+      timing: Weeks 6–9
+      deliverable: Scenario simulation, return metrics and pricing sensitivity outputs
+    - phase: Sparse data and uncertainty
+      timing: Weeks 10–12
+      deliverable: Hierarchical estimates with credible intervals, validated on historic fund data
+    - phase: Platform integration and handover
+      timing: Weeks 13–16
+      deliverable: Service live on the platform, with documentation, reports and analyst training
+  measures_of_success:
+  - "Each valuation reconciles to the fund's reported cash flows and NAV within agreed tolerances."
+  - "Every price comes with an uncertainty range and a sensitivity table the deal team can explain."
+  - "Research prototypes move into production through documented requirements, with tests passing in CI."
+  - "Analysts can run the model for a new fund without developer support."

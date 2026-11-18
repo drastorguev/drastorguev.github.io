@@ -1,0 +1,75 @@
+---
+title: "Private Equity Secondaries Valuation - Cash Flow, Exit and Fund Flow Modelling Capability"
+description-meta: "Python valuation model for private equity secondaries: fund cash flow projections, exit timing and fund flow dynamics to price LP stake sales."
+sidebar: projects-sidebar
+---
+
+<!-- Generated from projects_utils/projects_items.yml by projects_utils/build_projects.js. Edit the data or template, not this file. -->
+
+### Project statement
+
+Support the build out of the platform that provides liquidity to LPs and GPs in private-markets secondaries needs a repeatable way to value fund interests. Pricing depends on how each fund's underlying cash flows are likely to arrive, through capital calls, distributions and exits. That modelling is often done case by case, which slows deals and makes results hard to reproduce.
+
+### Requirements
+
+- A valuation model for a private equity / credit fund interest, from its capital calls, distributions and NAV to a price for the stake.
+- Projections of underlying exit cash flows under scenarios for exit timing, returns and fund life.
+- Fund flow dynamics showing how calls, distributions and fees move cash through a fund over its life.
+- Sparse or unreliable fund data handled explicitly, with stated assumptions and uncertainty ranges.
+- Research prototypes turned into tested, production-grade components on the platform, with clear requirements for the engineering team.
+- Reports that explain the drivers of each valuation to stakeholders.
+
+### Approach
+
+I would build the model in layers, starting with transparent cash flow mechanics and then adding exit and scenario uncertainty, so each assumption can be checked before it affects a price.
+
+1. **Cash flow mechanics:** Capital calls, distributions, management fees and NAV are modelled fund by fund. A Takahashi-Alexander style framework is the baseline for how contributions and distributions unfold over the life of a fund.
+1. **Exit and scenario modelling:** Exit timing and proceeds are simulated under base, slow and fast exit scenarios. Sparse fund histories are supported by peer benchmarks and explicit priors.
+1. **Valuation and reporting:** The model converts projected cash flows into a price for the stake at a chosen discount rate, with IRR, multiple and sensitivity tables that the deal team can explain.
+
+**Trade-off:** Transparent cash flow mechanics over a single black-box price. Deal teams can see which assumptions drive the value and challenge them, at the cost of more manual assumption setting.
+
+### Implementation
+
+- **Cash flow engine:** A typed Python library using pandas and Polars for fund cash flow schedules, with NumPy for vectorised projections. Capital calls, distributions, fees and NAV roll-forwards are tested with pytest and Hypothesis, so accounting identities hold across generated inputs.
+- **Exit and scenario simulation:** Monte Carlo simulation of exit timing and proceeds in NumPy. lifelines treats time to exit as a survival problem, and SciPy fits distributions for holding periods and multiples. Scenario sets are held as configuration files, so they can be changed without code edits.
+- **Valuation and return metrics:** IRR, PME and multiple calculations with numpy-financial and SciPy root-finding, plus discounting of projected cash flows at a chosen rate. Sensitivity grids show how the stake value moves with exit timing, NAV and discount rate.
+- **Sparse data and Bayesian estimation:** PyMC or NumPyro for hierarchical Bayesian estimates of fund-level parameters, pooling information across funds of similar vintage, strategy and size. Credible intervals are reported with every valuation, so uncertainty stays visible.
+- **Data layer:** DuckDB for querying fund, cash flow and NAV datasets locally, with SQL transformations that hold the shared definitions. Pandera validates data before modelling, and missing values are flagged rather than silently filled.
+- **Platform integration and prototyping:** Streamlit prototypes let the analyst team test assumptions quickly. Production code is packaged as a FastAPI service with Pydantic schemas, so the platform can call the model and the engineering team receives typed interface definitions and tests.
+- **Reporting and deliverables:** Excel outputs built with openpyxl or xlsxwriter for deal teams that work in spreadsheets, and written reports generated from Jinja2 templates, using the same numbers as the model.
+- **Engineering workflow:** Git for version control, Bash scripts for batch runs, and a command-line interface built with Typer for repeatable model runs. Code review and CI tests run on every change before release.
+
+### Indicative Roadmap
+
+| Phase | Timing | Deliverable |
+|---|---|---|
+| Requirements and data review | Weeks 1–2 | Agreed valuation scope, fund data sources and requirements for the engineering team |
+| Cash flow engine | Weeks 3–5 | Tested fund cash flow and NAV roll-forward library |
+| Exit and valuation models | Weeks 6–9 | Scenario simulation, return metrics and pricing sensitivity outputs |
+| Sparse data and uncertainty | Weeks 10–12 | Hierarchical estimates with credible intervals, validated on historic fund data |
+| Platform integration and handover | Weeks 13–16 | Service live on the platform, with documentation, reports and analyst training |
+
+### Measures of success
+
+- Each valuation reconciles to the fund's reported cash flows and NAV within agreed tolerances.
+- Every price comes with an uncertainty range and a sensitivity table the deal team can explain.
+- Research prototypes move into production through documented requirements, with tests passing in CI.
+- Analysts can run the model for a new fund without developer support.
+
+<br/>
+<hr/>
+
+<div class="alert alert-primary pt-3 pb-2 text-center">
+  My day rate varies depending on the scope of work and engagement type.
+</div>
+
+<div class="alert alert-success pt-3 pb-2 text-center">
+  I can guarantee a quick turnaround and high quality of work exceeding your expectations.
+</div>
+
+<div class="alert alert-warning pt-3 pb-2 text-center">
+  <a href="/contact.html" class="alert-link">Contact</a> me to discuss your requirements or connect on <a href="https://www.linkedin.com/in/dmitryrastorguev/" class="alert-link">LinkedIn</a>.
+</div>
+
+<p class="seo-keywords" hidden aria-hidden="true">private equity secondaries valuation, LP stake pricing model, secondary market fund modelling, private equity cash flow projection, exit timing modelling, fund flow dynamics analysis, Takahashi Alexander cash flow model, capital call and distribution forecasting, NAV roll-forward model, private markets liquidity analytics, Monte Carlo private equity exits, GP-led secondaries analytics, private capital Python modelling, secondary transaction pricing, Dmitry Rastorguev</p>

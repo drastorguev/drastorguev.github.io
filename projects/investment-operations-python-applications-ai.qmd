@@ -1,0 +1,72 @@
+---
+title: "Investment Operations Python Applications - Data Tools, Document Parsing and AI"
+description-meta: "Python web applications for an investment business: business-user data tools, document parsing with review, Databricks apps and AI-assisted workflows."
+sidebar: projects-sidebar
+---
+
+<!-- Generated from projects_utils/projects_items.yml by projects_utils/build_projects.js. Edit the data or template, not this file. -->
+
+### Project statement
+
+Once the data platform is in place, the business wants to put it to work. Investment and operations teams need applications that let business users analyse, input, update, upload and manage data, process documents without manual re-keying, and draw on the platform's data.
+
+### Requirements
+
+- Python applications that let business users analyse, input, update and upload data, and manage records.
+- Document parsing and processing for internal workflows, with a person reviewing extracted data before it is saved.
+- Applications that use data held in Databricks, with access controlled by the platform.
+- Practical AI tools for internal workflows, built with AI-assisted development and full ownership of the code.
+- Several deliverables run at once, each taken from requirements through testing to implementation.
+
+### Approach
+
+I would start with the workflows that cost the most manual effort, and build each one as a small application that a business team can use and maintain.
+
+1. **Business user tools first:** Forms, uploads and editable data tables for the tasks analysts already perform, with validation before data is saved and a record of every change.
+1. **Document workflows with review:** Documents are parsed, fields are extracted and checked against rules, then a reviewer confirms or corrects them before they reach the data platform.
+1. **AI where it saves time:** AI extraction and summarisation are added only where they measurably reduce effort, always with human review and evaluation against a labelled test set.
+
+**Trade-off:** Human review over full automation for document processing. Reviewers stay in the loop at first, but errors are caught before they reach the data, and their corrections help improve the extraction over time.
+
+### Implementation
+
+- **Web application framework:** FastAPI for backend APIs with Pydantic validation. Streamlit or Dash for business user interfaces where a full front end is not needed, and Django where an application needs a built-in admin and user management. Applications are tested with pytest and deployed as Databricks Apps or containers.
+- **Data entry and editing:** Editable tables built with the Streamlit data editor or AG Grid in a React front end, with pandas or Polars validating input before any write. Writes go to Delta tables through the Databricks SQL connector or Spark, and every change is recorded with user, time and previous value.
+- **Document parsing:** PyMuPDF and pdfplumber extract text and tables from PDFs, Unstructured handles mixed document formats, and pytesseract with Tesseract OCR reads scanned pages. Extracted fields are validated against Pydantic schemas and reviewed before they are saved.
+- **AI-assisted extraction and analysis:** LangChain or LlamaIndex orchestrate LLM calls for field extraction and summarisation. Hugging Face Transformers provide local classification models where documents must stay inside the platform. Outputs are evaluated with DeepEval or promptfoo against labelled examples before release.
+- **Databricks integration:** Applications read and write Delta tables through Spark and the Databricks SDK for Python, with Unity Catalog controlling which users see which data. MLflow tracks any model used in a workflow, so each output can be traced to a model version.
+- **AI-assisted delivery and code ownership:** AI coding tools speed up scaffolding and tests, with code review, pytest, Ruff and mypy checks on every change. Each application is documented well enough that the team can maintain it without the tools that helped build it.
+
+### Indicative Roadmap
+
+| Phase | Timing | Deliverable |
+|---|---|---|
+| Requirements and priorities | Months 6–7 | Ranked list of workflows, with owners and data sources |
+| First business tool | Months 7–8 | Data entry or upload application in use with a business team |
+| Document workflow | Months 8–10 | Document parsing and review application tested on real documents |
+| AI-assisted workflows | Months 10–11 | AI extraction evaluated against labelled examples and released with review |
+| Handover | Month 12 | Applications documented and handed over, with support for maintenance |
+
+### Measures of success
+
+- Business users analyse, input, update and upload data in the applications without developer support.
+- Document fields are extracted with a measured accuracy, and every value is reviewed before it is saved.
+- Every application runs on the platform's access controls, and changes are recorded.
+- The team can maintain each application without the AI tools used to build it.
+
+<br/>
+<hr/>
+
+<div class="alert alert-primary pt-3 pb-2 text-center">
+  My day rate varies depending on the scope of work and engagement type.
+</div>
+
+<div class="alert alert-success pt-3 pb-2 text-center">
+  I can guarantee a quick turnaround and high quality of work exceeding your expectations.
+</div>
+
+<div class="alert alert-warning pt-3 pb-2 text-center">
+  <a href="/contact.html" class="alert-link">Contact</a> me to discuss your requirements or connect on <a href="https://www.linkedin.com/in/dmitryrastorguev/" class="alert-link">LinkedIn</a>.
+</div>
+
+<p class="seo-keywords" hidden aria-hidden="true">Python internal applications, document parsing automation, investment document processing, Databricks apps development, business user data tools, data entry web application, Python AI internal tools, LLM document extraction, investment operations automation, Streamlit internal tools, FastAPI application development, AI-assisted software delivery, financial document workflows, Python application architecture, Dmitry Rastorguev</p>

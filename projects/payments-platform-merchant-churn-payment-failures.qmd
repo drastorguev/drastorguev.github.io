@@ -1,0 +1,73 @@
+---
+title: "Payments Platform - Merchant Churn and Payment Failure Drivers"
+description-meta: "Merchant churn and payment failure analysis for a payments platform: SQL and dbt models, merchant segments and an ML churn model for relationship managers."
+sidebar: projects-sidebar
+---
+
+<!-- Generated from projects_utils/projects_items.yml by projects_utils/build_projects.js. Edit the data or template, not this file. -->
+
+### Project statement
+
+A payments platform wants to understand why merchants stop using it and why payments fail, and what to do about both. The data exists, but the drivers are not yet clear, and the findings are not packaged in a form the commercial team can reuse.
+
+### Requirements
+
+- Identify the biggest drivers of merchant churn and payment failure in merchant transaction data.
+- Show how those drivers differ across merchant segments, such as size, vertical and region.
+- Reusable dbt models that turn the findings into clean, tested data for the largest merchants.
+- A churn model that flags merchants likely to stop using the platform, early enough for relationship managers to act.
+- A delivery team with SQL, hands-on dbt, and experience in customer behaviour, segmentation or commercial performance.
+
+### Approach
+
+I would start with the drivers, because segments and models are only useful once the business knows which factors move churn and payment failure.
+
+1. **Driver analysis:** Merchant activity, payment outcomes and decline reasons are analysed in SQL to identify which factors best explain churn and payment failure, and how large each effect is.
+1. **Segmentation:** Merchants are grouped by volume, vertical and behaviour, so drivers can be compared across segments instead of being averaged away.
+1. **Reusable data and prediction:** Tested dbt models give the commercial team a merchant health table, and a churn model scores each merchant so relationship managers can act before the merchant leaves.
+
+**Trade-off:** Interpretable drivers and segment rules first, then a predictive model. Relationship managers need to know why a merchant is flagged, so the model is explained against the drivers already found.
+
+### Implementation
+
+- **Data foundation in dbt:** dbt models on Snowflake, BigQuery or DuckDB for development, organised into staging, intermediate and mart layers for merchants, transactions, payment attempts and decline codes. Tests cover uniqueness, nulls and accepted values, and dbt-expectations adds range checks on rates and amounts.
+- **Driver analysis:** Window functions and cohort queries in SQL, with statsmodels logistic regression to estimate how each factor changes the odds of a failed payment. Failure and decline rates are broken down by card type, issuer, ticket size and acquiring route, with pandas and Plotly giving the commercial team clear comparisons.
+- **Time to churn:** lifelines fits Kaplan-Meier curves and Cox proportional hazards models, showing how quickly merchants stop transacting and which characteristics speed that up. Difference-in-differences tests with linearmodels or DoWhy show whether a product or pricing change caused a shift in churn, rather than just coinciding with it.
+- **Segmentation:** scikit-learn KMeans or Gaussian mixture models on recency, frequency, volume and product-usage features, with HDBSCAN as a check on cluster stability. Each segment is profiled for retention, failure rates and revenue, and kept simple enough for commercial teams to use.
+- **Churn model:** A LightGBM or XGBoost classifier inside a scikit-learn pipeline, validated over time so the model is never tested on data from before its training window. Optuna tunes parameters, MLflow tracks experiments, and CalibratedClassifierCV makes the predicted probabilities reliable enough to rank merchants by risk over 30, 60 and 90-day windows.
+- **Explanations for relationship managers:** SHAP values give the main reasons behind each flag, such as falling volume, rising declines or fewer active products. Each reason is translated into a short talking point the relationship manager can use on the call.
+- **Delivery and monitoring:** Scores and reasons are published as a dbt mart and refreshed on a schedule through Airflow or Dagster. A Streamlit or Plotly Dash view, or a CRM feed, gives relationship managers a weekly list, and Evidently reports track drift and the gap between predicted and realised churn each month.
+
+### Indicative Roadmap
+
+| Phase | Timing | Deliverable |
+|---|---|---|
+| Data review and definitions | Weeks 1–2 | Agreed churn and payment failure definitions, data sources and dbt model plan |
+| Driver analysis | Weeks 3–5 | Ranked drivers of churn and payment failure, with segment comparisons |
+| dbt models and segmentation | Weeks 4–7 | Tested dbt marts for merchant health and segments, reusable by commercial teams |
+| Churn model | Weeks 6–9 | Calibrated churn model with explanations for each flagged merchant |
+| Relationship manager handover | Weeks 10–12 | Weekly at-risk merchant list in use, with a documented data layer and monitoring |
+
+### Measures of success
+
+- The top drivers of churn and payment failure are quantified and agreed with the commercial team.
+- The dbt models pass their tests and are reused by commercial and risk teams.
+- Relationship managers contact flagged merchants, and each outcome is recorded.
+- The churn model is calibrated and tracked against realised churn each month.
+
+<br/>
+<hr/>
+
+<div class="alert alert-primary pt-3 pb-2 text-center">
+  My day rate varies depending on the scope of work and engagement type.
+</div>
+
+<div class="alert alert-success pt-3 pb-2 text-center">
+  I can guarantee a quick turnaround and high quality of work exceeding your expectations.
+</div>
+
+<div class="alert alert-warning pt-3 pb-2 text-center">
+  <a href="/contact.html" class="alert-link">Contact</a> me to discuss your requirements or connect on <a href="https://www.linkedin.com/in/dmitryrastorguev/" class="alert-link">LinkedIn</a>.
+</div>
+
+<p class="seo-keywords" hidden aria-hidden="true">merchant churn analysis, payment failure analysis, payments platform analytics, merchant attrition modelling, dbt data models, SQL analytics payments, merchant segmentation, commercial performance analytics, churn prediction machine learning, relationship manager early warning, payment decline drivers, acquiring analytics, merchant transaction data analysis, customer behaviour analytics fintech, Dmitry Rastorguev</p>
