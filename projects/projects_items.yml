@@ -1,213 +1,10 @@
 # One entry per project page. Generated pages and the sidebar are built from this file
 # by build_projects.js. Required fields are checked before anything is written.
-# status: only 'sector' is kept. roadmap.note is 'Indicative plan.' on every page.
 
-- slug: large-asset-owner
-  nav_title: Large asset owner
-  category: Capital Markets
-  name: Large asset owner - portfolio manager performance analysis
-  meta_description: Analysis of portfolio managers' historic performance for a large asset owner, using machine learning to detect return anomalies and style drift.
-  keywords:
-  - asset owner performance analytics
-  - portfolio manager evaluation
-  - return anomaly detection
-  - style drift analysis
-  - machine learning classification finance
-  - multi-asset class performance
-  - investment manager due diligence
-  - institutional investor analytics
-  - benchmark deviation analysis
-  - historic returns analysis
-  - manager selection analytics
-  - investment governance data
-  - Python investment analytics
-  - fund performance attribution
-  - quantitative portfolio review
-  - Dmitry Rastorguev
-  status:
-    sector: Capital markets
-  project_statement: A large asset owner needs to know whether the portfolio managers it employs deliver the returns they claim, and whether they stay within their stated style. Manual review of manager reports is slow and inconsistent across asset classes.
-  requirements:
-  - Historic performance analysis for each manager across several asset classes.
-  - Benchmark-relative measures that allow managers with different mandates to be compared fairly.
-  - Detection of return anomalies and style drift over time.
-  - Results the investment team can review, question and act on.
-  approach:
-    intro: I would separate performance from style, because a manager can look strong simply by taking more risk than its mandate allows.
-    parts:
-    - title: Performance baseline
-      text: Returns are measured against asset-class benchmarks, with risk-adjusted metrics so managers with different mandates can be compared.
-    - title: Style analysis
-      text: Holdings and returns are classified with machine learning to show how each manager's exposures have shifted over time.
-    - title: Anomaly detection
-      text: Unusual return patterns are flagged for review with the supporting evidence attached, rather than treated as conclusions.
-    trade_off: Interpretable style measures over a single headline model, so the investment team can see why a manager was flagged.
-  implementation:
-  - title: Data preparation
-    text: Return series, benchmarks and holdings are cleaned and aligned into one consistent history for each manager.
-  - title: Classification models
-    text: Machine learning classifiers recognise style and are validated against known manager mandates.
-  - title: Reporting
-    text: Manager scorecards show performance, style drift and flagged anomalies, with drill-down to the underlying data.
-  team: I would lead the analysis and model design, working with the investment team on mandate definitions and review.
-  roadmap:
-    phases:
-    - phase: Data assembly and benchmark mapping
-      timing: Weeks 1–3
-      deliverable: Clean, aligned return and holdings history for each manager
-    - phase: Performance and style analysis
-      timing: Weeks 4–7
-      deliverable: Benchmark-relative performance and style-drift measures
-    - phase: Anomaly detection and scorecards
-      timing: Weeks 8–10
-      deliverable: Flagged anomalies with evidence, and manager scorecards
-    - phase: Review and handover
-      timing: Weeks 11–12
-      deliverable: Walkthrough with the investment team and a reusable review process
-  measures_of_success:
-  - Every manager is reviewed on the same consistent basis.
-  - Style drift and return anomalies are identified with supporting evidence.
-  - The investment team can explain the outcome of each review.
-- slug: short-only-hedge-fund
-  nav_title: Short-only hedge fund
-  category: Capital Markets
-  name: Short-only hedge fund - adverse news monitoring
-  meta_description: Classification and aggregation of adverse news for a short-only hedge fund, with a knowledge graph that links related stories for analysts.
-  keywords:
-  - adverse news monitoring
-  - short selling research support
-  - negative news screening
-  - news classification NLP
-  - knowledge graph news analytics
-  - entity extraction financial news
-  - event-driven investment research
-  - analyst workflow automation
-  - news aggregation finance
-  - text mining financial articles
-  - risk news alerts
-  - hedge fund research tools
-  - related article visualisation
-  - investment research automation
-  - short-only fund analytics
-  - Dmitry Rastorguev
-  status:
-    sector: Hedge funds
-  project_statement: A short-only fund depends on finding negative information about companies before the market does. Adverse news is published across many sources and languages, and analysts cannot read all of it in time.
-  requirements:
-  - Coverage of adverse news across a defined set of sources.
-  - Related stories grouped so analysts review each event once, not every headline.
-  - Links between articles, companies and people.
-  - A process analysts can rely on for detailed follow-up.
-  approach:
-    intro: I would treat the system as a filter that surfaces candidates for analyst judgement, not as a source of trading signals.
-    parts:
-    - title: Collection
-      text: Articles are gathered from a defined list of sources, with duplicates and syndicated copies removed.
-    - title: Classification
-      text: Each story is labelled by type of event, such as litigation, regulatory action or management change, and by severity.
-    - title: Aggregation
-      text: Related stories are grouped into a single event and linked to the companies and people involved.
-    trade_off: Recall over precision in the first version. Analysts would rather review a few false alarms than miss an event.
-  implementation:
-  - title: Scraping and extraction
-    text: Collection pipelines with entity extraction for companies, people and dates.
-  - title: NLP classification
-    text: Models label event type and severity, checked against a sample labelled by analysts.
-  - title: Knowledge graph
-    text: Stories are linked to companies, people and events, so related coverage can be traced in one view.
-  - title: Analyst interface
-    text: A daily digest and search view ranked by severity and recency.
-  team: I would design the pipeline and models, with analysts defining the event taxonomy and reviewing outputs.
-  roadmap:
-    phases:
-    - phase: Source mapping and taxonomy
-      timing: Weeks 1–2
-      deliverable: Agreed source list and event categories
-    - phase: Collection and extraction
-      timing: Weeks 3–5
-      deliverable: Working pipeline with entity extraction
-    - phase: Classification and aggregation
-      timing: Weeks 6–9
-      deliverable: Classifier evaluated on a labelled sample, and a grouped event view
-    - phase: Analyst pilot
-      timing: Weeks 10–12
-      deliverable: Daily digest in use, with feedback collected and tuned
-  measures_of_success:
-  - Analysts see adverse events on the day they are published.
-  - Each event is reviewed once, with its related coverage attached.
-  - Classifier accuracy is measured against a labelled sample and reported.
-- slug: ai-venture-fund
-  nav_title: AI venture fund
-  category: Capital Markets
-  name: Venture capital fund for AI startups - European AI funding landscape
-  meta_description: Data analytics on funding statistics for AI-first startups in Europe, published as the European Machine Intelligence Landscape for a venture fund.
-  keywords:
-  - AI startup funding Europe
-  - venture capital market analytics
-  - European Machine Intelligence Landscape
-  - startup funding statistics
-  - web scraping funding data
-  - Google Sheets data pipeline
-  - D3.js interactive visualisation
-  - AI investment trends Europe
-  - venture deal flow analysis
-  - market mapping of startups
-  - funding round data
-  - non-technical data maintenance
-  - investor data visualisation
-  - emerging technology investing
-  - AI landscape report
-  - Dmitry Rastorguev
-  href: https://emil.aiseed.vc
-  href_name: European Machine Intelligence Landscape
-  status:
-    sector: Venture capital
-  project_statement: A venture fund investing in AI wants a clear view of where European AI startups are being funded, at what stage and by whom. That information is spread across press releases, databases and filings, and is hard to compare.
-  requirements:
-  - Funding data for European AI startups collected in one place.
-  - Consistent stage, sector and country definitions.
-  - Trends visible over time and by country.
-  - A dataset that non-technical team members can update and correct.
-  approach:
-    intro: I would start with a simple, transparent data model, because the fund's team needs to correct and extend the data without developer help.
-    parts:
-    - title: Collection
-      text: Funding announcements are gathered from public sources and structured into one record per round.
-    - title: Standardisation
-      text: Stage, sector and country are mapped to fixed definitions, with unmatched entries reviewed by hand.
-    - title: Analysis
-      text: Interactive views show funding volume, round size and stage mix over time.
-    trade_off: A spreadsheet-based store over a full database, so non-technical team members can maintain it directly, at the cost of scale.
-  implementation:
-  - title: Scraping
-    text: Automated collection from public funding sources, with run logs for every update.
-  - title: Google Sheets store
-    text: Structured sheets as the single source of data, with validation rules for required fields.
-  - title: Visualisation
-    text: Interactive D3.js charts of funding trends, stage mix and geography, published as a web page.
-  team: I would build the collection and visualisation, with the fund's analysts maintaining the data.
-  roadmap:
-    phases:
-    - phase: Scope and definitions
-      timing: Weeks 1–2
-      deliverable: Agreed stage, sector and country definitions
-    - phase: Collection and store
-      timing: Weeks 3–5
-      deliverable: Automated collection feeding the Google Sheets store
-    - phase: Visualisation
-      timing: Weeks 6–8
-      deliverable: Interactive funding views
-    - phase: Maintenance handover
-      timing: Weeks 9–10
-      deliverable: Data process documented for the analyst team
-  measures_of_success:
-  - The dataset covers the agreed period and geography, with known gaps listed.
-  - Analysts can add or correct a funding round without developer help.
-  - Trend views update from the store each time the data changes.
-- slug: challenger-bank
-  nav_title: Challenger bank
-  category: Financial Services
-  name: Challenger bank - internal financial analytics applications
+- slug: challenger-bank-financial-analytics-apps
+  nav_title: Challenger Bank - Financial Analytics Applications
+  category: Banking
+  name: Challenger Bank - Financial Analytics Applications
   meta_description: Internal full-stack financial analytics applications, and web tooling for on-premise Windows Server infrastructure, built for a challenger bank.
   keywords:
   - challenger bank analytics
@@ -226,8 +23,6 @@
   - financial services web apps
   - in-house analytics tools
   - Dmitry Rastorguev
-  status:
-    sector: Financial services
   project_statement: A challenger bank needs internal analytics applications for its finance and risk teams, built on its own on-premise infrastructure. Analysts currently rely on spreadsheets that are hard to control and slow to change.
   requirements:
   - Internal web applications for financial analysis, running on on-premise Windows Server.
@@ -253,7 +48,6 @@
     text: Documented steps for on-premise Windows Server, with separate test and production environments.
   - title: Documentation
     text: Developer guides and user notes for each application.
-  team: I would design the framework and build the first application, with bank staff owning requirements and acceptance.
   roadmap:
     phases:
     - phase: Requirements and environment review
@@ -272,11 +66,11 @@
   - The first application is in production and used by its target team.
   - Each later application follows the framework without rework.
   - Access and changes can be traced in an audit.
-- slug: bnpl-fintech-lender
-  nav_title: BNPL fintech lender
-  category: Financial Services
-  name: BNPL fintech lender - credit strategy and customer segmentation
-  meta_description: Credit lending strategy and risk segmentation for a buy-now-pay-later proposition, built on existing customers' purchase and app usage data.
+- slug: bnpl-lender-credit-strategy-customer-segmentation
+  nav_title: BNPL Lender - Credit Strategy and Customer Segmentation
+  category: Fintech
+  name: BNPL Lender - Credit Strategy and Customer Segmentation
+  meta_description: Credit lending strategy and risk segmentation for a buy-now-pay-later lender, built on existing customers' purchase and app usage data.
   keywords:
   - buy now pay later credit strategy
   - BNPL risk segmentation
@@ -294,8 +88,6 @@
   - existing customer credit offers
   - lending proposition design
   - Dmitry Rastorguev
-  status:
-    sector: Consumer credit and fintech
   project_statement: A fintech offering buy-now-pay-later credit wants to extend the proposition to its existing customers. The decisions are how much credit to offer, to whom and on what terms, without pushing losses beyond what the business can absorb.
   requirements:
   - A credit lending strategy for the new proposition among existing customers.
@@ -321,7 +113,6 @@
     text: Segment-level loss estimates with sensitivity to economic scenarios.
   - title: Monitoring
     text: A dashboard tracking uptake, arrears and losses by segment.
-  team: I would lead the analysis and strategy design, working with the credit and product teams on policy.
   roadmap:
     phases:
     - phase: Data review
@@ -340,10 +131,10 @@
   - Each segment has a credit policy with an estimated loss range.
   - The pilot stays within agreed loss limits, reviewed monthly.
   - The credit team can explain every change to a segment's terms.
-- slug: cross-border-money-transfers
-  nav_title: Cross-border transfers
-  category: Financial Services
-  name: Cross-border money transfers - user activity forecasting
+- slug: cross-border-money-transfers-user-activity
+  nav_title: Cross-border Money Transfers - User Activity Forecasting
+  category: Fintech
+  name: Cross-border Money Transfers - User Activity Forecasting
   meta_description: Forecasting of user activity and its impact on revenue and costs for a cross-border money transfer provider, with KPI breakdowns.
   keywords:
   - cross-border payments analytics
@@ -362,8 +153,6 @@
   - usage metrics breakdown
   - international transfers data
   - Dmitry Rastorguev
-  status:
-    sector: Payments and money transfer
   project_statement: A cross-border money transfer provider needs to forecast how many users will transact, and what that means for revenue and costs. Top-line forecasts do not show which customer groups or channels drive the change.
   requirements:
   - Forecasts of total user activity over a planning horizon.
@@ -389,7 +178,6 @@
     text: Usage metrics by segment, channel and corridor, with variance analysis against forecast.
   - title: Reporting
     text: A monthly pack and scenario dashboard for finance and operations.
-  team: I would build the forecasting models and reporting, working with finance on assumptions and sign-off.
   roadmap:
     phases:
     - phase: Data and definitions
@@ -408,11 +196,11 @@
   - Forecast error is measured monthly against actuals and reported.
   - Revenue and cost outcomes can be traced to activity drivers.
   - The finance team runs the monthly process without support.
-- slug: ai-sales-trading
-  nav_title: AI sales trading
-  category: Capital Markets
-  name: 'AI sales Trading: Recommendations for a Tier-1 Bank'
-  meta_description: 'Deliver production AI decision support for trading desks and its sales at a Tier-1 bank: client behaviour and market signal models, governance and rollout.'
+- slug: ai-sales-trading-recommendation-engine
+  nav_title: AI Sales Trading Recommendation Engine
+  category: Sales & Trading
+  name: 'AI Sales & Trading: Recommendations for Client Trade Ideas'
+  meta_description: 'Deliver production AI system to generate client trade ideas for trading desks and its sales at a Tier-1 bank: client behaviour and market signal models, governance and rollout.'
   keywords:
   - AI sales trading
   - trading desk recommendations
@@ -429,8 +217,6 @@
   - capital markets AI consultant
   - FX AI pipeline
   - Dmitry Rastorguev
-  status:
-    sector: Capital markets
   project_statement: A Tier-1 bank has several AI initiatives underway, but they need engineering capacity to move beyond experimentation and into production. The project combines historical client trading behaviour with market signals to give trading desks actionable recommendations. It is the first of a wider AI programme that will extend to FX and digital sales, so the delivery approach needs to be repeatable as well as effective.
   requirements:
   - A working production solution, not a research prototype or proof of concept.
@@ -460,7 +246,6 @@
     text: Model documentation, data lineage, explainability reports, test evidence and control descriptions, prepared during the build rather than after it.
   - title: Delivery tooling
     text: AI-assisted development tools, including Claude, Windsurf and Devin, accelerate coding, with human review and the same test gates applied to every change.
-  team: I would lead the design, stakeholder engagement and the approval route, while working with other AI Engineers to build the pipelines, models and evaluation, and produce the technical evidence for validation.
   roadmap:
     phases:
     - phase: Discovery and data access
@@ -483,6 +268,197 @@
   - The model passes validation and receives production approval.
   - Monitoring is live, with drift alerts and an audit trail for each recommendation.
   - The delivery pattern is documented and reusable for FX and digital sales.
+- slug: large-asset-owner-portfolio-manager-performance-analysis
+  nav_title: Large Asset Owner - Portfolio Manager Performance Analysis
+  category: Investment Management
+  name: Large Asset Owner - Portfolio Manager Performance Analysis
+  meta_description: Analysis of portfolio managers' historic performance for a large asset owner, using machine learning to detect return anomalies and style drift.
+  keywords:
+  - asset owner performance analytics
+  - portfolio manager evaluation
+  - return anomaly detection
+  - style drift analysis
+  - machine learning classification finance
+  - multi-asset class performance
+  - investment manager due diligence
+  - institutional investor analytics
+  - benchmark deviation analysis
+  - historic returns analysis
+  - manager selection analytics
+  - investment governance data
+  - Python investment analytics
+  - fund performance attribution
+  - quantitative portfolio review
+  - Dmitry Rastorguev
+  project_statement: A large asset owner needs to know whether the portfolio managers it employs deliver the returns they claim, and whether they stay within their stated style. Manual review of manager reports is slow and inconsistent across asset classes.
+  requirements:
+  - Historic performance analysis for each manager across several asset classes.
+  - Benchmark-relative measures that allow managers with different mandates to be compared fairly.
+  - Detection of return anomalies and style drift over time.
+  - Results the investment team can review, question and act on.
+  approach:
+    intro: I would separate performance from style, because a manager can look strong simply by taking more risk than its mandate allows.
+    parts:
+    - title: Performance baseline
+      text: Returns are measured against asset-class benchmarks, with risk-adjusted metrics so managers with different mandates can be compared.
+    - title: Style analysis
+      text: Holdings and returns are classified with machine learning to show how each manager's exposures have shifted over time.
+    - title: Anomaly detection
+      text: Unusual return patterns are flagged for review with the supporting evidence attached, rather than treated as conclusions.
+    trade_off: Interpretable style measures over a single headline model, so the investment team can see why a manager was flagged.
+  implementation:
+  - title: Data preparation
+    text: Return series, benchmarks and holdings are cleaned and aligned into one consistent history for each manager.
+  - title: Classification models
+    text: Machine learning classifiers recognise style and are validated against known manager mandates.
+  - title: Reporting
+    text: Manager scorecards show performance, style drift and flagged anomalies, with drill-down to the underlying data.
+  roadmap:
+    phases:
+    - phase: Data assembly and benchmark mapping
+      timing: Weeks 1–3
+      deliverable: Clean, aligned return and holdings history for each manager
+    - phase: Performance and style analysis
+      timing: Weeks 4–7
+      deliverable: Benchmark-relative performance and style-drift measures
+    - phase: Anomaly detection and scorecards
+      timing: Weeks 8–10
+      deliverable: Flagged anomalies with evidence, and manager scorecards
+    - phase: Review and handover
+      timing: Weeks 11–12
+      deliverable: Walkthrough with the investment team and a reusable review process
+  measures_of_success:
+  - Every manager is reviewed on the same consistent basis.
+  - Style drift and return anomalies are identified with supporting evidence.
+  - The investment team can explain the outcome of each review.
+- slug: short-only-hedge-fund-adverse-news-monitoring
+  nav_title: Short-only Hedge Fund - Adverse News Monitoring
+  category: Investment Management
+  name: Short-only Hedge Fund - Adverse News Monitoring
+  meta_description: Classification and aggregation of adverse news for a short-only hedge fund, with a knowledge graph that links related stories for analysts.
+  keywords:
+  - adverse news monitoring
+  - short selling research support
+  - negative news screening
+  - news classification NLP
+  - knowledge graph news analytics
+  - entity extraction financial news
+  - event-driven investment research
+  - analyst workflow automation
+  - news aggregation finance
+  - text mining financial articles
+  - risk news alerts
+  - hedge fund research tools
+  - related article visualisation
+  - investment research automation
+  - short-only fund analytics
+  - Dmitry Rastorguev
+  project_statement: A short-only fund depends on finding negative information about companies before the market does. Adverse news is published across many sources and languages, and analysts cannot read all of it in time.
+  requirements:
+  - Coverage of adverse news across a defined set of sources.
+  - Related stories grouped so analysts review each event once, not every headline.
+  - Links between articles, companies and people.
+  - A process analysts can rely on for detailed follow-up.
+  approach:
+    intro: I would treat the system as a filter that surfaces candidates for analyst judgement, not as a source of trading signals.
+    parts:
+    - title: Collection
+      text: Articles are gathered from a defined list of sources, with duplicates and syndicated copies removed.
+    - title: Classification
+      text: Each story is labelled by type of event, such as litigation, regulatory action or management change, and by severity.
+    - title: Aggregation
+      text: Related stories are grouped into a single event and linked to the companies and people involved.
+    trade_off: Recall over precision in the first version. Analysts would rather review a few false alarms than miss an event.
+  implementation:
+  - title: Scraping and extraction
+    text: Collection pipelines with entity extraction for companies, people and dates.
+  - title: NLP classification
+    text: Models label event type and severity, checked against a sample labelled by analysts.
+  - title: Knowledge graph
+    text: Stories are linked to companies, people and events, so related coverage can be traced in one view.
+  - title: Analyst interface
+    text: A daily digest and search view ranked by severity and recency.
+  roadmap:
+    phases:
+    - phase: Source mapping and taxonomy
+      timing: Weeks 1–2
+      deliverable: Agreed source list and event categories
+    - phase: Collection and extraction
+      timing: Weeks 3–5
+      deliverable: Working pipeline with entity extraction
+    - phase: Classification and aggregation
+      timing: Weeks 6–9
+      deliverable: Classifier evaluated on a labelled sample, and a grouped event view
+    - phase: Analyst pilot
+      timing: Weeks 10–12
+      deliverable: Daily digest in use, with feedback collected and tuned
+  measures_of_success:
+  - Analysts see adverse events on the day they are published.
+  - Each event is reviewed once, with its related coverage attached.
+  - Classifier accuracy is measured against a labelled sample and reported.
+- slug: ai-venture-fund-fundraising-statistics
+  nav_title: AI Venture Fund - Fundraising Statistics
+  category: Investment Management
+  name: Venture capital fund for AI startups - European AI funding landscape
+  meta_description: Data analytics on funding statistics for AI-first startups in Europe, published as the European Machine Intelligence Landscape for a venture fund.
+  keywords:
+  - AI startup funding Europe
+  - venture capital market analytics
+  - European Machine Intelligence Landscape
+  - startup funding statistics
+  - web scraping funding data
+  - Google Sheets data pipeline
+  - D3.js interactive visualisation
+  - AI investment trends Europe
+  - venture deal flow analysis
+  - market mapping of startups
+  - funding round data
+  - non-technical data maintenance
+  - investor data visualisation
+  - emerging technology investing
+  - AI landscape report
+  - Dmitry Rastorguev
+  project_statement: A venture fund investing in AI wants a clear view of where European AI startups are being funded, at what stage and by whom. That information is spread across press releases, databases and filings, and is hard to compare.
+  requirements:
+  - Funding data for European AI startups collected in one place.
+  - Consistent stage, sector and country definitions.
+  - Trends visible over time and by country.
+  - A dataset that non-technical team members can update and correct.
+  approach:
+    intro: I would start with a simple, transparent data model, because the fund's team needs to correct and extend the data without developer help.
+    parts:
+    - title: Collection
+      text: Funding announcements are gathered from public sources and structured into one record per round.
+    - title: Standardisation
+      text: Stage, sector and country are mapped to fixed definitions, with unmatched entries reviewed by hand.
+    - title: Analysis
+      text: Interactive views show funding volume, round size and stage mix over time.
+    trade_off: A spreadsheet-based store over a full database, so non-technical team members can maintain it directly, at the cost of scale.
+  implementation:
+  - title: Scraping
+    text: Automated collection from public funding sources, with run logs for every update.
+  - title: Google Sheets store
+    text: Structured sheets as the single source of data, with validation rules for required fields.
+  - title: Visualisation
+    text: Interactive D3.js charts of funding trends, stage mix and geography, published as a web page.
+  roadmap:
+    phases:
+    - phase: Scope and definitions
+      timing: Weeks 1–2
+      deliverable: Agreed stage, sector and country definitions
+    - phase: Collection and store
+      timing: Weeks 3–5
+      deliverable: Automated collection feeding the Google Sheets store
+    - phase: Visualisation
+      timing: Weeks 6–8
+      deliverable: Interactive funding views
+    - phase: Maintenance handover
+      timing: Weeks 9–10
+      deliverable: Data process documented for the analyst team
+  measures_of_success:
+  - The dataset covers the agreed period and geography, with known gaps listed.
+  - Analysts can add or correct a funding round without developer help.
+  - Trend views update from the store each time the data changes.
 - slug: abf-surveillance-framework
   nav_title: ABF surveillance framework
   category: Private Credit
@@ -504,8 +480,6 @@
   - specialty finance monitoring
   - whole loan performance
   - Dmitry Rastorguev
-  status:
-    sector: Asset-based finance and structured credit
   project_statement: 'An asset manager is growing its asset-based finance (ABF) platform across public and private strategies. The surveillance capability needs to keep pace: one consistent framework for monitoring transaction, collateral, counterparty and servicer performance, supported by scalable data, reporting and operating processes. The aim is to turn transaction-level performance into clear portfolio insight and recommended action for investment, valuation and governance teams.'
   requirements:
   - One surveillance framework across residential, consumer, commercial asset finance, specialty finance and whole-loan exposures, with consistent coverage, review standards and escalation.
@@ -535,7 +509,6 @@
     text: Power BI dashboards for the surveillance team, and an automated pack for watchlist and valuation committees, produced from the same data as the analysis.
   - title: Controls
     text: Reviewer sign-off on watchlist changes, reconciliation checks before each reporting cycle, change control on calculations, and retained records for audit.
-  team: The Head of Surveillance owns the framework and its governance. Analysts cover transaction and data review, supported by a data engineering partner.
   roadmap:
     phases:
     - phase: Diagnostic and mandate
@@ -577,8 +550,6 @@
   - insurer statutory reporting
   - Reg AB II data expectations
   - Dmitry Rastorguev
-  status:
-    sector: Insurance investment data and asset-based finance
   project_statement: An investment manager running credit portfolios for insurance clients needs its asset-based finance (ABF) data to be accurate, timely and decision-ready. Deal, collateral and servicer data arrives from many originators, servicers and trustees in inconsistent formats, and feeds valuations, surveillance, risk and statutory reporting. The project establishes governance, controls and daily data operations for that flow, led from Bangalore and working alongside New York and London teams.
   requirements:
   - Reliable intake and normalisation of loan tapes, trustee reports and servicer data into standard internal models.
@@ -610,7 +581,6 @@
     text: Surveillance dashboards covering delinquency, default, loss, recovery, prepayment, credit enhancement and overcollateralisation, plus a statutory data pack for NAIC and SSAP reporting. Both come from the same governed data.
   - title: Lineage and governance
     text: Alation catalogue and lineage, documented SOPs, data-access controls and change control on mappings.
-  team: A Bangalore data operations lead acts as SME and regional liaison, supported by data engineers and analysts on rotation, with incident response playbooks.
   roadmap:
     phases:
     - phase: Current state and inventory

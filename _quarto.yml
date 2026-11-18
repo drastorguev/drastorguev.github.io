@@ -7,9 +7,6 @@ project:
     - "*.qmd"
     - "projects/*.qmd"
     - "!posts/"
-    - "!projects_old/"
-    - "!projects_old/**"
-
 
   resources:
     - CNAME
@@ -45,30 +42,35 @@ website:
       contents:
         - text: "Overview"
           file: projects.qmd
-        - section: "Capital Markets"
+        - section: "Banking"
           contents:
-            - text: "Large asset owner"
-              file: projects/large-asset-owner.qmd
-            - text: "Short-only hedge fund"
-              file: projects/short-only-hedge-fund.qmd
-            - text: "AI venture fund"
-              file: projects/ai-venture-fund.qmd
-            - text: "AI sales trading"
-              file: projects/ai-sales-trading.qmd
-        - section: "Financial Services"
+            - text: "Challenger Bank - Financial Analytics Applications"
+              file: projects/challenger-bank-financial-analytics-apps.qmd
+        - section: "Fintech"
           contents:
-            - text: "Challenger bank"
-              file: projects/challenger-bank.qmd
-            - text: "BNPL fintech lender"
-              file: projects/bnpl-fintech-lender.qmd
-            - text: "Cross-border transfers"
-              file: projects/cross-border-money-transfers.qmd
+            - text: "BNPL Lender - Credit Strategy and Customer Segmentation"
+              file: projects/bnpl-lender-credit-strategy-customer-segmentation.qmd
+            - text: "Cross-border Money Transfers - User Activity Forecasting"
+              file: projects/cross-border-money-transfers-user-activity.qmd
+        - section: "Sales & Trading"
+          contents:
+            - text: "AI Sales Trading Recommendation Engine"
+              file: projects/ai-sales-trading-recommendation-engine.qmd
+        - section: "Investment Management"
+          contents:
+            - text: "Large Asset Owner - Portfolio Management Performance Analysis"
+              file: projects/large-asset-owner-portfolio-manager-performance-analysis.qmd
+            - text: "Short-only Hedge Fund - Adverse News Monitoring"
+              file: projects/short-only-hedge-fund-adverse-news-monitoring.qmd
+            - text: "AI Venture Fund - Fundraising Statistics"
+              file: projects/ai-venture-fund-fundraising-statistics.qmd
         - section: "Private Credit"
           contents:
             - text: "ABF surveillance framework"
               file: projects/abf-surveillance-framework.qmd
             - text: "Insurance ABF data operations"
               file: projects/insurance-abf-data-operations.qmd
+        
     # END generated: projects-sidebar
   page-footer:
     left: "Copyright 2026, Dmitry Rastorguev"
