@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Credit lending strategy and risk segmentation for a buy-now-pay-later proposition, built on existing customers’ purchase and app usage data.">
+<meta name="description" content="React and TypeScript front end for stress testing investment portfolios, with interactive charts, data grids, scenario comparison and audit trail.">
 
-<title>BNPL fintech lender - credit strategy and customer segmentation – Dmitry Rastorguev</title>
+<title>Portfolio Stress Testing - Investment Analytics Front-End Application – Dmitry Rastorguev</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -53,6 +53,15 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-KGHL346XM6"></script>
+
+<script type="text/plain" cookie-consent="tracking">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-KGHL346XM6', { 'anonymize_ip': true});
+</script>
 
 <script type="text/javascript" charset="UTF-8">
 document.addEventListener('DOMContentLoaded', function () {
@@ -88,12 +97,12 @@ cookieconsent.run({
 
 
 <link rel="stylesheet" href="../styles.css">
-<meta property="og:title" content="BNPL fintech lender - credit strategy and customer segmentation – Dmitry Rastorguev">
+<meta property="og:title" content="Portfolio Stress Testing - Investment Analytics Front-End Application – Dmitry Rastorguev">
 <meta property="og:description" content="Quantitative analyst and data scientist in London applying data science to financial risk, capital markets and fintech.">
 <meta property="og:image" content="https://rastorguev.co.uk//static/website_image.jpg">
 <meta property="og:site_name" content="Dmitry Rastorguev">
 <meta property="og:locale" content="en_GB">
-<meta name="twitter:title" content="BNPL fintech lender - credit strategy and customer segmentation – Dmitry Rastorguev">
+<meta name="twitter:title" content="Portfolio Stress Testing - Investment Analytics Front-End Application – Dmitry Rastorguev">
 <meta name="twitter:description" content="Quantitative analyst and data scientist in London applying data science to financial risk, capital markets and fintech.">
 <meta name="twitter:image" content="https://rastorguev.co.uk//static/website_image.jpg">
 <meta name="twitter:creator" content="@dsrastorguev">
@@ -149,7 +158,7 @@ cookieconsent.run({
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../projects/challenger-bank.html">Financial Services</a></li><li class="breadcrumb-item"><a href="../projects/bnpl-fintech-lender.html">BNPL fintech lender</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../projects/large-asset-owner-portfolio-manager-performance-analysis.html">Investment Management</a></li><li class="breadcrumb-item"><a href="../projects/portfolio-stress-testing-analytics-frontend.html">Portfolio Stress Testing - Front-End Dashboard</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -170,7 +179,7 @@ cookieconsent.run({
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Capital Markets</span></a>
+ <span class="menu-text">Banking</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -178,26 +187,8 @@ cookieconsent.run({
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../projects/large-asset-owner.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Large asset owner</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../projects/short-only-hedge-fund.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Short-only hedge fund</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../projects/ai-venture-fund.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">AI venture fund</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../projects/ai-sales-trading.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">AI sales trading</span></a>
+  <a href="../projects/challenger-bank-financial-analytics-apps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Challenger Bank - Financial Analytics Applications</span></a>
   </div>
 </li>
       </ul>
@@ -205,7 +196,7 @@ cookieconsent.run({
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Financial Services</span></a>
+ <span class="menu-text">Fintech</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -213,20 +204,20 @@ cookieconsent.run({
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../projects/challenger-bank.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Challenger bank</span></a>
+  <a href="../projects/bnpl-lender-credit-strategy-customer-segmentation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">BNPL Lender - Credit Strategy and Customer Segmentation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../projects/bnpl-fintech-lender.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">BNPL fintech lender</span></a>
+  <a href="../projects/cross-border-money-transfers-user-activity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Cross-border Money Transfers - User Activity Forecasting</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../projects/cross-border-money-transfers.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Cross-border transfers</span></a>
+  <a href="../projects/payments-platform-merchant-churn-payment-failures.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Payments Platform - Merchant Churn and Payment Failure Analysis</span></a>
   </div>
 </li>
       </ul>
@@ -234,12 +225,58 @@ cookieconsent.run({
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">Private Credit</span></a>
+ <span class="menu-text">Sales &amp; Trading</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../projects/sales-desk-ai-trade-recommendation-engine.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sales Desk AI Trade Recommendation Engine</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Investment Management</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../projects/large-asset-owner-portfolio-manager-performance-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Large Asset Owner - Portfolio Manager Performance Analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../projects/short-only-hedge-fund-adverse-news-monitoring.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Short-only Hedge Fund - Adverse News Monitoring</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../projects/portfolio-stress-testing-analytics-frontend.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Portfolio Stress Testing - Front-End Dashboard</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Private Markets</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../projects/abf-surveillance-framework.html" class="sidebar-item-text sidebar-link">
@@ -250,6 +287,30 @@ cookieconsent.run({
   <div class="sidebar-item-container"> 
   <a href="../projects/insurance-abf-data-operations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Insurance ABF data operations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../projects/ai-venture-fund-fundraising-statistics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">AI Venture Fund - Fundraising Statistics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../projects/investment-data-platform-databricks-migration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Investment Data Platform - Databricks Migration and Reconciliation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../projects/investment-operations-python-applications-ai.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Investment Operations Applications - Python Tools, Document Parsing and AI</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../projects/private-capital-secondaries-valuation-cash-flow-model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Secondaries Valuation - Fund Cash Flow and Exit Modelling</span></a>
   </div>
 </li>
       </ul>
@@ -263,9 +324,9 @@ cookieconsent.run({
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../projects/challenger-bank.html">Financial Services</a></li><li class="breadcrumb-item"><a href="../projects/bnpl-fintech-lender.html">BNPL fintech lender</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../projects/large-asset-owner-portfolio-manager-performance-analysis.html">Investment Management</a></li><li class="breadcrumb-item"><a href="../projects/portfolio-stress-testing-analytics-frontend.html">Portfolio Stress Testing - Front-End Dashboard</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">BNPL fintech lender - credit strategy and customer segmentation</h1>
+<h1 class="title">Portfolio Stress Testing - Investment Analytics Front-End Application</h1>
 </div>
 
 
@@ -282,39 +343,42 @@ cookieconsent.run({
 </header>
 
 
-<!-- Generated from projects/projects_items.yml by projects/build_projects.js. Edit the data or template, not this file. -->
+<!-- Generated from projects_utils/projects_items.yml by projects_utils/build_projects.js. Edit the data or template, not this file. -->
 <section id="project-statement" class="level3">
 <h3 class="anchored" data-anchor-id="project-statement">Project statement</h3>
-<p>A fintech offering buy-now-pay-later credit wants to extend the proposition to its existing customers. The decisions are how much credit to offer, to whom and on what terms, without pushing losses beyond what the business can absorb.</p>
+<p>An investment organisation is building a new analytics application so its investment professionals can explore portfolio risk, compare performance, investigate exceptions and model scenarios. Today these questions are answered across spreadsheets and separate reports, which slows review and makes results hard to audit.</p>
 </section>
 <section id="requirements" class="level3">
 <h3 class="anchored" data-anchor-id="requirements">Requirements</h3>
 <ul>
-<li>A credit lending strategy for the new proposition among existing customers.</li>
-<li>Customer segments based on purchase and app-usage behaviour.</li>
-<li>Portfolio risk quantified under realistic loss assumptions.</li>
-<li>A strategy the credit and product teams can apply and monitor.</li>
+<li>A responsive application for exploring portfolio risk, comparing performance and investigating exceptions.</li>
+<li>Scenario analysis that lets users model different market and portfolio assumptions and compare the results.</li>
+<li>Interactive charts, high-volume data grids, filtering and drill-down from portfolio to position level.</li>
+<li>Secure access with role-based permissions, and auditable records of the workflows users complete.</li>
+<li>Data and calculations from Snowflake, APIs and calculation services, with automated tests and CI/CD in place.</li>
 </ul>
 </section>
 <section id="approach" class="level3">
 <h3 class="anchored" data-anchor-id="approach">Approach</h3>
-<p>I would segment customers first, then set credit terms for each segment and test each choice against the expected loss it implies.</p>
+<p>I would design the application around the journeys investment professionals follow, then build each journey on one shared set of data contracts and components.</p>
 <ol type="1">
-<li><strong>Segmentation:</strong> Customers are grouped by purchase history and app behaviour into segments with distinct repayment patterns.</li>
-<li><strong>Risk quantification:</strong> Expected losses and their spread are estimated for each segment, using the lender’s own historic performance.</li>
-<li><strong>Strategy design:</strong> Credit limits and terms are set per segment, with a test-and-learn plan to refine them.</li>
+<li><strong>User journeys first:</strong> Portfolio review, performance comparison, exception review and scenario analysis are mapped as user stories with investment users, and each one is prototyped before it is built.</li>
+<li><strong>Shared components and data contracts:</strong> A typed React and TypeScript component library for charts, grids and filters, with the API and Snowflake data shapes defined once and reused across every journey.</li>
+<li><strong>Trust and auditability:</strong> Role-based access, secure handling of sensitive data, and an audit trail for every exception decision and scenario run.</li>
 </ol>
-<p><strong>Trade-off:</strong> Simple, explainable segment rules over a single predictive score, so the credit team can see and challenge each decision.</p>
+<p><strong>Trade-off:</strong> Journey-led delivery over a broad feature set. Fewer screens launch first, but each one is tested with users and built on shared components, so later journeys are faster and more consistent.</p>
 </section>
 <section id="implementation" class="level3">
 <h3 class="anchored" data-anchor-id="implementation">Implementation</h3>
 <ul>
-<li><strong>Data preparation:</strong> Purchase history, repayment records and app-usage events joined at customer level.</li>
-<li><strong>Segmentation analysis:</strong> Clustering and rule-based segments, validated against repayment outcomes.</li>
-<li><strong>Loss modelling:</strong> Segment-level loss estimates with sensitivity to economic scenarios.</li>
-<li><strong>Monitoring:</strong> A dashboard tracking uptake, arrears and losses by segment.</li>
+<li><strong>React and TypeScript application:</strong> React with TypeScript for the application shell and routing, with TanStack Query for server data and Zustand for interface state. Components are documented in Storybook, and ESLint, Prettier and strict TypeScript settings keep the codebase consistent.</li>
+<li><strong>Interactive charts and grids:</strong> AG Grid for high-volume position and exception tables, with server-side row models so large portfolios stay responsive. Highcharts or Plotly.js for risk and performance charts, and D3 where a custom visual is needed. Filters and drill-downs pass the same parameters to the API, so every view can be reproduced.</li>
+<li><strong>Python services and calculation APIs:</strong> FastAPI services expose portfolio, scenario and exception endpoints, with Pydantic models generating the contract through OpenAPI. openapi-typescript then produces the TypeScript types, so the front end and API share one definition. Calculations use pandas, Polars and NumPy, with SciPy and statsmodels for risk measures, and QuantLib where portfolios need pricing.</li>
+<li><strong>Snowflake data access:</strong> Queries run from the service layer through snowflake-connector-python, Snowpark or snowflake-sqlalchemy, never from the browser. Queries are parameterised, paged and aggregated on the server, so users see only the rows their role allows.</li>
+<li><strong>Prototyping with Streamlit:</strong> Streamlit prototypes let investment users test scenario logic and metrics early, before the React screens are built. The prototypes call the same FastAPI endpoints, so feedback carries straight into the production build.</li>
+<li><strong>Security and access control:</strong> OAuth2 and OpenID Connect sign-in through an identity provider, with Authlib in FastAPI. Role-based permissions are checked in API dependencies and on every query. Sensitive fields are masked in the browser, and access decisions are written to the audit log.</li>
+<li><strong>Automated testing and delivery:</strong> Jest and React Testing Library for components, Playwright for end-to-end journeys, and pytest with Hypothesis for the Python services and risk calculations. CI/CD runs every suite on each change, and code review is required before merge.</li>
 </ul>
-<p><strong>Team:</strong> I would lead the analysis and strategy design, working with the credit and product teams on policy.</p>
 </section>
 <section id="indicative-roadmap" class="level3">
 <h3 class="anchored" data-anchor-id="indicative-roadmap">Indicative Roadmap</h3>
@@ -333,24 +397,29 @@ cookieconsent.run({
 </thead>
 <tbody>
 <tr class="odd">
-<td>Data review</td>
-<td>Weeks 1–2</td>
-<td>Confirmed data sources and customer population</td>
+<td>Discovery and user journeys</td>
+<td>Weeks 1–3</td>
+<td>Confirmed journeys, user stories and data sources</td>
 </tr>
 <tr class="even">
-<td>Segmentation</td>
+<td>Design and prototypes</td>
 <td>Weeks 3–5</td>
-<td>Agreed segments with repayment profiles</td>
+<td>Clickable prototypes tested with investment users, and API contracts agreed</td>
 </tr>
 <tr class="odd">
-<td>Risk and strategy</td>
-<td>Weeks 6–9</td>
-<td>Loss estimates and credit terms per segment</td>
+<td>Core application</td>
+<td>Weeks 5–10</td>
+<td>Portfolio review, performance comparison and exception review built and tested</td>
 </tr>
 <tr class="even">
-<td>Pilot and monitoring</td>
-<td>Weeks 10–12</td>
-<td>Pilot rollout with a monitoring dashboard</td>
+<td>Scenario analysis and hardening</td>
+<td>Weeks 10–14</td>
+<td>Scenario modelling, access control, audit trail and accessibility checks</td>
+</tr>
+<tr class="odd">
+<td>Release and handover</td>
+<td>Weeks 14–16</td>
+<td>Production release through CI/CD, with documentation and user training</td>
 </tr>
 </tbody>
 </table>
@@ -358,9 +427,10 @@ cookieconsent.run({
 <section id="measures-of-success" class="level3">
 <h3 class="anchored" data-anchor-id="measures-of-success">Measures of success</h3>
 <ul>
-<li>Each segment has a credit policy with an estimated loss range.</li>
-<li>The pilot stays within agreed loss limits, reviewed monthly.</li>
-<li>The credit team can explain every change to a segment’s terms.</li>
+<li>Investment users complete portfolio review, comparison and exception journeys without support.</li>
+<li>Every exception decision and scenario run is recorded in the audit trail.</li>
+<li>Automated tests run in CI on every change, and releases pass the end-to-end journeys.</li>
+<li>Grids stay responsive on full portfolio datasets, and users can explain the results they see.</li>
 </ul>
 <br>
 <hr>
@@ -374,7 +444,7 @@ cookieconsent.run({
 <p><a href="../contact.html" class="alert-link">Contact</a> me to discuss your requirements or connect on <a href="https://www.linkedin.com/in/dmitryrastorguev/" class="alert-link">LinkedIn</a>.</p>
 </div>
 <p class="seo-keywords" hidden="" aria-hidden="true">
-buy now pay later credit strategy, BNPL risk segmentation, instalment lending strategy, customer segmentation fintech, purchase history analytics, app usage behaviour analysis, credit line strategy, consumer credit portfolio risk, fintech lending proposition, credit decisioning analytics, behavioural customer segmentation, portfolio risk quantification, BNPL product launch analytics, existing customer credit offers, lending proposition design, Dmitry Rastorguev
+portfolio stress testing dashboard, investment analytics front end, React TypeScript financial application, scenario analysis user interface, portfolio risk visualisation, AG Grid financial data tables, Highcharts portfolio charts, Snowflake data application front end, Streamlit investment dashboard, investment exception review workflow, role-based access financial application, interactive portfolio drill-down, investment performance comparison tool, auditable investment workflows, Dmitry Rastorguev
 </p>
 
 
