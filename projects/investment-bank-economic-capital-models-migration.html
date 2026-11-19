@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="European AI startup funding data for a venture fund: automated collection, standard stage and sector definitions and interactive D3.js funding charts.">
+<meta name="description" content="Migration of Economic Capital feeder models to Python for an investment bank: credit rating transitions, macro correlations and parallel scenario runs.">
 
-<title>Venture capital fund for AI startups - European AI funding landscape – Dmitry Rastorguev</title>
+<title>Global Investment Bank - Economic Capital Models Migrations – Dmitry Rastorguev</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -37,7 +37,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-d4d76bf8491c20bad77d141916dc28e1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-99e4fdaabaa8229d1f3a8c24b1dbb7ad.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-889eeeff6989ba08348a94d9e872e1e9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -97,12 +97,12 @@ cookieconsent.run({
 
 
 <link rel="stylesheet" href="../styles.css">
-<meta property="og:title" content="Venture capital fund for AI startups - European AI funding landscape – Dmitry Rastorguev">
+<meta property="og:title" content="Global Investment Bank - Economic Capital Models Migrations – Dmitry Rastorguev">
 <meta property="og:description" content="Quantitative analyst and data scientist in London applying data science to financial risk, capital markets and fintech.">
 <meta property="og:image" content="https://rastorguev.co.uk//static/website_image.jpg">
 <meta property="og:site_name" content="Dmitry Rastorguev">
 <meta property="og:locale" content="en_GB">
-<meta name="twitter:title" content="Venture capital fund for AI startups - European AI funding landscape – Dmitry Rastorguev">
+<meta name="twitter:title" content="Global Investment Bank - Economic Capital Models Migrations – Dmitry Rastorguev">
 <meta name="twitter:description" content="Quantitative analyst and data scientist in London applying data science to financial risk, capital markets and fintech.">
 <meta name="twitter:image" content="https://rastorguev.co.uk//static/website_image.jpg">
 <meta name="twitter:creator" content="@dsrastorguev">
@@ -158,7 +158,7 @@ cookieconsent.run({
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../projects/abf-surveillance-framework.html">Private Markets</a></li><li class="breadcrumb-item"><a href="../projects/ai-venture-fund-fundraising-statistics.html">AI Venture Fund - Fundraising Statistics</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../projects/investment-bank-economic-capital-models-migration.html">Banking</a></li><li class="breadcrumb-item"><a href="../projects/investment-bank-economic-capital-models-migration.html">Global Investment Bank - Economic Capital Models Migrations</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -187,8 +187,26 @@ cookieconsent.run({
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../projects/challenger-bank-financial-analytics-apps.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Challenger Bank - Financial Analytics Applications</span></a>
+  <a href="../projects/investment-bank-economic-capital-models-migration.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Global Investment Bank - Economic Capital Models Migrations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../projects/investment-bank-corporate-borrower-cash-flow-stress-testing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Global Investment Bank - Corporate Borrower Stress Testing</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../projects/challenger-bank-lending-products-roe-calculator.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Challenger Bank - Lending Product P&amp;L and Return on Equity</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../projects/challenger-bank-hedge-accounting-general-ledger-etl.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Challenger Bank - Hedge Accounting and General Ledger ETL</span></a>
   </div>
 </li>
       </ul>
@@ -291,8 +309,8 @@ cookieconsent.run({
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../projects/ai-venture-fund-fundraising-statistics.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">AI Venture Fund - Fundraising Statistics</span></a>
+  <a href="../projects/ai-vc-fund-fundraising-statistics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">AI VC Fund - Fundraising Statistics</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -324,9 +342,9 @@ cookieconsent.run({
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../projects/abf-surveillance-framework.html">Private Markets</a></li><li class="breadcrumb-item"><a href="../projects/ai-venture-fund-fundraising-statistics.html">AI Venture Fund - Fundraising Statistics</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../projects/investment-bank-economic-capital-models-migration.html">Banking</a></li><li class="breadcrumb-item"><a href="../projects/investment-bank-economic-capital-models-migration.html">Global Investment Bank - Economic Capital Models Migrations</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Venture capital fund for AI startups - European AI funding landscape</h1>
+<h1 class="title">Global Investment Bank - Economic Capital Models Migrations</h1>
 </div>
 
 
@@ -346,34 +364,39 @@ cookieconsent.run({
 <!-- Generated from projects_utils/projects_items.yml by projects_utils/build_projects.js. Edit the data or template, not this file. -->
 <section id="project-statement" class="level3">
 <h3 class="anchored" data-anchor-id="project-statement">Project statement</h3>
-<p>A venture fund investing in AI wants a clear view of where European AI startups are being funded, at what stage and by whom. That information is spread across press releases, databases and filings, and is hard to compare.</p>
+<p>A global investment bank needed support to move several feeder models for Economic Capital calculations into Python. The work also covered improvements to the models’ functionality, the underlying data infrastructure, and the testing of model outputs.</p>
 </section>
 <section id="requirements" class="level3">
 <h3 class="anchored" data-anchor-id="requirements">Requirements</h3>
 <ul>
-<li>Funding data for European AI startups collected in one place.</li>
-<li>Consistent stage, sector and country definitions.</li>
-<li>Trends visible over time and by country.</li>
-<li>A dataset that non-technical team members can update and correct.</li>
+<li>Migrate the feeder models for Economic Capital calculations into Python, with results that stay consistent with the existing outputs.</li>
+<li>Enhance the credit rating transition and economic macro correlation models used in the bank’s ICAAP and SRT calculations.</li>
+<li>Increase the number of configurable model parameters and add parallel processing, so many more scenarios can be run for sensitivity analysis and stress testing.</li>
+<li>Build code structures that are logical, adaptable and easy to maintain as business requests and model changes arrive.</li>
+<li>Provide analysis for meetings with model validation teams and regulators, and suggest improvements to development workflows and testing controls.</li>
 </ul>
 </section>
 <section id="approach" class="level3">
 <h3 class="anchored" data-anchor-id="approach">Approach</h3>
-<p>I would start with a simple, transparent data model, because the fund’s team needs to correct and extend the data without developer help.</p>
+<p>I would migrate the models in stages, first confirming that the Python version reproduces existing outputs, then improving the structure, parameters and scale of each model.</p>
 <ol type="1">
-<li><strong>Collection:</strong> Funding announcements are gathered from public sources and structured into one record per round.</li>
-<li><strong>Standardisation:</strong> Stage, sector and country are mapped to fixed definitions, with unmatched entries reviewed by hand.</li>
-<li><strong>Analysis:</strong> Interactive views show funding volume, round size and stage mix over time.</li>
+<li><strong>Migration and reconciliation:</strong> Each feeder model is rebuilt in Python and reconciled line by line against the existing outputs. Where a direct translation is difficult, I would examine the theory behind the method and propose an alternative implementation, tested against the original results before it is adopted.</li>
+<li><strong>Modular, parameter-driven design:</strong> Credit rating transition and macro correlation logic is separated from data handling and configuration, so new business requests and model changes can be made without reworking the whole codebase.</li>
+<li><strong>Scale and analysis:</strong> Parallel scenario runs support sensitivity analysis and stress testing. Supporting analysis for model validation teams and regulators is produced from the same code, so every figure can be reproduced.</li>
 </ol>
-<p><strong>Trade-off:</strong> A spreadsheet-based store over a full database, so non-technical team members can maintain it directly, at the cost of scale.</p>
+<p><strong>Trade-off:</strong> Reconciling to legacy outputs before improving the models. This slows the first stage, but it means any later change in results can be traced to a deliberate decision.</p>
 </section>
 <section id="implementation" class="level3">
 <h3 class="anchored" data-anchor-id="implementation">Implementation</h3>
 <ul>
-<li><strong>Scraping:</strong> Scrapy or requests with BeautifulSoup collect funding announcements from public sources, and Playwright handles pages that need JavaScript. Each run is logged with Python’s logging module and scheduled through cron or GitHub Actions.</li>
-<li><strong>Standardisation:</strong> rapidfuzz matches company and investor names across sources, and a sentence-transformers model suggests sector labels that a reviewer confirms. Pydantic models hold the allowed stage, sector and country values, so the definitions are enforced in code as well as in the sheet.</li>
-<li><strong>Google Sheets store:</strong> gspread and gspread-dataframe read and write the Google Sheets store, which is the single source of data. Validation rules check required fields before each write, and rejected rows go to a review tab for a person to correct.</li>
-<li><strong>Visualisation:</strong> Interactive D3.js charts of funding trends, stage mix and geography, published as a web page. A pandas export script converts the sheet into JSON for the charts, and Plotly is used for quick exploratory views during analysis.</li>
+<li><strong>Core modelling:</strong> pandas and NumPy handle rating transition counts, transition matrix estimation and macro factor series. SciPy’s matrix exponential and logarithm functions support continuous-time generator estimation from discrete rating transitions, with linear algebra routines for stable matrix calculations.</li>
+<li><strong>Econometrics and correlation:</strong> statsmodels provides linear regression, vector autoregression and time series diagnostics. linearmodels handles panel regressions and the arch package models changing volatility. scikit-learn’s factor analysis and Ledoit-Wolf shrinkage estimators support stable correlation structures, with positive semi-definiteness checked after every estimate.</li>
+<li><strong>Parameters and configuration:</strong> Model inputs are held in typed configuration built with Pydantic and composed through Hydra, so scenario sets and parameters can be changed in version-controlled files without code edits. OmegaConf stores run settings alongside results for traceability.</li>
+<li><strong>Parallel processing:</strong> joblib and concurrent.futures run independent scenarios across CPU cores, with Dask used for scenario grids that exceed a single machine. Numba accelerates the inner loops of simulation code, and results are written in a deterministic order so that runs can be repeated exactly.</li>
+<li><strong>Data infrastructure:</strong> Polars and DuckDB process large transition and exposure datasets efficiently, with Parquet files read and written through PyArrow. SQLAlchemy connects to the bank’s databases, and Pandera validates schemas and value ranges before any model runs.</li>
+<li><strong>Testing and controls:</strong> pytest and Hypothesis test the mathematical properties of the models, such as each row of a transition matrix summing to one. pytest-regressions compares new outputs with the legacy results, and coverage reports are produced on every run.</li>
+<li><strong>Code workflow and documentation:</strong> Git with branch-based review, pre-commit hooks, Ruff for linting, mypy for type checking, and GitHub Actions or GitLab CI for automated tests. Documentation is written in Sphinx with numpydoc, alongside model notes that explain the theory and assumptions behind each method.</li>
+<li><strong>Validation and regulatory analysis:</strong> Jupyter notebooks and Quarto reports prepare analysis for model validation and regulator meetings, with Matplotlib and Plotly charts and Excel summaries built with openpyxl. Every figure is generated by the pipeline, so it can be reproduced on request.</li>
 </ul>
 </section>
 <section id="indicative-roadmap" class="level3">
@@ -393,24 +416,29 @@ cookieconsent.run({
 </thead>
 <tbody>
 <tr class="odd">
-<td>Scope and definitions</td>
-<td>Weeks 1–2</td>
-<td>Agreed stage, sector and country definitions</td>
+<td>Inventory and reconciliation plan</td>
+<td>Weeks 1–3</td>
+<td>Inventory of feeder models, agreed reconciliation tolerances and target code structure</td>
 </tr>
 <tr class="even">
-<td>Collection and store</td>
-<td>Weeks 3–5</td>
-<td>Automated collection feeding the Google Sheets store</td>
+<td>Core model migration</td>
+<td>Weeks 4–8</td>
+<td>Python versions of the feeder models, reconciled to existing outputs</td>
 </tr>
 <tr class="odd">
-<td>Visualisation</td>
-<td>Weeks 6–8</td>
-<td>Interactive funding views</td>
+<td>Enhanced rating transition and correlation models</td>
+<td>Weeks 9–16</td>
+<td>Improved models with configurable parameters and documented theory</td>
 </tr>
 <tr class="even">
-<td>Maintenance handover</td>
-<td>Weeks 9–10</td>
-<td>Data process documented for the analyst team</td>
+<td>Parallel scenario framework</td>
+<td>Weeks 17–22</td>
+<td>Parallel sensitivity and stress testing runs, with timing and reproducibility checks</td>
+</tr>
+<tr class="odd">
+<td>Validation support and handover</td>
+<td>Weeks 23–26</td>
+<td>Validation and regulator analysis pack, testing standards and documentation handed over</td>
 </tr>
 </tbody>
 </table>
@@ -418,9 +446,11 @@ cookieconsent.run({
 <section id="measures-of-success" class="level3">
 <h3 class="anchored" data-anchor-id="measures-of-success">Measures of success</h3>
 <ul>
-<li>The dataset covers the agreed period and geography, with known gaps listed.</li>
-<li>Analysts can add or correct a funding round without developer help.</li>
-<li>Trend views update from the store each time the data changes.</li>
+<li>Migrated models reproduce the existing Economic Capital outputs within agreed tolerances.</li>
+<li>Model parameters that were fixed in code can be changed through configuration, with each change recorded.</li>
+<li>Sensitivity analysis and stress testing can cover a much larger number of scenarios within the same run window.</li>
+<li>Model validation teams and regulators receive analysis that can be reproduced from the code.</li>
+<li>New business requests can be implemented without restructuring the existing code.</li>
 </ul>
 <br>
 <hr>
@@ -434,7 +464,7 @@ cookieconsent.run({
 <p><a href="../contact.html" class="alert-link">Contact</a> me to discuss your requirements or connect on <a href="https://www.linkedin.com/in/dmitryrastorguev/" class="alert-link">LinkedIn</a>.</p>
 </div>
 <p class="seo-keywords" hidden="" aria-hidden="true">
-AI startup funding Europe, venture capital market analytics, European Machine Intelligence Landscape, startup funding statistics, web scraping funding data, Google Sheets data pipeline, D3.js interactive visualisation, AI investment trends Europe, venture deal flow analysis, market mapping of startups, funding round data, non-technical data maintenance, investor data visualisation, emerging technology investing, Dmitry Rastorguev
+economic capital models Python, ICAAP model migration, SRT capital calculations, credit rating transition models, macro economic correlation models, economic capital model migration, credit banking book modelling, stress testing parallel processing, sensitivity analysis scenarios, regulatory capital model development, model validation support, Python econometrics banking, banking model code migration, model testing and controls, regulated banking model development
 </p>
 
 

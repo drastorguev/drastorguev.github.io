@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Production AI for a Tier-1 bank’s sales trading desk: client behaviour and market signal models that generate explainable trade ideas, validated for rollout.">
+<meta name="description" content="Django web app for a bank that estimates P&amp;L and Return on Equity for products, using cash flow run-offs, funding costs, credit losses, RWA, capital charges.">
 
-<title>AI Sales &amp; Trading: Recommendations for Client Trade Ideas – Dmitry Rastorguev</title>
+<title>Challenger Bank - Lending Product P&amp;L and Return on Equity Application – Dmitry Rastorguev</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -37,7 +37,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-d4d76bf8491c20bad77d141916dc28e1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-99e4fdaabaa8229d1f3a8c24b1dbb7ad.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-889eeeff6989ba08348a94d9e872e1e9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -53,6 +53,15 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-KGHL346XM6"></script>
+
+<script type="text/plain" cookie-consent="tracking">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-KGHL346XM6', { 'anonymize_ip': true});
+</script>
 
 <script type="text/javascript" charset="UTF-8">
 document.addEventListener('DOMContentLoaded', function () {
@@ -88,12 +97,12 @@ cookieconsent.run({
 
 
 <link rel="stylesheet" href="../styles.css">
-<meta property="og:title" content="AI Sales &amp; Trading: Recommendations for Client Trade Ideas – Dmitry Rastorguev">
+<meta property="og:title" content="Challenger Bank - Lending Product P&amp;L and Return on Equity Application – Dmitry Rastorguev">
 <meta property="og:description" content="Quantitative analyst and data scientist in London applying data science to financial risk, capital markets and fintech.">
 <meta property="og:image" content="https://rastorguev.co.uk//static/website_image.jpg">
 <meta property="og:site_name" content="Dmitry Rastorguev">
 <meta property="og:locale" content="en_GB">
-<meta name="twitter:title" content="AI Sales &amp; Trading: Recommendations for Client Trade Ideas – Dmitry Rastorguev">
+<meta name="twitter:title" content="Challenger Bank - Lending Product P&amp;L and Return on Equity Application – Dmitry Rastorguev">
 <meta name="twitter:description" content="Quantitative analyst and data scientist in London applying data science to financial risk, capital markets and fintech.">
 <meta name="twitter:image" content="https://rastorguev.co.uk//static/website_image.jpg">
 <meta name="twitter:creator" content="@dsrastorguev">
@@ -149,7 +158,7 @@ cookieconsent.run({
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../projects/ai-sales-trading-recommendation-engine.html">Sales &amp; Trading</a></li><li class="breadcrumb-item"><a href="../projects/ai-sales-trading-recommendation-engine.html">AI Sales Trading Recommendation Engine</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../projects/investment-bank-economic-capital-models-migration.html">Banking</a></li><li class="breadcrumb-item"><a href="../projects/challenger-bank-lending-products-roe-calculator.html">Challenger Bank - Lending Product P&amp;L and Return on Equity</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -178,8 +187,26 @@ cookieconsent.run({
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../projects/challenger-bank-financial-analytics-apps.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Challenger Bank - Financial Analytics Applications</span></a>
+  <a href="../projects/investment-bank-economic-capital-models-migration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Global Investment Bank - Economic Capital Models Migrations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../projects/investment-bank-corporate-borrower-cash-flow-stress-testing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Global Investment Bank - Corporate Borrower Stress Testing</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../projects/challenger-bank-lending-products-roe-calculator.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Challenger Bank - Lending Product P&amp;L and Return on Equity</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../projects/challenger-bank-hedge-accounting-general-ledger-etl.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Challenger Bank - Hedge Accounting and General Ledger ETL</span></a>
   </div>
 </li>
       </ul>
@@ -224,8 +251,8 @@ cookieconsent.run({
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../projects/ai-sales-trading-recommendation-engine.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">AI Sales Trading Recommendation Engine</span></a>
+  <a href="../projects/sales-desk-ai-trade-recommendation-engine.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sales Desk AI Trade Recommendation Engine</span></a>
   </div>
 </li>
       </ul>
@@ -253,8 +280,8 @@ cookieconsent.run({
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../projects/ai-venture-fund-fundraising-statistics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">AI Venture Fund - Fundraising Statistics</span></a>
+  <a href="../projects/portfolio-stress-testing-analytics-frontend.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Portfolio Stress Testing - Front-End Dashboard</span></a>
   </div>
 </li>
       </ul>
@@ -262,7 +289,7 @@ cookieconsent.run({
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
- <span class="menu-text">Private Credit</span></a>
+ <span class="menu-text">Private Markets</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -280,6 +307,30 @@ cookieconsent.run({
  <span class="menu-text">Insurance ABF data operations</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../projects/ai-vc-fund-fundraising-statistics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">AI VC Fund - Fundraising Statistics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../projects/investment-data-platform-databricks-migration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Investment Data Platform - Databricks Migration and Reconciliation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../projects/investment-operations-python-applications-ai.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Investment Operations Applications - Python Tools, Document Parsing and AI</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../projects/private-capital-secondaries-valuation-cash-flow-model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Secondaries Valuation - Fund Cash Flow and Exit Modelling</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -291,9 +342,9 @@ cookieconsent.run({
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../projects/ai-sales-trading-recommendation-engine.html">Sales &amp; Trading</a></li><li class="breadcrumb-item"><a href="../projects/ai-sales-trading-recommendation-engine.html">AI Sales Trading Recommendation Engine</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../projects/investment-bank-economic-capital-models-migration.html">Banking</a></li><li class="breadcrumb-item"><a href="../projects/challenger-bank-lending-products-roe-calculator.html">Challenger Bank - Lending Product P&amp;L and Return on Equity</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">AI Sales &amp; Trading: Recommendations for Client Trade Ideas</h1>
+<h1 class="title">Challenger Bank - Lending Product P&amp;L and Return on Equity Application</h1>
 </div>
 
 
@@ -313,39 +364,40 @@ cookieconsent.run({
 <!-- Generated from projects_utils/projects_items.yml by projects_utils/build_projects.js. Edit the data or template, not this file. -->
 <section id="project-statement" class="level3">
 <h3 class="anchored" data-anchor-id="project-statement">Project statement</h3>
-<p>A Tier-1 bank has several AI initiatives underway, but they need engineering capacity to move beyond experimentation and into production. The project combines historical client trading behaviour with market signals to give trading desks actionable recommendations. It is the first of a wider AI programme that will extend to FX and digital sales, so the delivery approach needs to be repeatable as well as effective.</p>
+<p>A challenger bank needs to model the profitability of its lending products, incorporating its funding costs, credit losses, capital charges and repayment behaviour. Pricing and benchmarking decisions are currently made in spreadsheet models that are hard to control, slow to change and difficult for business stakeholders to question.</p>
 </section>
 <section id="requirements" class="level3">
 <h3 class="anchored" data-anchor-id="requirements">Requirements</h3>
 <ul>
-<li>A working production solution, not a research prototype or proof of concept.</li>
-<li>Integration with the bank’s existing estate, a largely Java/Spring Boot microservices platform across several data centres, with some Python. The AI must plug into the internal orchestration platform rather than replace it.</li>
-<li>Model-risk validation, governance and production approval planned from the start, not added at the end.</li>
-<li>Decision support for trading desks. I propose that recommendations inform human decisions, and the system does not execute trades.</li>
+<li>A Django web application that estimates P&amp;L and Return on Equity for each credit book and lending product.</li>
+<li>Granular cash flow run-offs for each product, with prepayments, cost of funding, defaults and recoveries.</li>
+<li>Risk-weighted assets, capital charges and tax, so that Return on Equity reflects the capital the bank must hold.</li>
+<li>Sensitivity analysis across inputs and outputs, such as prepayment assumptions against Return on Equity.</li>
+<li>A stakeholder interface for reviewing results and benchmarking pricing, running on the bank’s on-premise Windows Server estate with audit controls.</li>
 </ul>
 </section>
 <section id="approach" class="level3">
 <h3 class="anchored" data-anchor-id="approach">Approach</h3>
-<p>I would start from the decision the desk needs to make and work back to the data and models required. The solution has three parts.</p>
+<p>I would build the calculation engine first and test it against known results, then place the Django interface on top, so business stakeholders see figures that can be traced back to their inputs.</p>
 <ol type="1">
-<li><strong>Client behaviour model:</strong> Learns from historical trading activity which clients trade which products, and when. I would start with interpretable baselines and add complexity only where it improves results.</li>
-<li><strong>Market signal layer:</strong> Ingests market signals and predictions on the same time base as the client data, using point-in-time data to avoid look-ahead bias.</li>
-<li><strong>Recommendation layer:</strong> Combines both into ranked suggestions, each with a confidence level and the main reasons behind it, served through the orchestration platform.</li>
-<li><strong>LLM components:</strong> Used only where they add clear value, such as summarising the drivers behind a recommendation for desk users. They are evaluated against a documented test suite and kept outside the core decision path until validated.</li>
+<li><strong>Cash flow engine:</strong> Balances are projected for each product as run-offs, with prepayments, interest, fees and cost of funding applied. Defaults and recoveries are layered on top, so every cash flow line can be traced back to its assumptions.</li>
+<li><strong>Capital and profitability:</strong> RWA, capital charges and tax are calculated for each product and feed through to Return on Equity. Each P&amp;L line flows into the next, so the path from inputs to the final figure is visible.</li>
+<li><strong>Stakeholder interface:</strong> Business users compare products, benchmark pricing and run sensitivity grids in the browser, without needing to change any code or spreadsheets.</li>
 </ol>
-<p><strong>Trade-off:</strong> Explainability over marginal accuracy in the first release. A slightly less accurate model that validators can understand will reach production sooner than a more accurate one they cannot explain.</p>
+<p><strong>Trade-off:</strong> Granular, transparent calculations over a single headline model. Runs take longer and need more inputs, but each Return on Equity figure can be explained down to the assumptions behind it.</p>
 </section>
 <section id="implementation" class="level3">
 <h3 class="anchored" data-anchor-id="implementation">Implementation</h3>
 <ul>
-<li><strong>Python services:</strong> Feature pipelines in pandas and Polars, using point-in-time joins from pandas merge_asof. scikit-learn and LightGBM build the baseline models, implicit or LightFM handle client-product affinity, and the code is packaged with Poetry, tested with pytest and Hypothesis, and versioned in Git.</li>
-<li><strong>Java/Spring Boot integration:</strong> The existing Java and Spring Boot platform remains the orchestrator. The Python service exposes REST endpoints through FastAPI, with OpenAPI contracts agreed with the platform team in phase one. It can also consume or publish events through Kafka using confluent-kafka.</li>
-<li><strong>Market signal layer:</strong> Market data and predictions are aligned to the same time base with pandas and NumPy, using point-in-time snapshots to prevent look-ahead bias. tsfresh generates time-series features, and statsmodels regressions test whether each signal adds information.</li>
-<li><strong>Recommendation layer:</strong> Client and market scores are combined into a ranking, with SHAP values giving the main reasons behind each suggestion. The service runs in FastAPI with Pydantic schemas, so inputs and outputs are typed and documented.</li>
-<li><strong>Monitoring:</strong> Evidently and alibi-detect track drift in inputs and outputs, MLflow records model versions and experiments, and Prometheus with Grafana covers service health. An audit trail links every recommendation to the model version that produced it.</li>
-<li><strong>LLM components:</strong> Used only to summarise the drivers behind a recommendation in plain language. Outputs are scored with DeepEval or promptfoo against a documented test suite, and each statement is checked against the SHAP drivers to catch unsupported claims.</li>
-<li><strong>Governance pack:</strong> Model documentation, data lineage, explainability reports, test evidence and control descriptions, prepared during the build rather than after it. Model documentation is kept in step with MLflow metadata, so the record stays current.</li>
-<li><strong>Delivery tooling:</strong> AI-assisted development tools, including Claude, Windsurf and Devin, accelerate coding, with human review and the same test gates applied to every change.</li>
+<li><strong>Django application:</strong> Django for the web application, with its ORM for products, scenarios and assumption records, forms for inputs, and the built-in admin and authentication for internal users. Django REST Framework exposes the calculation endpoints to other internal tools.</li>
+<li><strong>Cash flow run-off engine:</strong> pandas and NumPy project monthly balance run-offs for each product, with vectorised prepayment, amortisation and interest calculations. Prepayment curves are parameterised by product and vintage, and Numba accelerates any loops that do not vectorise cleanly.</li>
+<li><strong>Funding, losses and recoveries:</strong> Cost of funding is applied from transfer-pricing curves held in the database. lifelines models time to default for each product, SciPy fits loss and recovery distributions, and recoveries are discounted back to the default date.</li>
+<li><strong>Capital, RWA and tax:</strong> Risk-weighted assets and capital charges are calculated from configurable rules, and tax is applied to the P&amp;L at the bank’s rates. numpy-financial and SciPy support the Return on Equity calculations and solve for break-even pricing.</li>
+<li><strong>Sensitivity analysis:</strong> Sensitivity grids run across prepayment, default, funding cost and capital inputs. joblib runs scenario combinations in parallel on the server, and results are cached so repeated views load quickly.</li>
+<li><strong>Data layer:</strong> SQL Server holds product, assumption and result tables, connected through the mssql-django backend and SQLAlchemy for analytical queries. Pandera validates input datasets before any calculation runs, and Django migrations manage schema changes.</li>
+<li><strong>Stakeholder dashboards:</strong> Django templates with HTMX for interactive updates, Plotly charts for P&amp;L, Return on Equity and sensitivity surfaces, and AG Grid for product tables. openpyxl exports let stakeholders take results into their own models.</li>
+<li><strong>Testing and reproducibility:</strong> pytest and pytest-django test the calculation engine, and Hypothesis checks accounting identities, such as balances never going negative and cash flows reconciling to the P&amp;L. Every result stores the assumption set and code version that produced it.</li>
+<li><strong>Deployment and access:</strong> Hosted on IIS with wfastcgi, or served by Waitress, on the existing Windows Server estate. Role-based access is mapped to Active Directory groups, and an audit log records every assumption change, scenario run and results view.</li>
 </ul>
 </section>
 <section id="indicative-roadmap" class="level3">
@@ -365,29 +417,29 @@ cookieconsent.run({
 </thead>
 <tbody>
 <tr class="odd">
-<td>Discovery and data access</td>
-<td>Weeks 1–3</td>
-<td>Confirmed use case, data inventory, integration design and agreed governance route</td>
+<td>Requirements and functionality review</td>
+<td>Weeks 1–5</td>
+<td>Confirmed list of lending products, inputs and outputs</td>
 </tr>
 <tr class="even">
-<td>Model development</td>
-<td>Weeks 4–8</td>
-<td>Client behaviour and market signal models, with an evaluation report against baselines</td>
+<td>Cash flow run-off engine</td>
+<td>Weeks 6–15</td>
+<td>Tested balance run-offs with prepayments, funding costs, defaults and recoveries</td>
 </tr>
 <tr class="odd">
-<td>Recommendation layer and integration</td>
-<td>Weeks 8–12</td>
-<td>Service integrated with the orchestration platform and tested end to end</td>
+<td>Capital, tax and Return on Equity</td>
+<td>Weeks 16–26</td>
+<td>RWA, capital charges, tax and Return on Equity reconciled for sample products</td>
 </tr>
 <tr class="even">
-<td>Validation and approval</td>
-<td>Weeks 10–16</td>
-<td>Model-risk submission, validator findings addressed, approval granted</td>
+<td>Django application and sensitivity analysis</td>
+<td>Weeks 26-37</td>
+<td>Stakeholder interface with product comparison, benchmarking and sensitivity grids in user testing</td>
 </tr>
 <tr class="odd">
-<td>Production rollout</td>
-<td>Weeks 16–20</td>
-<td>Live release to a pilot desk, monitoring in place and handover to the run team</td>
+<td>Deployment and handover</td>
+<td>Weeks 38–48</td>
+<td>Live application on Windows Server with audit logging and documentation</td>
 </tr>
 </tbody>
 </table>
@@ -395,10 +447,10 @@ cookieconsent.run({
 <section id="measures-of-success" class="level3">
 <h3 class="anchored" data-anchor-id="measures-of-success">Measures of success</h3>
 <ul>
-<li>The pilot trading desk uses the recommendations, and that use is tracked.</li>
-<li>The model passes validation and receives production approval.</li>
-<li>Monitoring is live, with drift alerts and an audit trail for each recommendation.</li>
-<li>The delivery pattern is documented and reusable for FX and digital sales.</li>
+<li>Estimated P&amp;L and Return on Equity for each lending product reconcile to the bank’s own calculations within agreed tolerances.</li>
+<li>Business stakeholders run sensitivity analysis, such as prepayments against Return on Equity, without developer support.</li>
+<li>Each Return on Equity figure can be traced to the assumptions, funding rates and capital rules behind it.</li>
+<li>Pricing and benchmarking decisions are informed by consistent, repeatable results.</li>
 </ul>
 <br>
 <hr>
@@ -412,7 +464,7 @@ cookieconsent.run({
 <p><a href="../contact.html" class="alert-link">Contact</a> me to discuss your requirements or connect on <a href="https://www.linkedin.com/in/dmitryrastorguev/" class="alert-link">LinkedIn</a>.</p>
 </div>
 <p class="seo-keywords" hidden="" aria-hidden="true">
-AI sales trading, trading desk recommendations, model risk validation, production AI banking, Tier-1 bank AI delivery, AI governance approval, client behaviour modelling, client trade idea generation, drift detection monitoring, Spring Boot integration, capital markets AI consultant, FX AI pipeline, LLM evaluation framework, explainable recommendation engine, Dmitry Rastorguev
+challenger bank analytics, lending product profitability analysis, Return on Equity modelling, credit book P&amp;L estimation, Django financial application, RWA and capital charge calculation, cash flow run-off modelling, prepayment modelling, cost of funding in lending, credit loss and recovery modelling, loan pricing and benchmarking tool, sensitivity analysis for lending products, on-premise Windows Server applications, audit trail for financial applications, Dmitry Rastorguev
 </p>
 
 
