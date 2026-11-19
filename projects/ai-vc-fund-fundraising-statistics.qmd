@@ -1,5 +1,5 @@
 ---
-title: "Venture capital fund for AI startups - European AI funding landscape"
+title: "Venture Capital Fund for AI startups - European AI Funding Landscape"
 description-meta: "European AI startup funding data for a venture fund: automated collection, standard stage and sector definitions and interactive D3.js funding charts."
 sidebar: projects-sidebar
 ---

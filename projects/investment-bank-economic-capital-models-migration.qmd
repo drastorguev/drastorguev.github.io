@@ -1,0 +1,75 @@
+---
+title: "Global Investment Bank - Economic Capital Models Migrations"
+description-meta: "Migration of Economic Capital feeder models to Python for an investment bank: credit rating transitions, macro correlations and parallel scenario runs."
+sidebar: projects-sidebar
+---
+
+<!-- Generated from projects_utils/projects_items.yml by projects_utils/build_projects.js. Edit the data or template, not this file. -->
+
+### Project statement
+
+A global investment bank needed support to move several feeder models for Economic Capital calculations into Python. The work also covered improvements to the models' functionality, the underlying data infrastructure, and the testing of model outputs.
+
+### Requirements
+
+- Migrate the feeder models for Economic Capital calculations into Python, with results that stay consistent with the existing outputs.
+- Enhance the credit rating transition and economic macro correlation models used in the bank's ICAAP and SRT calculations.
+- Increase the number of configurable model parameters and add parallel processing, so many more scenarios can be run for sensitivity analysis and stress testing.
+- Build code structures that are logical, adaptable and easy to maintain as business requests and model changes arrive.
+- Provide analysis for meetings with model validation teams and regulators, and suggest improvements to development workflows and testing controls.
+
+### Approach
+
+I would migrate the models in stages, first confirming that the Python version reproduces existing outputs, then improving the structure, parameters and scale of each model.
+
+1. **Migration and reconciliation:** Each feeder model is rebuilt in Python and reconciled line by line against the existing outputs. Where a direct translation is difficult, I would examine the theory behind the method and propose an alternative implementation, tested against the original results before it is adopted.
+1. **Modular, parameter-driven design:** Credit rating transition and macro correlation logic is separated from data handling and configuration, so new business requests and model changes can be made without reworking the whole codebase.
+1. **Scale and analysis:** Parallel scenario runs support sensitivity analysis and stress testing. Supporting analysis for model validation teams and regulators is produced from the same code, so every figure can be reproduced.
+
+**Trade-off:** Reconciling to legacy outputs before improving the models. This slows the first stage, but it means any later change in results can be traced to a deliberate decision.
+
+### Implementation
+
+- **Core modelling:** pandas and NumPy handle rating transition counts, transition matrix estimation and macro factor series. SciPy's matrix exponential and logarithm functions support continuous-time generator estimation from discrete rating transitions, with linear algebra routines for stable matrix calculations.
+- **Econometrics and correlation:** statsmodels provides linear regression, vector autoregression and time series diagnostics. linearmodels handles panel regressions and the arch package models changing volatility. scikit-learn's factor analysis and Ledoit-Wolf shrinkage estimators support stable correlation structures, with positive semi-definiteness checked after every estimate.
+- **Parameters and configuration:** Model inputs are held in typed configuration built with Pydantic and composed through Hydra, so scenario sets and parameters can be changed in version-controlled files without code edits. OmegaConf stores run settings alongside results for traceability.
+- **Parallel processing:** joblib and concurrent.futures run independent scenarios across CPU cores, with Dask used for scenario grids that exceed a single machine. Numba accelerates the inner loops of simulation code, and results are written in a deterministic order so that runs can be repeated exactly.
+- **Data infrastructure:** Polars and DuckDB process large transition and exposure datasets efficiently, with Parquet files read and written through PyArrow. SQLAlchemy connects to the bank's databases, and Pandera validates schemas and value ranges before any model runs.
+- **Testing and controls:** pytest and Hypothesis test the mathematical properties of the models, such as each row of a transition matrix summing to one. pytest-regressions compares new outputs with the legacy results, and coverage reports are produced on every run.
+- **Code workflow and documentation:** Git with branch-based review, pre-commit hooks, Ruff for linting, mypy for type checking, and GitHub Actions or GitLab CI for automated tests. Documentation is written in Sphinx with numpydoc, alongside model notes that explain the theory and assumptions behind each method.
+- **Validation and regulatory analysis:** Jupyter notebooks and Quarto reports prepare analysis for model validation and regulator meetings, with Matplotlib and Plotly charts and Excel summaries built with openpyxl. Every figure is generated by the pipeline, so it can be reproduced on request.
+
+### Indicative Roadmap
+
+| Phase | Timing | Deliverable |
+|---|---|---|
+| Inventory and reconciliation plan | Weeks 1–3 | Inventory of feeder models, agreed reconciliation tolerances and target code structure |
+| Core model migration | Weeks 4–8 | Python versions of the feeder models, reconciled to existing outputs |
+| Enhanced rating transition and correlation models | Weeks 9–16 | Improved models with configurable parameters and documented theory |
+| Parallel scenario framework | Weeks 17–22 | Parallel sensitivity and stress testing runs, with timing and reproducibility checks |
+| Validation support and handover | Weeks 23–26 | Validation and regulator analysis pack, testing standards and documentation handed over |
+
+### Measures of success
+
+- Migrated models reproduce the existing Economic Capital outputs within agreed tolerances.
+- Model parameters that were fixed in code can be changed through configuration, with each change recorded.
+- Sensitivity analysis and stress testing can cover a much larger number of scenarios within the same run window.
+- Model validation teams and regulators receive analysis that can be reproduced from the code.
+- New business requests can be implemented without restructuring the existing code.
+
+<br/>
+<hr/>
+
+<div class="alert alert-primary pt-3 pb-2 text-center">
+  My day rate varies depending on the scope of work and engagement type.
+</div>
+
+<div class="alert alert-success pt-3 pb-2 text-center">
+  I can guarantee a quick turnaround and high quality of work exceeding your expectations.
+</div>
+
+<div class="alert alert-warning pt-3 pb-2 text-center">
+  <a href="/contact.html" class="alert-link">Contact</a> me to discuss your requirements or connect on <a href="https://www.linkedin.com/in/dmitryrastorguev/" class="alert-link">LinkedIn</a>.
+</div>
+
+<p class="seo-keywords" hidden aria-hidden="true">economic capital models Python, ICAAP model migration, SRT capital calculations, credit rating transition models, macro economic correlation models, economic capital model migration, credit banking book modelling, stress testing parallel processing, sensitivity analysis scenarios, regulatory capital model development, model validation support, Python econometrics banking, banking model code migration, model testing and controls, regulated banking model development</p>

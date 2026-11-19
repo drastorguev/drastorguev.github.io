@@ -1,6 +1,6 @@
 ---
 title: "Investment Data Platform - Databricks Migration, Pipelines and Reconciliation"
-description-meta: "Databricks migration and data pipelines for an investment platform: PySpark and SQL transformations, multi-source integration and reconciliation checks."
+description-meta: "Databricks migration and data pipelines for a private equity fund: PySpark and SQL transformations, multi-source integration and reconciliation checks."
 sidebar: projects-sidebar
 ---
 
@@ -8,7 +8,7 @@ sidebar: projects-sidebar
 
 ### Project statement
 
-An investment business is part-way through migrating its internal data estate onto Databricks. The migration needs to be finished, the pipelines need to be reliable, and data from several sources needs to reconcile before the platform can be used widely across the business.
+A private equity fund is currently migrating its internal data estate onto Databricks. The migration needs to be finished, the pipelines need to be reliable, and data from several sources needs to reconcile before the platform can be used widely across the business.
 
 ### Requirements
 

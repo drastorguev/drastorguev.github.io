@@ -1,0 +1,75 @@
+---
+title: "Challenger Bank - Lending Product P&L and Return on Equity Application"
+description-meta: "Django web app for a bank that estimates P&L and Return on Equity for products, using cash flow run-offs, funding costs, credit losses, RWA, capital charges."
+sidebar: projects-sidebar
+---
+
+<!-- Generated from projects_utils/projects_items.yml by projects_utils/build_projects.js. Edit the data or template, not this file. -->
+
+### Project statement
+
+A challenger bank needs to model the profitability of its lending products, incorporating its funding costs, credit losses, capital charges and repayment behaviour. Pricing and benchmarking decisions are currently made in spreadsheet models that are hard to control, slow to change and difficult for business stakeholders to question.
+
+### Requirements
+
+- A Django web application that estimates P&L and Return on Equity for each credit book and lending product.
+- Granular cash flow run-offs for each product, with prepayments, cost of funding, defaults and recoveries.
+- Risk-weighted assets, capital charges and tax, so that Return on Equity reflects the capital the bank must hold.
+- Sensitivity analysis across inputs and outputs, such as prepayment assumptions against Return on Equity.
+- A stakeholder interface for reviewing results and benchmarking pricing, running on the bank's on-premise Windows Server estate with audit controls.
+
+### Approach
+
+I would build the calculation engine first and test it against known results, then place the Django interface on top, so business stakeholders see figures that can be traced back to their inputs.
+
+1. **Cash flow engine:** Balances are projected for each product as run-offs, with prepayments, interest, fees and cost of funding applied. Defaults and recoveries are layered on top, so every cash flow line can be traced back to its assumptions.
+1. **Capital and profitability:** RWA, capital charges and tax are calculated for each product and feed through to Return on Equity. Each P&L line flows into the next, so the path from inputs to the final figure is visible.
+1. **Stakeholder interface:** Business users compare products, benchmark pricing and run sensitivity grids in the browser, without needing to change any code or spreadsheets.
+
+**Trade-off:** Granular, transparent calculations over a single headline model. Runs take longer and need more inputs, but each Return on Equity figure can be explained down to the assumptions behind it.
+
+### Implementation
+
+- **Django application:** Django for the web application, with its ORM for products, scenarios and assumption records, forms for inputs, and the built-in admin and authentication for internal users. Django REST Framework exposes the calculation endpoints to other internal tools.
+- **Cash flow run-off engine:** pandas and NumPy project monthly balance run-offs for each product, with vectorised prepayment, amortisation and interest calculations. Prepayment curves are parameterised by product and vintage, and Numba accelerates any loops that do not vectorise cleanly.
+- **Funding, losses and recoveries:** Cost of funding is applied from transfer-pricing curves held in the database. lifelines models time to default for each product, SciPy fits loss and recovery distributions, and recoveries are discounted back to the default date.
+- **Capital, RWA and tax:** Risk-weighted assets and capital charges are calculated from configurable rules, and tax is applied to the P&L at the bank's rates. numpy-financial and SciPy support the Return on Equity calculations and solve for break-even pricing.
+- **Sensitivity analysis:** Sensitivity grids run across prepayment, default, funding cost and capital inputs. joblib runs scenario combinations in parallel on the server, and results are cached so repeated views load quickly.
+- **Data layer:** SQL Server holds product, assumption and result tables, connected through the mssql-django backend and SQLAlchemy for analytical queries. Pandera validates input datasets before any calculation runs, and Django migrations manage schema changes.
+- **Stakeholder dashboards:** Django templates with HTMX for interactive updates, Plotly charts for P&L, Return on Equity and sensitivity surfaces, and AG Grid for product tables. openpyxl exports let stakeholders take results into their own models.
+- **Testing and reproducibility:** pytest and pytest-django test the calculation engine, and Hypothesis checks accounting identities, such as balances never going negative and cash flows reconciling to the P&L. Every result stores the assumption set and code version that produced it.
+- **Deployment and access:** Hosted on IIS with wfastcgi, or served by Waitress, on the existing Windows Server estate. Role-based access is mapped to Active Directory groups, and an audit log records every assumption change, scenario run and results view.
+
+### Indicative Roadmap
+
+| Phase | Timing | Deliverable |
+|---|---|---|
+| Requirements and functionality review | Weeks 1–5 | Confirmed list of lending products, inputs and outputs |
+| Cash flow run-off engine | Weeks 6–15 | Tested balance run-offs with prepayments, funding costs, defaults and recoveries |
+| Capital, tax and Return on Equity | Weeks 16–26 | RWA, capital charges, tax and Return on Equity reconciled for sample products |
+| Django application and sensitivity analysis | Weeks 26-37 | Stakeholder interface with product comparison, benchmarking and sensitivity grids in user testing |
+| Deployment and handover | Weeks 38–48 | Live application on Windows Server with audit logging and documentation |
+
+### Measures of success
+
+- Estimated P&L and Return on Equity for each lending product reconcile to the bank's own calculations within agreed tolerances.
+- Business stakeholders run sensitivity analysis, such as prepayments against Return on Equity, without developer support.
+- Each Return on Equity figure can be traced to the assumptions, funding rates and capital rules behind it.
+- Pricing and benchmarking decisions are informed by consistent, repeatable results.
+
+<br/>
+<hr/>
+
+<div class="alert alert-primary pt-3 pb-2 text-center">
+  My day rate varies depending on the scope of work and engagement type.
+</div>
+
+<div class="alert alert-success pt-3 pb-2 text-center">
+  I can guarantee a quick turnaround and high quality of work exceeding your expectations.
+</div>
+
+<div class="alert alert-warning pt-3 pb-2 text-center">
+  <a href="/contact.html" class="alert-link">Contact</a> me to discuss your requirements or connect on <a href="https://www.linkedin.com/in/dmitryrastorguev/" class="alert-link">LinkedIn</a>.
+</div>
+
+<p class="seo-keywords" hidden aria-hidden="true">challenger bank analytics, lending product profitability analysis, Return on Equity modelling, credit book P&L estimation, Django financial application, RWA and capital charge calculation, cash flow run-off modelling, prepayment modelling, cost of funding in lending, credit loss and recovery modelling, loan pricing and benchmarking tool, sensitivity analysis for lending products, on-premise Windows Server applications, audit trail for financial applications, Dmitry Rastorguev</p>

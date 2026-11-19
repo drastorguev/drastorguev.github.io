@@ -4,13 +4,16 @@ description-meta: "Selected consulting assignments in capital markets and financ
 sidebar: projects-sidebar
 ---
 
-I work mainly in financial analytics space, on projects of varying complexity. I have pitched to teams at large software enterprises, investment banks, asset managers, hedge funds and private equity firms, as well as small early-stage startups. Clients have ranged from SaaS and payments companies to institutions across all major asset classes.
+I specialise in building financial analytics applications, delivering engagements of varying scale and complexity. I have developed and presented solutions for a wide range of organizations, from early-stage startups to major financial institutions and enterprise technology firms for a range of asset classes.
 
-Each page in the **Projects** menu on the left is a project proposal. It sets out the problem, my approach and my plan for delivery, which I created.
+Each page in the **Projects** menu on the left or below presents an original project proposal I explored, outlining the problem statement, proposed methodology, and delivery plan.
 
 <!-- BEGIN generated: projects-nav -->
 - **Banking**
-  - [Challenger Bank - Financial Analytics Applications](projects/challenger-bank-financial-analytics-apps.qmd)
+  - [Global Investment Bank - Economic Capital Models Migrations](projects/investment-bank-economic-capital-models-migration.qmd)
+  - [Global Investment Bank - Corporate Borrower Stress Testing](projects/investment-bank-corporate-borrower-cash-flow-stress-testing.qmd)
+  - [Challenger Bank - Lending Product P&L and Return on Equity](projects/challenger-bank-lending-products-roe-calculator.qmd)
+  - [Challenger Bank - Hedge Accounting and General Ledger ETL](projects/challenger-bank-hedge-accounting-general-ledger-etl.qmd)
 - **Fintech**
   - [BNPL Lender - Credit Strategy and Customer Segmentation](projects/bnpl-lender-credit-strategy-customer-segmentation.qmd)
   - [Cross-border Money Transfers - User Activity Forecasting](projects/cross-border-money-transfers-user-activity.qmd)
@@ -24,7 +27,7 @@ Each page in the **Projects** menu on the left is a project proposal. It sets ou
 - **Private Markets**
   - [ABF surveillance framework](projects/abf-surveillance-framework.qmd)
   - [Insurance ABF data operations](projects/insurance-abf-data-operations.qmd)
-  - [AI Venture Fund - Fundraising Statistics](projects/ai-venture-fund-fundraising-statistics.qmd)
+  - [AI VC Fund - Fundraising Statistics](projects/ai-vc-fund-fundraising-statistics.qmd)
   - [Investment Data Platform - Databricks Migration and Reconciliation](projects/investment-data-platform-databricks-migration.qmd)
   - [Investment Operations Applications - Python Tools, Document Parsing and AI](projects/investment-operations-python-applications-ai.qmd)
   - [Secondaries Valuation - Fund Cash Flow and Exit Modelling](projects/private-capital-secondaries-valuation-cash-flow-model.qmd)

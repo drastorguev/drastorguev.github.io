@@ -41,8 +41,14 @@ website:
           file: projects.qmd
         - section: "Banking"
           contents:
-            - text: "Challenger Bank - Financial Analytics Applications"
-              file: projects/challenger-bank-financial-analytics-apps.qmd
+            - text: "Global Investment Bank - Economic Capital Models Migrations"
+              file: projects/investment-bank-economic-capital-models-migration.qmd
+            - text: "Global Investment Bank - Corporate Borrower Stress Testing"
+              file: projects/investment-bank-corporate-borrower-cash-flow-stress-testing.qmd
+            - text: "Challenger Bank - Lending Product P&L and Return on Equity"
+              file: projects/challenger-bank-lending-products-roe-calculator.qmd
+            - text: "Challenger Bank - Hedge Accounting and General Ledger ETL"
+              file: projects/challenger-bank-hedge-accounting-general-ledger-etl.qmd
         - section: "Fintech"
           contents:
             - text: "BNPL Lender - Credit Strategy and Customer Segmentation"
@@ -69,8 +75,8 @@ website:
               file: projects/abf-surveillance-framework.qmd
             - text: "Insurance ABF data operations"
               file: projects/insurance-abf-data-operations.qmd
-            - text: "AI Venture Fund - Fundraising Statistics"
-              file: projects/ai-venture-fund-fundraising-statistics.qmd
+            - text: "AI VC Fund - Fundraising Statistics"
+              file: projects/ai-vc-fund-fundraising-statistics.qmd
             - text: "Investment Data Platform - Databricks Migration and Reconciliation"
               file: projects/investment-data-platform-databricks-migration.qmd
             - text: "Investment Operations Applications - Python Tools, Document Parsing and AI"
@@ -80,6 +86,7 @@ website:
     # END generated: projects-sidebar
   page-footer:
     left: "Copyright 2026, Dmitry Rastorguev"
+  # google-analytics: "G-KGHL346XM6"
   cookie-consent:
     palette: dark
     type: express
@@ -97,7 +104,7 @@ format:
     theme: cosmo
     css: styles.css
     grid:
-      sidebar-width: 280px
+      sidebar-width: 320px
     include-in-header:
       - text: |
           <meta name="author" content="Dmitry Rastorguev">
@@ -114,3 +121,6 @@ format:
             "knowsAbout": ["Quantitative finance", "Credit risk", "Financial data science", "Fixed income", "Monte Carlo simulation", "Python"]
           }
           </script>
+
+execute:
+  freeze: auto

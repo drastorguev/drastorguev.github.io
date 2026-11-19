@@ -1,0 +1,76 @@
+---
+title: "Challenger Bank - Hedge Accounting and General Ledger ETL"
+description-meta: "Python ETL for hedge accounting: integrating ALM, treasury and market data, valuing interest rate swaps and producing auditable general ledger entries in Excel."
+sidebar: projects-sidebar
+---
+
+<!-- Generated from projects_utils/projects_items.yml by projects_utils/build_projects.js. Edit the data or template, not this file. -->
+
+### Project statement
+
+A challenger bank needs its fixed-rate loans and deposits hedged with interest rate swaps, and its hedge accounting entries produced every month for the financial control team. The data sits across an asset-liability management system, a treasury system and a market data source, and must be brought together, matched and valued before ledger entries can be posted.
+
+### Requirements
+
+- Monthly ETL that integrates asset-liability, treasury and market data into a single, reconciled set of inputs.
+- Matching of loan repayment and fixed-rate deposit cash flows with interest rate swaps, so that fixed-rate assets and liabilities are hedged to floating rate.
+- Tracking of hedge relationships over time, including early repayments and withdrawals.
+- Valuation of interest rate swaps, with the monthly change converted into general ledger entries.
+- An auditable Excel output showing final ledger entries and every intermediate step, with no user interface required.
+
+### Approach
+
+I would build the process as a sequence of tested ETL steps, each producing an intermediate result, so the financial controllers can reconcile every number back to its source.
+
+1. **Extraction and data quality:** Data is extracted from each source system with SQL and Python, and checked before it is used. Repayment cash flows are tested against repayment curves, and swap accruals are tested against day count conventions, so problems surface before they reach the ledger.
+1. **Matching and valuation:** Loan and deposit cash flows are matched with swap legs over time, and the hedge relationship is updated for early repayments and withdrawals. Swaps are valued each month, and the change in value is calculated for the ledger.
+1. **Ledger output and audit pack:** Ledger entries are produced from mapping tables, with an Excel pack that shows each intermediate step. Financial controllers can trace any ledger line back through the workbook to the source data.
+
+**Trade-off:** A transparent, multi-step output over a compact result. The Excel pack is longer, but every ledger line can be reconciled and audited without rerunning the process.
+
+### Implementation
+
+- **Source extraction:** SQL queries run through SQLAlchemy and pyodbc against the asset-liability system and the treasury system, with parameterised queries and extracts saved as dated files. Market data and valuation inputs are pulled from Bloomberg through the blpapi or xbbg Python packages.
+- **Data quality checks:** Pandera schemas and custom checks confirm that repayment cash flows match the repayment curves, that accrued interest on swaps agrees with the day count conventions, and that notional totals tie to source balances. Failed checks stop the run and list the exceptions for review.
+- **Transformation:** pandas handles the monthly transformations and joins, with Polars used where the cash flow tables grow large. Calculations are vectorised so that the full book can be processed in a single run.
+- **Hedge matching and tracking:** Fixed-rate loan repayments and deposit cash flows are matched to swap legs by time bucket and currency. Hedge relationships are stored as state from month to month, so early repayments and withdrawals reduce the hedged notional and are recorded in the audit trail.
+- **Swap valuation:** QuantLib builds yield curves from the Bloomberg market data and prices the interest rate swaps. Its day counters and calendars apply each swap's conventions, and the monthly valuation change is calculated per hedge relationship.
+- **Ledger entries and mapping:** Mapping tables, held as versioned CSV or YAML files, translate each valuation change and accrual into general ledger accounts. Every entry carries a reference to its source record and hedge relationship.
+- **Excel audit pack:** openpyxl or xlsxwriter produces a workbook with a final ledger tab and one tab per intermediate step, including the data quality results. Totals are included on each tab so that reconciliations can be checked quickly.
+- **Execution for stakeholders:** The process runs as an Airflow DAG for scheduled monthly production, with retries and alerts. The same code is packaged with PyInstaller as a Python executable that non-technical stakeholders can run from a folder, with settings held in a configuration file validated by Pydantic.
+- **Testing, version control and documentation:** pytest tests each ETL step, and reconciliation tests compare totals across stages. Code is versioned in Git with pre-commit checks, and documentation with a run guide is built with Sphinx or MkDocs so that the process can be operated without the developer.
+
+### Indicative Roadmap
+
+| Phase | Timing | Deliverable |
+|---|---|---|
+| Requirements and data mapping | Weeks 1–4 | Confirmed source fields, mapping rules and ledger accounts |
+| Extraction and data quality | Weeks 5–11 | Automated extraction from all source systems with data quality checks |
+| Matching and valuation | Weeks 12–20 | Hedge matching, swap valuation and monthly valuation changes reconciled to test data |
+| Ledger output and Excel pack | Weeks 21–26 | Ledger entries and Excel audit pack reviewed with financial controllers |
+| Scheduling, executable and handover | Weeks 27–40 | Airflow schedule and standalone executable in use, with parallel run and run guide |
+
+### Measures of success
+
+- Monthly ledger entries for interest rate swap valuation changes are produced by the process and reconcile to the financial controllers' figures in a parallel run.
+- Every ledger line can be traced through the Excel pack to its source data and intermediate results.
+- Data quality exceptions are flagged before any ledger entries are produced.
+- Hedge relationships reflect early repayments and withdrawals as they occur.
+- Non-technical stakeholders can run the process without developer support.
+
+<br/>
+<hr/>
+
+<div class="alert alert-primary pt-3 pb-2 text-center">
+  My day rate varies depending on the scope of work and engagement type.
+</div>
+
+<div class="alert alert-success pt-3 pb-2 text-center">
+  I can guarantee a quick turnaround and high quality of work exceeding your expectations.
+</div>
+
+<div class="alert alert-warning pt-3 pb-2 text-center">
+  <a href="/contact.html" class="alert-link">Contact</a> me to discuss your requirements or connect on <a href="https://www.linkedin.com/in/dmitryrastorguev/" class="alert-link">LinkedIn</a>.
+</div>
+
+<p class="seo-keywords" hidden aria-hidden="true">hedge accounting ETL, interest rate swap valuation Python, general ledger automation, challenger bank hedge accounting, Bloomberg market data Python, balance sheet matching and valuation, swap valuation ledger entries, fixed rate to floating rate hedging, deposit and loan hedge relationships, financial control automation, Pandas and Polars ETL, Airflow financial data pipelines, auditable Excel reporting, data quality checks for financial data, Dmitry Rastorguev</p>

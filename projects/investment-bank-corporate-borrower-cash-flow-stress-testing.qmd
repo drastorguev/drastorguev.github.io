@@ -1,0 +1,74 @@
+---
+title: "Global Investment Bank - Corporate Borrower Stress Testing"
+description-meta: "Full-stack corporate borrower stress testing for a global investment bank: cash flow projections for commercial real estate and leveraged loans."
+sidebar: projects-sidebar
+---
+
+<!-- Generated from projects_utils/projects_items.yml by projects_utils/build_projects.js. Edit the data or template, not this file. -->
+
+### Project statement
+
+One of the world's largest banks needed a full-stack application to stress test its high-risk corporate borrowers in a systematic way. The solution had to collect, aggregate and load data from several systems, feed it into a cash flow stress testing engine that recalculates key financial metrics, and present the model outputs and portfolio aggregates in a user interface.
+
+### Requirements
+
+- A systematic stress testing application for commercial real estate and leveraged loan portfolios, modelling each borrower's key financial metrics.
+- Data collected from dispersed systems, reconciled and loaded into quality datasets that the models can rely on.
+- ETL pipelines carrying the bank's custom business logic, scheduled and monitored in production.
+- An interface that lets first and second line users explore results, change scenarios and identify further modelling needs.
+- A maintainable analytics library and infrastructure integrations that support the wider platform beyond the first release.
+
+### Approach
+
+I would start with a fast prototype that users can react to, then build the data foundations and calculation engine behind it, so each part of the system is shaped by real user needs.
+
+1. **Rapid prototyping with users:** Early Dash prototypes are put in front of first and second line users to surface requirements quickly. Each change is tied to a named user need, so the build stays focused on what risk teams actually use.
+1. **Data foundations:** Source data is profiled and reconciled across systems before any modelling starts. Known gaps and mismatches are logged and assigned to data owners, so model inputs are trusted and their limits are clear.
+1. **Stress engine and strategic platform:** Borrower cash flow projections run under each scenario, supported by a versioned analytics library. The same calculations serve the application, the pipelines and the analysts' work, so results stay consistent everywhere they are used.
+
+**Trade-off:** Prototype-led delivery over a complete specification upfront. Screens may change during the first phase, but the platform is built on the requirements that users confirm, which avoids costly rework later.
+
+### Implementation
+
+- **Python Dash application:** Plotly Dash with dash-bootstrap-components for layout and dash-ag-grid for portfolio tables, with Plotly charts for aggregates and drill-downs. Callbacks stay thin, with calculations held in the analytics library, and dash testing utilities run under pytest.
+- **Data collection and quality:** PySpark reads extracts from several source systems, with pandas used for smaller reference data and profiling. Great Expectations and Pandera check completeness, reconciliation totals and business rules, and failed checks are recorded for data owners to resolve.
+- **ETL pipelines:** PySpark jobs build curated Delta Lake tables. The bank's custom business logic, including borrower and facility mapping, currency conversion and covenant definitions, sits in tested Python modules. Apache Airflow schedules the pipelines and manages dependencies, retries and alerts.
+- **Cash flow stress engine:** Vectorised projections in NumPy and pandas cover revenue, EBITDA, debt service, interest and principal schedules under each scenario. numpy-financial and SciPy calculate metrics such as debt service coverage, interest cover, loan-to-value and leverage, and PySpark distributes large scenario grids across the cluster.
+- **Scenarios and parameters:** Shock and scenario parameters are defined in configuration files validated by Pydantic, so risk teams can change assumptions without code edits. Every scenario run stores its settings alongside its results.
+- **Analytics library:** A versioned Python package with typed interfaces, documented in Sphinx, packaged with Poetry and tested with pytest and Hypothesis. statsmodels relates macro variables to borrower metrics, and arch models volatility scenarios. Portfolio aggregates by sector, geography and rating are computed in Polars or Spark SQL.
+- **Infrastructure and deployment:** Docker images deployed to Kubernetes with Helm, infrastructure defined in Terraform, and GitHub Actions or GitLab CI running tests and releases. Gunicorn serves the Dash application, and Prometheus with Grafana monitors pipeline and application health.
+- **Testing and audit trail:** pytest and Hypothesis test the calculations, Playwright runs end-to-end tests of the Dash application, and reconciliation tests compare outputs with source totals. Each run records its inputs, scenario settings and code version, so results can be reproduced for risk committees.
+
+### Indicative Roadmap
+
+| Phase | Timing | Deliverable |
+|---|---|---|
+| Discovery and data mapping | Weeks 1–4 | Confirmed borrower population, source systems and data owners |
+| Prototypes and requirements | Weeks 5–10 | Dash prototypes tested with first and second line users, with agreed modelling requirements |
+| Data pipelines and quality checks | Weeks 11–24 | PySpark and Airflow pipelines loading reconciled, quality-checked datasets |
+| Stress engine and application | Weeks 25–40 | Cash flow stress testing engine integrated with the interface, with portfolio aggregates and scenario comparison |
+| Deployment and handover | Weeks 41–48 | Production deployment, documentation, monitoring and user training |
+
+### Measures of success
+
+- Stress tests for the high-risk borrower portfolio run on schedule, from source data through to the dashboard.
+- Data quality checks reconcile to source totals, and exceptions are resolved by named data owners.
+- First and second line users change scenarios and review metrics in the application without developer support.
+- Each stress run can be reproduced from its recorded inputs, scenario settings and code version.
+
+<br/>
+<hr/>
+
+<div class="alert alert-primary pt-3 pb-2 text-center">
+  My day rate varies depending on the scope of work and engagement type.
+</div>
+
+<div class="alert alert-success pt-3 pb-2 text-center">
+  I can guarantee a quick turnaround and high quality of work exceeding your expectations.
+</div>
+
+<div class="alert alert-warning pt-3 pb-2 text-center">
+  <a href="/contact.html" class="alert-link">Contact</a> me to discuss your requirements or connect on <a href="https://www.linkedin.com/in/dmitryrastorguev/" class="alert-link">LinkedIn</a>.
+</div>
+
+<p class="seo-keywords" hidden aria-hidden="true">corporate borrower stress testing, cash flow stress testing Python, commercial real estate stress testing, leveraged loan stress testing, credit portfolio stress testing application, PySpark ETL pipelines, Apache Airflow data pipelines, Python Dash financial application, debt service coverage modelling, loan-to-value and leverage metrics, portfolio aggregates dashboard, data quality for credit models, banking data integration, credit risk analytics platform, scenario analysis for lending portfolios, Dmitry Rastorguev</p>

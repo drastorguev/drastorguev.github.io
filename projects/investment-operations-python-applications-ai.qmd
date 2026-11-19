@@ -1,6 +1,6 @@
 ---
 title: "Investment Operations Python Applications - Data Tools, Document Parsing and AI"
-description-meta: "Python web applications for an investment business: business-user data tools, document parsing with review, Databricks apps and AI-assisted workflows."
+description-meta: "Python web applications for a private equity fund: business-user data tools, document parsing with review, Databricks apps and AI-assisted workflows."
 sidebar: projects-sidebar
 ---
 
@@ -8,7 +8,7 @@ sidebar: projects-sidebar
 
 ### Project statement
 
-Once the data platform is in place, the business wants to put it to work. Investment and operations teams need applications that let business users analyse, input, update, upload and manage data, process documents without manual re-keying, and draw on the platform's data.
+Once the data platform is in place, the private equity fund wants to put it to work. Investment and operations teams need applications that let business users analyse, input, update, upload and manage data, process documents without manual re-keying, and draw on the platform's data.
 
 ### Requirements
 

@@ -2,76 +2,324 @@
 # by build_projects.js. Required fields are checked before anything is written.
 # Entries must be grouped by category. The sidebar follows the order of this file.
 
-- slug: challenger-bank-financial-analytics-apps
-  nav_title: Challenger Bank - Financial Analytics Applications
+- slug: investment-bank-economic-capital-models-migration
+  nav_title: Global Investment Bank - Economic Capital Models Migrations
   category: Banking
-  name: Challenger Bank - Financial Analytics Applications
-  meta_description: "Internal financial analytics web applications and a reusable framework for a challenger bank, deployed on on-premise Windows Server with audit-ready controls."
+  name: Global Investment Bank - Economic Capital Models Migrations
+  meta_description: "Migration of Economic Capital feeder models to Python for an investment bank: credit rating transitions, macro correlations and parallel scenario runs."
   keywords:
-  - challenger bank analytics
-  - internal financial analytics software
-  - full-stack web application development
-  - on-premise Windows Server applications
-  - Python web framework for analytics
-  - banking technology development
-  - internal financial dashboards
-  - bank data platform build
-  - regulated financial software
-  - financial services web apps
-  - in-house analytics tools
-  - analytics application development
-  - bank finance and risk tooling
-  - audit trail for financial applications
-  - Dmitry Rastorguev
-  project_statement: A challenger bank needs internal analytics applications for its finance and risk teams, built on its own on-premise infrastructure. Analysts currently rely on spreadsheets that are hard to control and slow to change.
+  - economic capital models Python
+  - ICAAP model migration
+  - SRT capital calculations
+  - credit rating transition models
+  - macro economic correlation models
+  - economic capital model migration
+  - credit banking book modelling
+  - stress testing parallel processing
+  - sensitivity analysis scenarios
+  - regulatory capital model development
+  - model validation support
+  - Python econometrics banking
+  - banking model code migration
+  - model testing and controls
+  - regulated banking model development
+  project_statement: A global investment bank needed support to move several feeder models for Economic Capital calculations into Python. The work also covered improvements to the models' functionality, the underlying data infrastructure, and the testing of model outputs.
   requirements:
-  - Internal web applications for financial analysis, running on on-premise Windows Server.
-  - A repeatable way to build and maintain future analytical tools.
-  - Controls and an audit trail suitable for a regulated bank.
-  - Tools analysts can use and maintain after handover, without developer help.
+  - Migrate the feeder models for Economic Capital calculations into Python, with results that stay consistent with the existing outputs.
+  - Enhance the credit rating transition and economic macro correlation models used in the bank's ICAAP and SRT calculations.
+  - Increase the number of configurable model parameters and add parallel processing, so many more scenarios can be run for sensitivity analysis and stress testing.
+  - Build code structures that are logical, adaptable and easy to maintain as business requests and model changes arrive.
+  - Provide analysis for meetings with model validation teams and regulators, and suggest improvements to development workflows and testing controls.
   approach:
-    intro: I would introduce a standard framework and toolset first, so each new application follows the same pattern for security, deployment and testing.
+    intro: I would migrate the models in stages, first confirming that the Python version reproduces existing outputs, then improving the structure, parameters and scale of each model.
     parts:
-    - title: Platform
-      text: A shared framework for web application structure, authentication and deployment on the existing Windows Server estate.
-    - title: First application
-      text: One high-value analytics application built on the framework, to prove the pattern and gather feedback.
-    - title: Controls
-      text: Logging, role-based access and versioned data inputs, so results can be traced in an audit.
-    trade_off: Standardisation before speed. The first application takes longer, but each later one is cheaper and safer to build.
+    - title: Migration and reconciliation
+      text: Each feeder model is rebuilt in Python and reconciled line by line against the existing outputs. Where a direct translation is difficult, I would examine the theory behind the method and propose an alternative implementation, tested against the original results before it is adopted.
+    - title: Modular, parameter-driven design
+      text: Credit rating transition and macro correlation logic is separated from data handling and configuration, so new business requests and model changes can be made without reworking the whole codebase.
+    - title: Scale and analysis
+      text: Parallel scenario runs support sensitivity analysis and stress testing. Supporting analysis for model validation teams and regulators is produced from the same code, so every figure can be reproduced.
+    trade_off: Reconciling to legacy outputs before improving the models. This slows the first stage, but it means any later change in results can be traced to a deliberate decision.
   implementation:
-  - title: Full-stack application framework
-    text: "Python web framework, either Django or Flask, for routing, templates and forms. Django's built-in admin and authentication suit internal tools, and Pydantic validates configuration and request data. Shared layouts and components keep every application consistent."
-  - title: Analytics and calculations
-    text: "pandas or Polars for financial calculations, NumPy for numerical work and SQLAlchemy for database access. Calculation modules are shared across applications and covered by pytest tests, so figures shown to users can be reproduced from the test suite."
-  - title: Data layer
-    text: "Controlled access to internal sources through SQLAlchemy with pyodbc for SQL Server, using parameterised queries throughout. Pandera or Pydantic schemas validate every input, Alembic manages database migrations, and a version history records who changed each value and when."
-  - title: Deployment
-    text: "Applications hosted on IIS with wfastcgi, or served by Waitress as a WSGI server, on the existing Windows Server estate. Settings are separated per environment, and test and production builds follow the same documented steps. Scheduled jobs run through Windows Task Scheduler or APScheduler."
-  - title: Dashboards and analysis views
-    text: "Plotly Dash or Streamlit for analyst-facing views where a full web application is not needed, with Plotly charts and Excel exports through openpyxl for teams that work in spreadsheets."
-  - title: Access and audit
-    text: "Role-based access mapped to Active Directory groups, using Windows integrated authentication, or the msal library where single sign-on is required. Every user action is written to a structured audit log that feeds the bank's central logging."
-  - title: Documentation
-    text: "Developer guides built with MkDocs or Sphinx, plus short user notes for each application. Documentation lives in the same repository as the code, so it is versioned with each release."
+  - title: Core modelling
+    text: "pandas and NumPy handle rating transition counts, transition matrix estimation and macro factor series. SciPy's matrix exponential and logarithm functions support continuous-time generator estimation from discrete rating transitions, with linear algebra routines for stable matrix calculations."
+  - title: Econometrics and correlation
+    text: "statsmodels provides linear regression, vector autoregression and time series diagnostics. linearmodels handles panel regressions and the arch package models changing volatility. scikit-learn's factor analysis and Ledoit-Wolf shrinkage estimators support stable correlation structures, with positive semi-definiteness checked after every estimate."
+  - title: Parameters and configuration
+    text: "Model inputs are held in typed configuration built with Pydantic and composed through Hydra, so scenario sets and parameters can be changed in version-controlled files without code edits. OmegaConf stores run settings alongside results for traceability."
+  - title: Parallel processing
+    text: "joblib and concurrent.futures run independent scenarios across CPU cores, with Dask used for scenario grids that exceed a single machine. Numba accelerates the inner loops of simulation code, and results are written in a deterministic order so that runs can be repeated exactly."
+  - title: Data infrastructure
+    text: "Polars and DuckDB process large transition and exposure datasets efficiently, with Parquet files read and written through PyArrow. SQLAlchemy connects to the bank's databases, and Pandera validates schemas and value ranges before any model runs."
+  - title: Testing and controls
+    text: "pytest and Hypothesis test the mathematical properties of the models, such as each row of a transition matrix summing to one. pytest-regressions compares new outputs with the legacy results, and coverage reports are produced on every run."
+  - title: Code workflow and documentation
+    text: "Git with branch-based review, pre-commit hooks, Ruff for linting, mypy for type checking, and GitHub Actions or GitLab CI for automated tests. Documentation is written in Sphinx with numpydoc, alongside model notes that explain the theory and assumptions behind each method."
+  - title: Validation and regulatory analysis
+    text: "Jupyter notebooks and Quarto reports prepare analysis for model validation and regulator meetings, with Matplotlib and Plotly charts and Excel summaries built with openpyxl. Every figure is generated by the pipeline, so it can be reproduced on request."
   roadmap:
     phases:
-    - phase: Requirements and environment review
-      timing: Weeks 1–2
-      deliverable: Confirmed requirements and infrastructure review
-    - phase: Framework build
-      timing: Weeks 3–6
-      deliverable: Shared framework deployed to the test environment
-    - phase: First application
-      timing: Weeks 7–10
-      deliverable: Analytics application in user testing
-    - phase: Production and handover
-      timing: Weeks 11–12
-      deliverable: Live application and a documented process for future tools
+    - phase: Inventory and reconciliation plan
+      timing: Weeks 1–3
+      deliverable: Inventory of feeder models, agreed reconciliation tolerances and target code structure
+    - phase: Core model migration
+      timing: Weeks 4–8
+      deliverable: Python versions of the feeder models, reconciled to existing outputs
+    - phase: Enhanced rating transition and correlation models
+      timing: Weeks 9–16
+      deliverable: Improved models with configurable parameters and documented theory
+    - phase: Parallel scenario framework
+      timing: Weeks 17–22
+      deliverable: Parallel sensitivity and stress testing runs, with timing and reproducibility checks
+    - phase: Validation support and handover
+      timing: Weeks 23–26
+      deliverable: Validation and regulator analysis pack, testing standards and documentation handed over
   measures_of_success:
-  - The first application is in production and used by its target team.
-  - Each later application follows the framework without rework.
-  - Access and changes can be traced in an audit.
+  - "Migrated models reproduce the existing Economic Capital outputs within agreed tolerances."
+  - "Model parameters that were fixed in code can be changed through configuration, with each change recorded."
+  - "Sensitivity analysis and stress testing can cover a much larger number of scenarios within the same run window."
+  - "Model validation teams and regulators receive analysis that can be reproduced from the code."
+  - "New business requests can be implemented without restructuring the existing code."
+
+- slug: investment-bank-corporate-borrower-cash-flow-stress-testing
+  nav_title: Global Investment Bank - Corporate Borrower Stress Testing
+  category: Banking
+  name: Global Investment Bank - Corporate Borrower Stress Testing
+  meta_description: "Full-stack corporate borrower stress testing for a global investment bank: cash flow projections for commercial real estate and leveraged loans."
+  keywords:
+  - corporate borrower stress testing
+  - cash flow stress testing Python
+  - commercial real estate stress testing
+  - leveraged loan stress testing
+  - credit portfolio stress testing application
+  - PySpark ETL pipelines
+  - Apache Airflow data pipelines
+  - Python Dash financial application
+  - debt service coverage modelling
+  - loan-to-value and leverage metrics
+  - portfolio aggregates dashboard
+  - data quality for credit models
+  - banking data integration
+  - credit risk analytics platform
+  - scenario analysis for lending portfolios
+  - Dmitry Rastorguev
+  project_statement: One of the world's largest banks needed a full-stack application to stress test its high-risk corporate borrowers in a systematic way. The solution had to collect, aggregate and load data from several systems, feed it into a cash flow stress testing engine that recalculates key financial metrics, and present the model outputs and portfolio aggregates in a user interface.
+  requirements:
+  - A systematic stress testing application for commercial real estate and leveraged loan portfolios, modelling each borrower's key financial metrics.
+  - Data collected from dispersed systems, reconciled and loaded into quality datasets that the models can rely on.
+  - ETL pipelines carrying the bank's custom business logic, scheduled and monitored in production.
+  - An interface that lets first and second line users explore results, change scenarios and identify further modelling needs.
+  - A maintainable analytics library and infrastructure integrations that support the wider platform beyond the first release.
+  approach:
+    intro: I would start with a fast prototype that users can react to, then build the data foundations and calculation engine behind it, so each part of the system is shaped by real user needs.
+    parts:
+    - title: Rapid prototyping with users
+      text: Early Dash prototypes are put in front of first and second line users to surface requirements quickly. Each change is tied to a named user need, so the build stays focused on what risk teams actually use.
+    - title: Data foundations
+      text: Source data is profiled and reconciled across systems before any modelling starts. Known gaps and mismatches are logged and assigned to data owners, so model inputs are trusted and their limits are clear.
+    - title: Stress engine and strategic platform
+      text: Borrower cash flow projections run under each scenario, supported by a versioned analytics library. The same calculations serve the application, the pipelines and the analysts' work, so results stay consistent everywhere they are used.
+    trade_off: Prototype-led delivery over a complete specification upfront. Screens may change during the first phase, but the platform is built on the requirements that users confirm, which avoids costly rework later.
+  implementation:
+  - title: Python Dash application
+    text: "Plotly Dash with dash-bootstrap-components for layout and dash-ag-grid for portfolio tables, with Plotly charts for aggregates and drill-downs. Callbacks stay thin, with calculations held in the analytics library, and dash testing utilities run under pytest."
+  - title: Data collection and quality
+    text: "PySpark reads extracts from several source systems, with pandas used for smaller reference data and profiling. Great Expectations and Pandera check completeness, reconciliation totals and business rules, and failed checks are recorded for data owners to resolve."
+  - title: ETL pipelines
+    text: "PySpark jobs build curated Delta Lake tables. The bank's custom business logic, including borrower and facility mapping, currency conversion and covenant definitions, sits in tested Python modules. Apache Airflow schedules the pipelines and manages dependencies, retries and alerts."
+  - title: Cash flow stress engine
+    text: "Vectorised projections in NumPy and pandas cover revenue, EBITDA, debt service, interest and principal schedules under each scenario. numpy-financial and SciPy calculate metrics such as debt service coverage, interest cover, loan-to-value and leverage, and PySpark distributes large scenario grids across the cluster."
+  - title: Scenarios and parameters
+    text: "Shock and scenario parameters are defined in configuration files validated by Pydantic, so risk teams can change assumptions without code edits. Every scenario run stores its settings alongside its results."
+  - title: Analytics library
+    text: "A versioned Python package with typed interfaces, documented in Sphinx, packaged with Poetry and tested with pytest and Hypothesis. statsmodels relates macro variables to borrower metrics, and arch models volatility scenarios. Portfolio aggregates by sector, geography and rating are computed in Polars or Spark SQL."
+  - title: Infrastructure and deployment
+    text: "Docker images deployed to Kubernetes with Helm, infrastructure defined in Terraform, and GitHub Actions or GitLab CI running tests and releases. Gunicorn serves the Dash application, and Prometheus with Grafana monitors pipeline and application health."
+  - title: Testing and audit trail
+    text: "pytest and Hypothesis test the calculations, Playwright runs end-to-end tests of the Dash application, and reconciliation tests compare outputs with source totals. Each run records its inputs, scenario settings and code version, so results can be reproduced for risk committees."
+  roadmap:
+    phases:
+    - phase: Discovery and data mapping
+      timing: Weeks 1–4
+      deliverable: Confirmed borrower population, source systems and data owners
+    - phase: Prototypes and requirements
+      timing: Weeks 5–10
+      deliverable: Dash prototypes tested with first and second line users, with agreed modelling requirements
+    - phase: Data pipelines and quality checks
+      timing: Weeks 11–24
+      deliverable: PySpark and Airflow pipelines loading reconciled, quality-checked datasets
+    - phase: Stress engine and application
+      timing: Weeks 25–40
+      deliverable: Cash flow stress testing engine integrated with the interface, with portfolio aggregates and scenario comparison
+    - phase: Deployment and handover
+      timing: Weeks 41–48
+      deliverable: Production deployment, documentation, monitoring and user training
+  measures_of_success:
+  - "Stress tests for the high-risk borrower portfolio run on schedule, from source data through to the dashboard."
+  - "Data quality checks reconcile to source totals, and exceptions are resolved by named data owners."
+  - "First and second line users change scenarios and review metrics in the application without developer support."
+  - "Each stress run can be reproduced from its recorded inputs, scenario settings and code version."
+
+- slug: challenger-bank-lending-products-roe-calculator
+  nav_title: Challenger Bank - Lending Product P&L and Return on Equity
+  category: Banking
+  name: Challenger Bank - Lending Product P&L and Return on Equity Application
+  meta_description: "Django web app for a bank that estimates P&L and Return on Equity for products, using cash flow run-offs, funding costs, credit losses, RWA, capital charges."
+  keywords:
+  - challenger bank analytics
+  - lending product profitability analysis
+  - Return on Equity modelling
+  - credit book P&L estimation
+  - Django financial application
+  - RWA and capital charge calculation
+  - cash flow run-off modelling
+  - prepayment modelling
+  - cost of funding in lending
+  - credit loss and recovery modelling
+  - loan pricing and benchmarking tool
+  - sensitivity analysis for lending products
+  - on-premise Windows Server applications
+  - audit trail for financial applications
+  - Dmitry Rastorguev
+  project_statement: A challenger bank needs to model the profitability of its lending products, incorporating its funding costs, credit losses, capital charges and repayment behaviour. Pricing and benchmarking decisions are currently made in spreadsheet models that are hard to control, slow to change and difficult for business stakeholders to question.
+  requirements:
+  - A Django web application that estimates P&L and Return on Equity for each credit book and lending product.
+  - Granular cash flow run-offs for each product, with prepayments, cost of funding, defaults and recoveries.
+  - Risk-weighted assets, capital charges and tax, so that Return on Equity reflects the capital the bank must hold.
+  - Sensitivity analysis across inputs and outputs, such as prepayment assumptions against Return on Equity.
+  - A stakeholder interface for reviewing results and benchmarking pricing, running on the bank's on-premise Windows Server estate with audit controls.
+  approach:
+    intro: "I would build the calculation engine first and test it against known results, then place the Django interface on top, so business stakeholders see figures that can be traced back to their inputs."
+    parts:
+    - title: Cash flow engine
+      text: "Balances are projected for each product as run-offs, with prepayments, interest, fees and cost of funding applied. Defaults and recoveries are layered on top, so every cash flow line can be traced back to its assumptions."
+    - title: Capital and profitability
+      text: "RWA, capital charges and tax are calculated for each product and feed through to Return on Equity. Each P&L line flows into the next, so the path from inputs to the final figure is visible."
+    - title: Stakeholder interface
+      text: "Business users compare products, benchmark pricing and run sensitivity grids in the browser, without needing to change any code or spreadsheets."
+    trade_off: "Granular, transparent calculations over a single headline model. Runs take longer and need more inputs, but each Return on Equity figure can be explained down to the assumptions behind it."
+  implementation:
+  - title: Django application
+    text: "Django for the web application, with its ORM for products, scenarios and assumption records, forms for inputs, and the built-in admin and authentication for internal users. Django REST Framework exposes the calculation endpoints to other internal tools."
+  - title: Cash flow run-off engine
+    text: "pandas and NumPy project monthly balance run-offs for each product, with vectorised prepayment, amortisation and interest calculations. Prepayment curves are parameterised by product and vintage, and Numba accelerates any loops that do not vectorise cleanly."
+  - title: Funding, losses and recoveries
+    text: "Cost of funding is applied from transfer-pricing curves held in the database. lifelines models time to default for each product, SciPy fits loss and recovery distributions, and recoveries are discounted back to the default date."
+  - title: Capital, RWA and tax
+    text: "Risk-weighted assets and capital charges are calculated from configurable rules, and tax is applied to the P&L at the bank's rates. numpy-financial and SciPy support the Return on Equity calculations and solve for break-even pricing."
+  - title: Sensitivity analysis
+    text: "Sensitivity grids run across prepayment, default, funding cost and capital inputs. joblib runs scenario combinations in parallel on the server, and results are cached so repeated views load quickly."
+  - title: Data layer
+    text: "SQL Server holds product, assumption and result tables, connected through the mssql-django backend and SQLAlchemy for analytical queries. Pandera validates input datasets before any calculation runs, and Django migrations manage schema changes."
+  - title: Stakeholder dashboards
+    text: "Django templates with HTMX for interactive updates, Plotly charts for P&L, Return on Equity and sensitivity surfaces, and AG Grid for product tables. openpyxl exports let stakeholders take results into their own models."
+  - title: Testing and reproducibility
+    text: "pytest and pytest-django test the calculation engine, and Hypothesis checks accounting identities, such as balances never going negative and cash flows reconciling to the P&L. Every result stores the assumption set and code version that produced it."
+  - title: Deployment and access
+    text: "Hosted on IIS with wfastcgi, or served by Waitress, on the existing Windows Server estate. Role-based access is mapped to Active Directory groups, and an audit log records every assumption change, scenario run and results view."
+  roadmap:
+    phases:
+    - phase: Requirements and functionality review
+      timing: Weeks 1–5
+      deliverable: Confirmed list of lending products, inputs and outputs
+    - phase: Cash flow run-off engine
+      timing: Weeks 6–15
+      deliverable: Tested balance run-offs with prepayments, funding costs, defaults and recoveries
+    - phase: Capital, tax and Return on Equity
+      timing: Weeks 16–26
+      deliverable: RWA, capital charges, tax and Return on Equity reconciled for sample products
+    - phase: Django application and sensitivity analysis
+      timing: Weeks 26-37
+      deliverable: Stakeholder interface with product comparison, benchmarking and sensitivity grids in user testing
+    - phase: Deployment and handover
+      timing: Weeks 38–48
+      deliverable: Live application on Windows Server with audit logging and documentation
+  measures_of_success:
+  - "Estimated P&L and Return on Equity for each lending product reconcile to the bank's own calculations within agreed tolerances."
+  - "Business stakeholders run sensitivity analysis, such as prepayments against Return on Equity, without developer support."
+  - "Each Return on Equity figure can be traced to the assumptions, funding rates and capital rules behind it."
+  - "Pricing and benchmarking decisions are informed by consistent, repeatable results."
+
+- slug: challenger-bank-hedge-accounting-general-ledger-etl
+  nav_title: Challenger Bank - Hedge Accounting and General Ledger ETL
+  category: Banking
+  name: Challenger Bank - Hedge Accounting and General Ledger ETL
+  meta_description: "Python ETL for hedge accounting: integrating ALM, treasury and market data, valuing interest rate swaps and producing auditable general ledger entries in Excel."
+  keywords:
+  - hedge accounting ETL
+  - interest rate swap valuation Python
+  - general ledger automation
+  - challenger bank hedge accounting
+  - Bloomberg market data Python
+  - balance sheet matching and valuation
+  - swap valuation ledger entries
+  - fixed rate to floating rate hedging
+  - deposit and loan hedge relationships
+  - financial control automation
+  - Pandas and Polars ETL
+  - Airflow financial data pipelines
+  - auditable Excel reporting
+  - data quality checks for financial data
+  - Dmitry Rastorguev
+  project_statement: "A challenger bank needs its fixed-rate loans and deposits hedged with interest rate swaps, and its hedge accounting entries produced every month for the financial control team. The data sits across an asset-liability management system, a treasury system and a market data source, and must be brought together, matched and valued before ledger entries can be posted."
+  requirements:
+  - "Monthly ETL that integrates asset-liability, treasury and market data into a single, reconciled set of inputs."
+  - "Matching of loan repayment and fixed-rate deposit cash flows with interest rate swaps, so that fixed-rate assets and liabilities are hedged to floating rate."
+  - "Tracking of hedge relationships over time, including early repayments and withdrawals."
+  - "Valuation of interest rate swaps, with the monthly change converted into general ledger entries."
+  - "An auditable Excel output showing final ledger entries and every intermediate step, with no user interface required."
+  approach:
+    intro: "I would build the process as a sequence of tested ETL steps, each producing an intermediate result, so the financial controllers can reconcile every number back to its source."
+    parts:
+    - title: Extraction and data quality
+      text: "Data is extracted from each source system with SQL and Python, and checked before it is used. Repayment cash flows are tested against repayment curves, and swap accruals are tested against day count conventions, so problems surface before they reach the ledger."
+    - title: Matching and valuation
+      text: "Loan and deposit cash flows are matched with swap legs over time, and the hedge relationship is updated for early repayments and withdrawals. Swaps are valued each month, and the change in value is calculated for the ledger."
+    - title: Ledger output and audit pack
+      text: "Ledger entries are produced from mapping tables, with an Excel pack that shows each intermediate step. Financial controllers can trace any ledger line back through the workbook to the source data."
+    trade_off: "A transparent, multi-step output over a compact result. The Excel pack is longer, but every ledger line can be reconciled and audited without rerunning the process."
+  implementation:
+  - title: Source extraction
+    text: "SQL queries run through SQLAlchemy and pyodbc against the asset-liability system and the treasury system, with parameterised queries and extracts saved as dated files. Market data and valuation inputs are pulled from Bloomberg through the blpapi or xbbg Python packages."
+  - title: Data quality checks
+    text: "Pandera schemas and custom checks confirm that repayment cash flows match the repayment curves, that accrued interest on swaps agrees with the day count conventions, and that notional totals tie to source balances. Failed checks stop the run and list the exceptions for review."
+  - title: Transformation
+    text: "pandas handles the monthly transformations and joins, with Polars used where the cash flow tables grow large. Calculations are vectorised so that the full book can be processed in a single run."
+  - title: Hedge matching and tracking
+    text: "Fixed-rate loan repayments and deposit cash flows are matched to swap legs by time bucket and currency. Hedge relationships are stored as state from month to month, so early repayments and withdrawals reduce the hedged notional and are recorded in the audit trail."
+  - title: Swap valuation
+    text: "QuantLib builds yield curves from the Bloomberg market data and prices the interest rate swaps. Its day counters and calendars apply each swap's conventions, and the monthly valuation change is calculated per hedge relationship."
+  - title: Ledger entries and mapping
+    text: "Mapping tables, held as versioned CSV or YAML files, translate each valuation change and accrual into general ledger accounts. Every entry carries a reference to its source record and hedge relationship."
+  - title: Excel audit pack
+    text: "openpyxl or xlsxwriter produces a workbook with a final ledger tab and one tab per intermediate step, including the data quality results. Totals are included on each tab so that reconciliations can be checked quickly."
+  - title: Execution for stakeholders
+    text: "The process runs as an Airflow DAG for scheduled monthly production, with retries and alerts. The same code is packaged with PyInstaller as a Python executable that non-technical stakeholders can run from a folder, with settings held in a configuration file validated by Pydantic."
+  - title: Testing, version control and documentation
+    text: "pytest tests each ETL step, and reconciliation tests compare totals across stages. Code is versioned in Git with pre-commit checks, and documentation with a run guide is built with Sphinx or MkDocs so that the process can be operated without the developer."
+  roadmap:
+    phases:
+    - phase: Requirements and data mapping
+      timing: Weeks 1–4
+      deliverable: Confirmed source fields, mapping rules and ledger accounts
+    - phase: Extraction and data quality
+      timing: Weeks 5–11
+      deliverable: Automated extraction from all source systems with data quality checks
+    - phase: Matching and valuation
+      timing: Weeks 12–20
+      deliverable: Hedge matching, swap valuation and monthly valuation changes reconciled to test data
+    - phase: Ledger output and Excel pack
+      timing: Weeks 21–26
+      deliverable: Ledger entries and Excel audit pack reviewed with financial controllers
+    - phase: Scheduling, executable and handover
+      timing: Weeks 27–40
+      deliverable: Airflow schedule and standalone executable in use, with parallel run and run guide
+  measures_of_success:
+  - "Monthly ledger entries for interest rate swap valuation changes are produced by the process and reconcile to the financial controllers' figures in a parallel run."
+  - "Every ledger line can be traced through the Excel pack to its source data and intermediate results."
+  - "Data quality exceptions are flagged before any ledger entries are produced."
+  - "Hedge relationships reflect early repayments and withdrawals as they occur."
+  - "Non-technical stakeholders can run the process without developer support."
 
 - slug: bnpl-lender-credit-strategy-customer-segmentation
   nav_title: BNPL Lender - Credit Strategy and Customer Segmentation
@@ -720,10 +968,10 @@
   - Statutory and audit data can be traced back to source through lineage.
   - Each regional handoff is documented, and no open item is left unowned overnight.
 
-- slug: ai-venture-fund-fundraising-statistics
-  nav_title: AI Venture Fund - Fundraising Statistics
+- slug: ai-vc-fund-fundraising-statistics
+  nav_title: AI VC Fund - Fundraising Statistics
   category: Private Markets
-  name: Venture capital fund for AI startups - European AI funding landscape
+  name: Venture Capital Fund for AI startups - European AI Funding Landscape
   meta_description: "European AI startup funding data for a venture fund: automated collection, standard stage and sector definitions and interactive D3.js funding charts."
   keywords:
   - AI startup funding Europe
@@ -788,7 +1036,7 @@
   nav_title: "Investment Data Platform - Databricks Migration and Reconciliation"
   category: Private Markets
   name: "Investment Data Platform - Databricks Migration, Pipelines and Reconciliation"
-  meta_description: "Databricks migration and data pipelines for an investment platform: PySpark and SQL transformations, multi-source integration and reconciliation checks."
+  meta_description: "Databricks migration and data pipelines for a private equity fund: PySpark and SQL transformations, multi-source integration and reconciliation checks."
   keywords:
   - Databricks migration
   - Databricks data engineering
@@ -805,7 +1053,7 @@
   - platform migration delivery
   - data pipeline handover
   - Dmitry Rastorguev
-  project_statement: "An investment business is part-way through migrating its internal data estate onto Databricks. The migration needs to be finished, the pipelines need to be reliable, and data from several sources needs to reconcile before the platform can be used widely across the business."
+  project_statement: "A private equity fund is currently migrating its internal data estate onto Databricks. The migration needs to be finished, the pipelines need to be reliable, and data from several sources needs to reconcile before the platform can be used widely across the business."
   requirements:
   - "Complete the ongoing Databricks migration so the platform is ready for wider internal use."
   - "Pipelines that ingest and process data from several sources, built in Python, PySpark and SQL."
@@ -859,7 +1107,7 @@
   nav_title: "Investment Operations Applications - Python Tools, Document Parsing and AI"
   category: Private Markets
   name: "Investment Operations Python Applications - Data Tools, Document Parsing and AI"
-  meta_description: "Python web applications for an investment business: business-user data tools, document parsing with review, Databricks apps and AI-assisted workflows."
+  meta_description: "Python web applications for a private equity fund: business-user data tools, document parsing with review, Databricks apps and AI-assisted workflows."
   keywords:
   - Python internal applications
   - document parsing automation
@@ -876,7 +1124,7 @@
   - financial document workflows
   - Python application architecture
   - Dmitry Rastorguev
-  project_statement: "Once the data platform is in place, the business wants to put it to work. Investment and operations teams need applications that let business users analyse, input, update, upload and manage data, process documents without manual re-keying, and draw on the platform's data."
+  project_statement: "Once the data platform is in place, the private equity fund wants to put it to work. Investment and operations teams need applications that let business users analyse, input, update, upload and manage data, process documents without manual re-keying, and draw on the platform's data."
   requirements:
   - "Python applications that let business users analyse, input, update and upload data, and manage records."
   - "Document parsing and processing for internal workflows, with a person reviewing extracted data before it is saved."
